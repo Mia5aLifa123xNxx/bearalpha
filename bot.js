@@ -655,7 +655,7 @@ client.on('message', message => {
 }
 });
 client.on('message', message => {
-    if (message.content.startsWith("G.avatar")) {
+    if (message.content.startsWith(prefix + "avatar")) {
 if(!message.channel.guild) return;
         var mentionned = message.mentions.users.first();
     var client;
@@ -1296,7 +1296,7 @@ if(bz.content.startsWith(prefix + 'make')) {
        });
 client.on('message', message => {
           let args = message.content.split(' ').slice(1);
-   if(message.content.split(' ')[0] == 'G.color'){
+   if(message.content.split(' ')[0] == prefix + 'color'){
            const embedd = new Discord.RichEmbed()
      .setFooter('Requested by '+message.author.username, message.author.avatarURL)
    .setDescription(`**There's No Color With This Number ** :x: `)
@@ -1843,7 +1843,7 @@ if (!points[message.author.id]) points[message.author.id] = {
         let r = (new Date).getTime() - spee[id];
         r = 15*1000 - r;
     }
-    if ( message.content == prefix + 'speed'){
+    if ( message.content == '._.speed'){
        
         try{
 }catch(e){
@@ -2056,7 +2056,7 @@ if (!points[message.author.id]) points[message.author.id] = {
         r = 15*1000 - r;
     return;
     }
-    if ( message.content == prefix + 'quas'){
+    if ( message.content == '._.quas'){
        
         try{
 }catch(e){
@@ -2233,7 +2233,7 @@ if (!points[message.author.id]) points[message.author.id] = {
         r = 15*1000 - r;
     return;
     }
-    if ( message.content == prefix+'عواصم'){
+    if ( message.content == '._.عواصم'){
        
         try{
 }catch(e){
@@ -2374,7 +2374,7 @@ client.on('message', message => {
       message.channel.send(` **Please wait ${pretty(r, {verbose:true})}**`).then(m => m.delete(5000));
       return;
       }
-      if ( message.content == prefix+'لو خيروك'){
+      if ( message.content == '._.لو خيروك'){
          
           try{
   //body
@@ -2459,7 +2459,7 @@ const zead = [
    '*** انتظر الجزء الثاني عندما يوصل البوت 100 سيرفر , ساعدني في نشر البوت وادخل هذا السيرفر  ***'
 ];
  client.on('message', message => {
- if (message.content.startsWith('G.مريم')) {
+ if (message.content.startsWith('._.مريم')) {
   var mariam= new Discord.RichEmbed()
   .setTitle("لعبة مريم ..")
   .setColor('RANDOM')
@@ -2535,7 +2535,7 @@ var Za7f = [
 ];
 
 client.on('message', message => {
- if (message.content.startsWith("G.عقاب")) {
+ if (message.content.startsWith("._.عقاب")) {
               if(!message.channel.guild) return message.reply('** This command only for servers**');
 var embed = new Discord.RichEmbed()
 .setColor('RANDOM')
@@ -3017,7 +3017,7 @@ client.on('message',   eyad =>{
     var  args = eyad.content.split(" ").slice(2).join(" ")
     var men = eyad.mentions.users.first()|| client.users.get(eyad.content.split(' ')[1])
     var  mas = eyad.author
-                              if(eyad.content == 'G.sar7') {
+                              if(eyad.content == '._.sar7') {
                               if(eyad.channel.type === "dm"){
 if(!args) return  eyad.channel.send(":black_medium_square: **قم بوضع رسالة الصراحة **");
 if(!men) return  eyad.channel.send(":black_medium_square:**قم بوضع ايدي المراد مصارحتة , ربما يكون الشخص غير موجود في سيرفرات مشتركة بينك وبينة لذلك لن يستطيع البوت الأرسال** ");
