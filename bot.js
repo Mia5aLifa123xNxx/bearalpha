@@ -142,19 +142,18 @@ ${prefix}queue / لمعرفة قآئمة التشغيل
 ${prefix}rps / حجر ورقة مقص
 ${prefix}speed / اسرع كتابة
 ${prefix}quas / اسئلة عامة
-${prefix}نكت / نكت 
-${prefix}لعبة فكك / فكك
-${prefix}عواصم عشوائي/عواصم
-${prefix}لعبة كت تويت / كت تويت
-${prefix}roll <number> / قرعة
-${prefix}لو خيروك بطريقة حلوة / لو خيروك
-${prefix}لعبة مريم / مريم
-${prefix}فوائد ونصائح  / هل تعلم
-${prefix}يعطيك عقابات قاسية / عقاب 
+._.نكت / نكت 
+._.لعبة كت تويت / كت تويت
+._.roll <number> / قرعة
+._.عواصم عشوائي/عواصم
+._.لو خيروك بطريقة حلوة / لو خيروك
+._.لعبة مريم / مريم
+._.فوائد ونصائح  / هل تعلم
+._.يعطيك عقابات قاسية / عقاب 
 =.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.
 welcome يتم الترحيب فى روم باسم
-$setwelcomer <text channel name> لاختيار روم للترحيب
-${prefix}voiceonline / لتفعيل روم الفويس اونلاين
+._.setwelcomer <text channel name> لاختيار روم للترحيب
+._.voiceonline / لتفعيل روم الفويس اونلاين
 **
    
 `]
@@ -304,7 +303,7 @@ client.on('message', function(msg) {
             .addField('``Users``' ,`[ ${client.users.size} ]` , true)
             .addField('``My Name``' , `[ ${client.user.tag} ]` , true)
             .addField('``My ID``' , `[ ${client.user.id} ]` , true)
-			      .addField('``My Prefix``' , `[ ... ]` , true)
+			      .addField('``My Prefix``' , `[._.]` , true)
 			      .addField('``My Language``' , `[ Java Script ]` , true)
 			      .setFooter('By | bearboy')
     })
@@ -312,7 +311,7 @@ client.on('message', function(msg) {
 });
  client.on('message', message => {
               if (!message.channel.guild) return;
-      if(message.content =='G.count')
+      if(message.content =='._.count')
 	 
       message.reply(`**${message.guild.memberCount}**`);
     });
