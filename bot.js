@@ -2688,13 +2688,13 @@ member.guild.fetchInvites().then(guildInvites => {
 });
 client.on('message', async msg => { // eslint-disable-line
     if (msg.author.bot) return undefined;
-    if (!msg.content.startsWith(PREFIX)) return undefined;
+    if (!msg.content.startsWith(prefix)) return undefined;
     const args = msg.content.split(' ');
     const searchString = args.slice(1).join(' ');
     const url = args[1];
     const serverQueue = queue.get(msg.guild.id);
     
-    if(msg.content.startsWith(`${PREFIX}play`)){
+    if(msg.content.startsWith(`${prefix}play`)){
         const voiceChannel = msg.member.voiceChannel;
         if(!voiceChannel){
             var embedplay1 = new Discord.RichEmbed()
@@ -2771,7 +2771,7 @@ Please enter a number between 1-10 on,a Song select!`)
             return handleVideo(video, msg, voiceChannel);
         }
     
-    } else if(msg.content.startsWith(`${PREFIX}skip`)) {
+    } else if(msg.content.startsWith(`${prefixprefix}skip`)) {
         if(!msg.member.voiceChannel){
            var embedskip1 = new Discord.RichEmbed()
                 .setTitle(`You are in not in the Voice Channel!`)
@@ -2791,7 +2791,7 @@ Please enter a number between 1-10 on,a Song select!`)
         return msg.channel.sendEmbed(embedskip3);
     }   
         
-     else if (msg.content.startsWith(`${PREFIX}stop`)){
+     else if (msg.content.startsWith(`${prefix}stop`)){
         if(!msg.member.voiceChannel){
            var embedstop1 = new Discord.RichEmbed()
                 .setTitle(`you're not in the voice channel!`)
@@ -2811,7 +2811,7 @@ Please enter a number between 1-10 on,a Song select!`)
             .setColor(['#f9fcfc'])
         return msg.channel.sendEmbed(embedstop3);
     }
-    else if(msg.content.startsWith(`${PREFIX}song`)){
+    else if(msg.content.startsWith(`${prefix}song`)){
         if(!serverQueue){
             var embedsong1 = new Discord.RichEmbed()
                 .setTitle(`It does nothing at the moment!`)
@@ -2829,7 +2829,7 @@ Link: ${serverQueue.songs[0].url}
                 .setColor(['#f9fcfc'])
             return msg.channel.sendEmbed(embedsong2); 
     }
-    else if(msg.content.startsWith(`${PREFIX}volume`)){
+    else if(msg.content.startsWith(`${prefix}volume`)){
         if(!serverQueue){
             var embedvolume1 = new Discord.RichEmbed()
                 .setTitle(`It does nothing at the moment!`)
@@ -2857,7 +2857,7 @@ Link: ${serverQueue.songs[0].url}
             return msg.channel.sendEmbed(embedvolume4);
         }
     }
-    else if(msg.content.startsWith(`${PREFIX}queue`)){
+    else if(msg.content.startsWith(`${prefix}queue`)){
         if(!serverQueue){
             var embedqueue1 = new Discord.RichEmbed()
                 .setTitle(`It does nothing at the moment!`)
@@ -2873,7 +2873,7 @@ Playing: ${serverQueue.songs[0].title}`)
                 .setColor(['#f9fcfc'])
         return msg.channel.sendEmbed(embedqueue2);
     }
-    else if(msg.content.startsWith(`${PREFIX}pause`)){
+    else if(msg.content.startsWith(`${prefix}pause`)){
         if(serverQueue && serverQueue.playing) {
         serverQueue.playing = false;
         serverQueue.connection.dispatcher.pause();
@@ -2887,7 +2887,7 @@ Playing: ${serverQueue.songs[0].title}`)
             .setColor(['#f9fcfc'])
         return msg.channel.sendEmbed(embedpause2);
     }
-    else if(msg.content.startsWith(`${PREFIX}resume`)){
+    else if(msg.content.startsWith(`${prefix}resume`)){
         if(serverQueue && !serverQueue.playing){
         serverQueue.playing = true;
         serverQueue.connection.dispatcher.resume();
@@ -2901,7 +2901,7 @@ Playing: ${serverQueue.songs[0].title}`)
             .setColor(['#f9fcfc'])
         return msg.channel.sendEmbed(embedresume2);
     }   
-    else if(msg.content.startsWith(`${PREFIX}mute`)){
+    else if(msg.content.startsWith(`${prefix}mute`)){
         if(!serverQueue){
         var embedmute1 = new Discord.RichEmbed()
                 .setTitle(`It does nothing at the moment!`)
@@ -2923,7 +2923,7 @@ Playing: ${serverQueue.songs[0].title}`)
         return msg.channel.sendEmbed(embedmute3);
         }
     }
-    else if(msg.content.startsWith(`${PREFIX}unmute`)){
+    else if(msg.content.startsWith(`${prefix}unmute`)){
         if(!serverQueue){
             var embedunmute1 = new Discord.RichEmbed()
                 .setTitle(`It does nothing at the moment!`)
@@ -2945,21 +2945,21 @@ Playing: ${serverQueue.songs[0].title}`)
         return msg.channel.sendEmbed(embedunmute3);
         }
     }
-    else if(msg.content.startsWith(`${PREFIX}helpmusic`)){
+    else if(msg.content.startsWith(`${prefix}helpmusic`)){
         var embedhelp = new Discord.RichEmbed()
-            .setTitle(`marcos-MusicBot Commands`)
-            .addField("play [YouTube Link/Playlist]", "Usage: `!!play` Description: To play See The YouTube Linke And playlist.", false)
-            .addField("play [Suchbegriff(e)]", "Usage: `!!play`<song name> Description: To play Music.", false)
-            .addField("skip", "Usage: `!!skip` Description: To skip music.", false)
-            .addField("stop", "Usage: `!!stop` Description: To Bot disconnected.", false)
-            .addField("song", "Usage: `!!song` Description: To Check The Current playing song.", false)
-            .addField("queue", "Usage: `!!queue` Description: To Check The Queue List.", false)
-            .addField("volume", "Usage: `!!volume` Description: To See Volume.", false)
-            .addField("volume [Wert]", "Usage: `!!volume` Description: To Changes the volume level to the specified value.", false)
-            .addField("pause", "Usage: `!!pause` Description: To pause The Current Playing Song.", false)
-            .addField("resume", "Usage: `!!resume` Description: To Resume The Paused Song.", false)
-            .addField("mute", "Usage: `!!mute` Description: To mute Bot.", false)
-            .addField("unmute", "Usage: `!!unmute` Description: To unmute Bot.", false)
+            .setTitle(`💟☄BearAlpha☄💟BOT Commands`)
+            .addField("play [YouTube Link/Playlist]", "Usage: `._.play` Description: To play See The YouTube Linke And playlist.", false)
+            .addField("play [Suchbegriff(e)]", "Usage: `._.play`<song name> Description: To play Music.", false)
+            .addField("skip", "Usage: `._.skip` Description: To skip music.", false)
+            .addField("stop", "Usage: `._.stop` Description: To Bot disconnected.", false)
+            .addField("song", "Usage: `._.song` Description: To Check The Current playing song.", false)
+            .addField("queue", "Usage: `._.queue` Description: To Check The Queue List.", false)
+            .addField("volume", "Usage: `._.volume` Description: To See Volume.", false)
+            .addField("volume [Wert]", "Usage: `._.volume` Description: To Changes the volume level to the specified value.", false)
+            .addField("pause", "Usage: `._.pause` Description: To pause The Current Playing Song.", false)
+            .addField("resume", "Usage: `._.resume` Description: To Resume The Paused Song.", false)
+            .addField("mute", "Usage: `._.mute` Description: To mute Bot.", false)
+            .addField("unmute", "Usage: `._.unmute` Description: To unmute Bot.", false)
             .setColor(['#f9fcfc'])
             .setThumbnail(client.user.avatarURL)
             return msg.channel.sendEmbed(embedhelp);
@@ -2974,33 +2974,33 @@ client.on('message', message => {
 
 
 if (message.content.startsWith(prefix + 'playing')) {
-if (message.author.id !== '434845976050794516') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+if (message.author.id !== '536928110055260170') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
 client.user.setGame(argresult);
     message.channel.sendMessage(`**${argresult}** : تم تغيير الحالة`)
 } else
 
 if (message.content.startsWith(prefix + 'streem')) {
-if (message.author.id !== '434845976050794516') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+if (message.author.id !== '536928110055260170') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
 client.user.setGame(argresult, "http://twitch.tv/y04zgamer");
     message.channel.sendMessage(`**${argresult}** :تم تغيير الحالة الى ستريمنج`)
 } else
 
 if (message.content.startsWith(prefix + 'setname')) {
-if (message.author.id !== '434845976050794516') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+if (message.author.id !== '536928110055260170') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
   client.user.setUsername(argresult).then
       message.channel.sendMessage(`**${argresult}** : تم تغير الأسم`)
   return message.reply("**لا تستطيع تغير الأسم الا بعد ساعتين**");
 } else
 
 if (message.content.startsWith(prefix + 'setavatar')) {
-if (message.author.id !== '434845976050794516') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+if (message.author.id !== '536928110055260170') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
 client.user.setAvatar(argresult);
     message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
 } else
 
 
 if (message.content.startsWith(prefix + 'watching')) {
-if (message.author.id !== '434845976050794516') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+if (message.author.id !== '536928110055260170') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
     client.user.setActivity(argresult, {type : 'watching'});
  message.channel.sendMessage(`**${argresult}** : تم تغيير الووتشينق الى`)
 }
