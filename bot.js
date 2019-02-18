@@ -2693,7 +2693,7 @@ client.on('message', async msg => { // eslint-disable-line
     const url = args[1];
     const serverQueue = queue.get(msg.guild.id);
     
-    if(msg.content.startsWith(`${prefix}play`)){
+    if(msg.content.startsWith(`._.play`)){
         const voiceChannel = msg.member.voiceChannel;
         if(!voiceChannel){
             var embedplay1 = new Discord.RichEmbed()
@@ -2747,7 +2747,7 @@ Please enter a number between 1-10 on,a Song select!`)
                     try{
                        var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
                            maxMatches: 1,
-                           time: 10000,
+                           time: 1000,
                            errors: ['time']
                        }); 
                     }catch(err){
@@ -2770,7 +2770,7 @@ Please enter a number between 1-10 on,a Song select!`)
             return handleVideo(video, msg, voiceChannel);
         }
     
-    } else if(msg.content.startsWith(`${prefixprefix}skip`)) {
+    } else if(msg.content.startsWith(`._.skip`)) {
         if(!msg.member.voiceChannel){
            var embedskip1 = new Discord.RichEmbed()
                 .setTitle(`You are in not in the Voice Channel!`)
@@ -2790,7 +2790,7 @@ Please enter a number between 1-10 on,a Song select!`)
         return msg.channel.sendEmbed(embedskip3);
     }   
         
-     else if (msg.content.startsWith(`${prefix}stop`)){
+     else if (msg.content.startsWith(`._.stop`)){
         if(!msg.member.voiceChannel){
            var embedstop1 = new Discord.RichEmbed()
                 .setTitle(`you're not in the voice channel!`)
@@ -2810,7 +2810,7 @@ Please enter a number between 1-10 on,a Song select!`)
             .setColor(['#f9fcfc'])
         return msg.channel.sendEmbed(embedstop3);
     }
-    else if(msg.content.startsWith(`${prefix}song`)){
+    else if(msg.content.startsWith(`._.song`)){
         if(!serverQueue){
             var embedsong1 = new Discord.RichEmbed()
                 .setTitle(`It does nothing at the moment!`)
@@ -2828,7 +2828,7 @@ Link: ${serverQueue.songs[0].url}
                 .setColor(['#f9fcfc'])
             return msg.channel.sendEmbed(embedsong2); 
     }
-    else if(msg.content.startsWith(`${prefix}volume`)){
+    else if(msg.content.startsWith(`._.volume`)){
         if(!serverQueue){
             var embedvolume1 = new Discord.RichEmbed()
                 .setTitle(`It does nothing at the moment!`)
@@ -2856,7 +2856,7 @@ Link: ${serverQueue.songs[0].url}
             return msg.channel.sendEmbed(embedvolume4);
         }
     }
-    else if(msg.content.startsWith(`${prefix}queue`)){
+    else if(msg.content.startsWith(`._.queue`)){
         if(!serverQueue){
             var embedqueue1 = new Discord.RichEmbed()
                 .setTitle(`It does nothing at the moment!`)
@@ -2872,7 +2872,7 @@ Playing: ${serverQueue.songs[0].title}`)
                 .setColor(['#f9fcfc'])
         return msg.channel.sendEmbed(embedqueue2);
     }
-    else if(msg.content.startsWith(`${prefix}pause`)){
+    else if(msg.content.startsWith(`._.pause`)){
         if(serverQueue && serverQueue.playing) {
         serverQueue.playing = false;
         serverQueue.connection.dispatcher.pause();
@@ -2886,7 +2886,7 @@ Playing: ${serverQueue.songs[0].title}`)
             .setColor(['#f9fcfc'])
         return msg.channel.sendEmbed(embedpause2);
     }
-    else if(msg.content.startsWith(`${prefix}resume`)){
+    else if(msg.content.startsWith(`._.resume`)){
         if(serverQueue && !serverQueue.playing){
         serverQueue.playing = true;
         serverQueue.connection.dispatcher.resume();
@@ -2900,7 +2900,7 @@ Playing: ${serverQueue.songs[0].title}`)
             .setColor(['#f9fcfc'])
         return msg.channel.sendEmbed(embedresume2);
     }   
-    else if(msg.content.startsWith(`${prefix}mute`)){
+    else if(msg.content.startsWith(`._.mute`)){
         if(!serverQueue){
         var embedmute1 = new Discord.RichEmbed()
                 .setTitle(`It does nothing at the moment!`)
@@ -2922,7 +2922,7 @@ Playing: ${serverQueue.songs[0].title}`)
         return msg.channel.sendEmbed(embedmute3);
         }
     }
-    else if(msg.content.startsWith(`${prefix}unmute`)){
+    else if(msg.content.startsWith(`._.unmute`)){
         if(!serverQueue){
             var embedunmute1 = new Discord.RichEmbed()
                 .setTitle(`It does nothing at the moment!`)
@@ -2944,7 +2944,7 @@ Playing: ${serverQueue.songs[0].title}`)
         return msg.channel.sendEmbed(embedunmute3);
         }
     }
-    else if(msg.content.startsWith(`${prefix}helpmusic`)){
+    else if(msg.content.startsWith(`._.helpmusic`)){
         var embedhelp = new Discord.RichEmbed()
             .setTitle(`💟☄BearAlpha☄💟BOT Commands`)
             .addField("play [YouTube Link/Playlist]", "Usage: `._.play` Description: To play See The YouTube Linke And playlist.", false)
