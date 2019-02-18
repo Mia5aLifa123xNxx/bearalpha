@@ -2686,6 +2686,7 @@ member.guild.fetchInvites().then(guildInvites => {
   });
   }
 });
+
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(prefix)) return undefined;
