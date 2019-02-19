@@ -3202,7 +3202,7 @@ client.on('message',async message => {
                   message.guild.channels.find('name', room).send(giveEmbed).then(m => {
                      let re = m.react('🎉');
                      setTimeout(() => {
-                       let users = m.reactions.get("??").users;
+                       let users = m.reactions.get("🎉").users;
                        let list = users.array().filter(u => u.id !== m.author.id);
                        let gFilter = list[Math.floor(Math.random() * list.length) + 0];
                          if(users.size === 1) gFilter = '**لم يتم التحديد**';
@@ -3450,10 +3450,10 @@ client.on("message", function(message) {
         
         msg.react('💚').then(r=>{
         msg.react('💛').then(r=>{
-        msg.react('💜 ').then(r=>{
+        msg.react('💜').then(r=>{
         msg.react('💙').then(r=>{
-        msg.react('🧡: ').then(r=>{
-        msg.react(':information_desk_person: ').then(r=>{
+        msg.react('🖤').then(r=>{
+        msg.react('🙅').then(r=>{
         msg.react('❌').then(r=>{
 
 
@@ -3562,7 +3562,7 @@ message.channel.sendEmbed(embed).then();
  })
     //الون البنفسجي
 
-let y4Filter = (reaction, user) => reaction.emoji.name === '🧡' && user.id === message.author.id;
+let y4Filter = (reaction, user) => reaction.emoji.name === '🖤' && user.id === message.author.id;
      
        let y4 = msg.createReactionCollector(y4Filter, { time: 15000 });
       
