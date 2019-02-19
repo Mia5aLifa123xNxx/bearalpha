@@ -3449,7 +3449,7 @@ client.on("message", function(message) {
     if(!message.channel.guild) return;
        if(message.content.startsWith("._.hypixelrank")) {
        if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-       message.channel.sendFile(`https://hypixel.net/attachments/upload_2017-12-21_15-49-34-png.782891/`).then(msg => {
+       message.channel.sendFile(`https://cdn.discordapp.com/attachments/539527142585794572/547398512250322954/upload_2017-12-21_15-49-34-png201.png`).then(msg => {
         
         
         
