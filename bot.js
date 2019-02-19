@@ -3440,25 +3440,20 @@ client.on("message", (message) => {
         message.channel.send(`** <@${message.mentions.members.first().id}> Unmuted!??**`);
     }
 })
-client.on('guildMemberAdd', member => {
-    member.createDM().then(function (channel) {
-return channel.send("")
-    }
-    )});
 client.on("message", function(message) {                   
     if(!message.channel.guild) return;
        if(message.content.startsWith("._.hypixelrank")) {
        if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-       message.channel.sendFile(`https://cdn.discordapp.com/attachments/539527142585794572/547398512250322954/upload_2017-12-21_15-49-34-png201.png`).then(msg => {
+       message.channel.sendFile(`https://hypixel.net/attachments/upload_2017-12-21_15-49-34-png.782891/`).then(msg => {
         
         
         
-        msg.react(':VIP:').then(r=>{
-        msg.react(':VIP~1:').then(r=>{
-        msg.react(':MVP:').then(r=>{
-        msg.react(':MVP~2:').then(r=>{
-        msg.react(':MVP~1:').then(r=>{
-        msg.react(':information_desk_person:').then(r=>{
+        msg.react('💚').then(r=>{
+        msg.react('💛').then(r=>{
+        msg.react('💜 ').then(r=>{
+        msg.react('💙').then(r=>{
+        msg.react('🧡: ').then(r=>{
+        msg.react(':information_desk_person: ').then(r=>{
         msg.react('❌').then(r=>{
 
 
@@ -3468,7 +3463,7 @@ client.on("message", function(message) {
 
     
      
-     let activeFilter = (reaction, user) => reaction.emoji.name === ':VIP:' && user.id === message.author.id;
+     let activeFilter = (reaction, user) => reaction.emoji.name === '💚' && user.id === message.author.id;
      
        let active = msg.createReactionCollector(activeFilter, { time: 15000 });
       
@@ -3494,7 +3489,7 @@ message.channel.sendEmbed(embed).then();
 //لون اسود
 
 
- let y1Filter = (reaction, user) => reaction.emoji.name === ':VIP~1:' && user.id === message.author.id;
+ let y1Filter = (reaction, user) => reaction.emoji.name === '💜' && user.id === message.author.id;
      
        let y1 = msg.createReactionCollector(y1Filter, { time: 15000 });
       
@@ -3519,7 +3514,7 @@ message.channel.sendEmbed(embed).then();
    })
 
  //لون اصفر 
-let y2Filter = (reaction, user) => reaction.emoji.name === ':MVP:' && user.id === message.author.id;
+let y2Filter = (reaction, user) => reaction.emoji.name === '💙' && user.id === message.author.id;
      
        let y2 = msg.createReactionCollector(y2Filter, { time: 15000 });
       
@@ -3545,7 +3540,7 @@ message.channel.sendEmbed(embed).then();
                                
                                //الون الاخضر
 
-let y3Filter = (reaction, user) => reaction.emoji.name === ':MVP~2:' && user.id === message.author.id;
+let y3Filter = (reaction, user) => reaction.emoji.name === '💛' && user.id === message.author.id;
      
        let y3 = msg.createReactionCollector(y3Filter, { time: 15000 });
       
@@ -3567,7 +3562,7 @@ message.channel.sendEmbed(embed).then();
  })
     //الون البنفسجي
 
-let y4Filter = (reaction, user) => reaction.emoji.name === ':MVP~1:' && user.id === message.author.id;
+let y4Filter = (reaction, user) => reaction.emoji.name === '🧡' && user.id === message.author.id;
      
        let y4 = msg.createReactionCollector(y4Filter, { time: 15000 });
       
