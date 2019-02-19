@@ -3445,4 +3445,209 @@ client.on('guildMemberAdd', member => {
 return channel.send("")
     }
     )});
+client.on("message", function(message) {                   
+    if(!message.channel.guild) return;
+       if(message.content.startsWith("._.hypixelrank")) {
+       if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+       message.channel.sendFile(`https://hypixel.net/attachments/upload_2017-12-21_15-49-34-png.782891/`).then(msg => {
+        
+        
+        
+        msg.react(':VIP: ').then(r=>{
+        msg.react(':VIP~1:').then(r=>{
+        msg.react(':MVP: ').then(r=>{
+        msg.react(':MVP~2: ').then(r=>{
+        msg.react(':MVP~1: ').then(r=>{
+        msg.react(':information_desk_person: ').then(r=>{
+        msg.react('❌').then(r=>{
+
+
+       
+   
+
+
+    
+     
+     let activeFilter = (reaction, user) => reaction.emoji.name === ':VIP:' && user.id === message.author.id;
+     
+       let active = msg.createReactionCollector(activeFilter, { time: 15000 });
+      
+                                    //red                    
+                               active.on("collect", r => {
+                                   message.member.addRole(message.guild.roles.find("★ V̟I̟P̟ ★"))
+                                   
+                                   
+                            
+                                 
+
+     const embed = new Discord.RichEmbed() 
+      .setColor("#ff0000")
+
+      .setDescription("**:art:تم اعطائك VIP**")
+      .setFooter(message.author.tag , message.author.avatarURL)
+
+message.channel.sendEmbed(embed).then();
+
+})
+
+
+//لون اسود
+
+
+ let y1Filter = (reaction, user) => reaction.emoji.name === ':VIP~1:' && user.id === message.author.id;
+     
+       let y1 = msg.createReactionCollector(y1Filter, { time: 15000 });
+      
+                                    //t                    
+                               y1.on("collect", r => {
+                                   message.member.addRole(message.guild.roles.find("★ V̟I̟P̟+ ★"))
+                                   
+                                   
+                            
+                                 
+
+     const embed = new Discord.RichEmbed() 
+      .setColor("#0c0606")
+
+      .setDescription("**:art: V̟I̟P̟+  تم اعطائك **")
+      .setFooter(message.author.tag , message.author.avatarURL)
+
+message.channel.sendEmbed(embed).then();
+
+
+
+   })
+
+ //لون اصفر 
+let y2Filter = (reaction, user) => reaction.emoji.name === ':MVP:' && user.id === message.author.id;
+     
+       let y2 = msg.createReactionCollector(y2Filter, { time: 15000 });
+      
+                                                    
+                               y2.on("collect", r => {
+                                   message.member.addRole(message.guild.roles.find("★ M̟V̟P̟ ★"))
+                                   
+                                   
+                            
+                                 
+
+     const embed = new Discord.RichEmbed() 
+      .setColor("#e7fa02")
+
+      .setDescription("**:art:تم اعطائك MVP**")
+      .setFooter(message.author.tag , message.author.avatarURL)
+
+message.channel.sendEmbed(embed).then();
+
+
+ 
+                               })
+                               
+                               //الون الاخضر
+
+let y3Filter = (reaction, user) => reaction.emoji.name === ':MVP~2:' && user.id === message.author.id;
+     
+       let y3 = msg.createReactionCollector(y3Filter, { time: 15000 });
+      
+                                                    
+                               y3.on("collect", r => {
+                                   message.member.addRole(message.guild.roles.find("★ M̟V̟P̟+ ★"))
+                                   
+                                   
+                            
+                                 
+
+     const embed = new Discord.RichEmbed() 
+      .setColor("#09fa2a")
+
+      .setDescription("**:art:تم اعطائك MVP +**")
+      .setFooter(message.author.tag , message.author.avatarURL)
+
+message.channel.sendEmbed(embed).then();
+ })
+    //الون البنفسجي
+
+let y4Filter = (reaction, user) => reaction.emoji.name === ':MVP~1:' && user.id === message.author.id;
+     
+       let y4 = msg.createReactionCollector(y4Filter, { time: 15000 });
+      
+                                                    
+                               y4.on("collect", r => {
+                                   message.member.addRole(message.guild.roles.find("★ M̟V̟P̟++ ★"))
+                                   
+                                   
+                            
+                                 
+
+     const embed = new Discord.RichEmbed() 
+      .setColor("#9e1bce")
+
+      .setDescription("**:art:تم اعطائك  MVP++**")
+      .setFooter(message.author.tag , message.author.avatarURL)
+
+message.channel.sendEmbed(embed).then();
+})
+   //الون الازرق فاتح
+
+let y5Filter = (reaction, user) => reaction.emoji.name === ':information_desk_person:' && user.id === message.author.id;
+     
+       let y5 = msg.createReactionCollector(y5Filter, { time: 15000 });
+      
+                                                    
+                               y5.on("collect", r => {
+                                   message.member.addRole(message.guild.roles.find("name", "y3"))
+                                   
+                                   
+                            
+                                 
+
+     const embed = new Discord.RichEmbed() 
+      .setColor("#0bc0f7")
+
+      .setDescription("**:art:تم اعطائك GIRL**")
+      .setFooter(message.author.tag , message.author.avatarURL)
+
+message.channel.sendEmbed(embed).then();
+
+})
+let y6Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
+     
+       let y6 = msg.createReactionCollector(y6Filter, { time: 15000 });
+      
+                                                    
+                               y6.on("collect", r => {
+                                   message.member.removeRole(message.guild.roles.find("name", "red"))
+                                   
+                                   message.member.removeRole(message.guild.roles.find("name", "y3"))
+                                   message.member.removeRole(message.guild.roles.find("name", "black"))
+                                   message.member.removeRole(message.guild.roles.find("name", "yellow"))
+                                  message.member.removeRole(message.guild.roles.find("name", "y1"))
+                                  message.member.removeRole(message.guild.roles.find("name", "y2"))
+                                  
+                            
+                                 
+
+     const embed = new Discord.RichEmbed() 
+      .setColor("#666161")
+
+      .setDescription("**:art:تم ازالة اللون**")
+      .setFooter(message.author.tag , message.author.avatarURL)
+
+message.channel.sendEmbed(embed).then();
+
+
+                               })
+        })
+})
+})
+        
+})
+})
+})
+})
+                               
+                                   })
+       }
+                                   
+                                   });
 client.login(process.env.BOT_TOKEN)
