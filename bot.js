@@ -3504,8 +3504,7 @@ message.channel.sendEmbed(embed).then();
      const embed = new Discord.RichEmbed() 
       .setColor("#0c0606")
 
-      .setDescription("**:art: VIP
-تم اعطائك **")
+      .setDescription("**:art: VIPتم اعطائك**")
       .setFooter(message.author.tag , message.author.avatarURL)
 
 message.channel.sendEmbed(embed).then();
