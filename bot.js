@@ -3453,12 +3453,12 @@ client.on("message", function(message) {
         
         
         
-        msg.react(':VIP: ').then(r=>{
+        msg.react(':VIP:').then(r=>{
         msg.react(':VIP~1:').then(r=>{
-        msg.react(':MVP: ').then(r=>{
-        msg.react(':MVP~2: ').then(r=>{
-        msg.react(':MVP~1: ').then(r=>{
-        msg.react(':information_desk_person: ').then(r=>{
+        msg.react(':MVP:').then(r=>{
+        msg.react(':MVP~2:').then(r=>{
+        msg.react(':MVP~1:').then(r=>{
+        msg.react(':information_desk_person:').then(r=>{
         msg.react('❌').then(r=>{
 
 
