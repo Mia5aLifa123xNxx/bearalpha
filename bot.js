@@ -2280,7 +2280,7 @@ msg.channel.send(embed).then(() => {
                   const sh = new Discord.RichEmbed()
 .setColor("04791c")
 .setDescription('**? |Good Job +1P**')
-.setFooter('G.mypoints')
+.setFooter('._.mypoints')
 message.channel.sendEmbed(sh);
             let won = collected.first().author; // في هذا السطر يقوم الكود بسحب الأي دي الذي قام بالأجابة اولاً
             points[won.id].points++;
@@ -2385,7 +2385,7 @@ var al7arthyCodes2 = ["??__60%__  **|**  ??__40%__","??__63%__  **|**  ??__37%__
 client.on('message', message => {
     if(!message.guild) return;
     if (message.author.bot) return;
-      let id = message.author.id,prefix="a";//البريفكس
+      let id = message.author.id,prefix="._.";//البريفكس
       if (ti[id] && (new Date).getTime() - ti[id] < 20*1000) {
           let r = (new Date).getTime() - ti[id];
           r = 20*1000 - r;
