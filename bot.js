@@ -3613,7 +3613,8 @@ let y6Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === 
                                                     
                                y6.on("collect", r => {
                                    message.member.removeRole(message.guild.roles.find("VIP"))
-                                   message.member.removeRole(message.guild.roles.find("VIP+"))
+                                   
+				   message.member.removeRole(message.guild.roles.find("VIP+"))
                                    message.member.removeRole(message.guild.roles.find("MVP"))
                                    message.member.removeRole(message.guild.roles.find("MVP+"))
                                   message.member.removeRole(message.guild.roles.find("MVP++"))
