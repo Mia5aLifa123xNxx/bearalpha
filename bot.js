@@ -3452,7 +3452,7 @@ client.on("message", function(message) {
         msg.react('💛').then(r=>{
         msg.react('💜').then(r=>{
         msg.react('💙').then(r=>{
-        msg.react('🖤').then(r=>{
+        msg.react('🖤:').then(r=>{
         msg.react('🙅').then(r=>{
         msg.react('❌').then(r=>{
 
@@ -3469,7 +3469,7 @@ client.on("message", function(message) {
       
                                     //red                    
                                active.on("collect", r => {
-                                   message.member.addRole(message.guild.roles.find("★ V̟I̟P̟ ★"))
+                                   message.member.addRole(message.guild.roles.find("VIP"))
                                    
                                    
                             
@@ -3495,7 +3495,7 @@ message.channel.sendEmbed(embed).then();
       
                                     //t                    
                                y1.on("collect", r => {
-                                   message.member.addRole(message.guild.roles.find("★ V̟I̟P̟+ ★"))
+                                   message.member.addRole(message.guild.roles.find("VIP+"))
                                    
                                    
                             
@@ -3504,7 +3504,8 @@ message.channel.sendEmbed(embed).then();
      const embed = new Discord.RichEmbed() 
       .setColor("#0c0606")
 
-      .setDescription("**:art: V̟I̟P̟+  تم اعطائك **")
+      .setDescription("**:art: VIP
+تم اعطائك **")
       .setFooter(message.author.tag , message.author.avatarURL)
 
 message.channel.sendEmbed(embed).then();
@@ -3520,7 +3521,7 @@ let y2Filter = (reaction, user) => reaction.emoji.name === '💙' && user.id ===
       
                                                     
                                y2.on("collect", r => {
-                                   message.member.addRole(message.guild.roles.find("★ M̟V̟P̟ ★"))
+                                   message.member.addRole(message.guild.roles.find("MVP"))
                                    
                                    
                             
@@ -3546,7 +3547,7 @@ let y3Filter = (reaction, user) => reaction.emoji.name === '💛' && user.id ===
       
                                                     
                                y3.on("collect", r => {
-                                   message.member.addRole(message.guild.roles.find("★ M̟V̟P̟+ ★"))
+                                   message.member.addRole(message.guild.roles.find("MVP+"))
                                    
                                    
                             
@@ -3568,7 +3569,7 @@ let y4Filter = (reaction, user) => reaction.emoji.name === '🖤' && user.id ===
       
                                                     
                                y4.on("collect", r => {
-                                   message.member.addRole(message.guild.roles.find("★ M̟V̟P̟++ ★"))
+                                   message.member.addRole(message.guild.roles.find("MVP++"))
                                    
                                    
                             
@@ -3584,13 +3585,13 @@ message.channel.sendEmbed(embed).then();
 })
    //الون الازرق فاتح
 
-let y5Filter = (reaction, user) => reaction.emoji.name === ':information_desk_person:' && user.id === message.author.id;
+let y5Filter = (reaction, user) => reaction.emoji.name === '🙅' && user.id === message.author.id;
      
        let y5 = msg.createReactionCollector(y5Filter, { time: 15000 });
       
                                                     
                                y5.on("collect", r => {
-                                   message.member.addRole(message.guild.roles.find("name", "y3"))
+                                   message.member.addRole(message.guild.roles.find("GIRL"))
                                    
                                    
                             
@@ -3611,13 +3612,12 @@ let y6Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === 
       
                                                     
                                y6.on("collect", r => {
-                                   message.member.removeRole(message.guild.roles.find("name", "red"))
-                                   
-                                   message.member.removeRole(message.guild.roles.find("name", "y3"))
-                                   message.member.removeRole(message.guild.roles.find("name", "black"))
-                                   message.member.removeRole(message.guild.roles.find("name", "yellow"))
-                                  message.member.removeRole(message.guild.roles.find("name", "y1"))
-                                  message.member.removeRole(message.guild.roles.find("name", "y2"))
+                                   message.member.removeRole(message.guild.roles.find("VIP"))
+                                   message.member.removeRole(message.guild.roles.find("VIP+"))
+                                   message.member.removeRole(message.guild.roles.find("MVP"))
+                                   message.member.removeRole(message.guild.roles.find("MVP+"))
+                                  message.member.removeRole(message.guild.roles.find("MVP++"))
+                                  message.member.removeRole(message.guild.roles.find("GIRL"))
                                   
                             
                                  
@@ -3625,7 +3625,7 @@ let y6Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === 
      const embed = new Discord.RichEmbed() 
       .setColor("#666161")
 
-      .setDescription("**:art:تم ازالة اللون**")
+      .setDescription("**:art: تم ازالت رانك**")
       .setFooter(message.author.tag , message.author.avatarURL)
 
 message.channel.sendEmbed(embed).then();
