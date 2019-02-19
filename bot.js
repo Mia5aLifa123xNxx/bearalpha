@@ -322,7 +322,8 @@ message.channel.send(`**:moneybag: | ${message.author.username}, has transferrer
           }
           fs.writeFile('profile.json', JSON.stringify(profile), (err) => {
 if (err) console.error(err);
-});
+})
+      })
 client.on('message', message => {
      if(!message.channel.guild) return;
                 if(message.content.startsWith(prefix + 'allbots')) {
