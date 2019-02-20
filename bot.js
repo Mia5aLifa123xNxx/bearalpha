@@ -2999,9 +2999,6 @@ client.on('message', message => {
         message.delete();
     }
 });
-
-const moment = require('moment');
-
 client.on('message',async message => {//Narox
   var time = moment().format('Do MMMM YYYY , hh:mm');
   var room;
