@@ -3490,10 +3490,81 @@ message.channel.sendEmbed(embed).then();
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
+client.on("message", message => {
+  if (message.channel.type === "dm") {
 
-client.on('message', message => {
-  if (msg.content === '._.ping') {
-    msg.reply('Pong!');
+      message.channel.startTyping(); 
+      setTimeout(() => { 
+        message.channel.stopTyping();
+      }, Math.random() * (1 - 3) + 1 * 1000);
+   
   }
 });
+const fs = require("fs")
+  
+let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require antihack.json file
+client.on('message', message => {
+    if(message.content.startsWith(prefix + "antibots on")) {
+        if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+        if(!message.member.hasPermission('ADMINSTRATOR')) return message.channel.send('**Sorry But You Dont Have Permission** `ADMINSTRATOR`' );
+antibots[message.guild.id] = {
+onoff: 'On',
+}
+message.channel.send(`**✅ The AntiBots Is __𝐎𝐍__ !**`)
+          fs.writeFile("./antibots.json", JSON.stringify(antibots), (err) => {
+            if (err) console.error(err)
+            .catch(err => {
+              console.error(err);
+          });
+            });
+          }
+
+        })
+        //antihack with ON , OFF ! RARE CODE 
+        //LIKE PLUSBOT !
+
+
+client.on('message', message => {
+    if(message.content.startsWith(prefix + "antibots off")) {
+        if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+        if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+antibots[message.guild.id] = {
+onoff: 'Off',
+}
+message.channel.send(`**⛔ The AntiBots Is __𝐎𝐅𝐅__ !**`)
+          fs.writeFile("./antibots.json", JSON.stringify(antibots), (err) => {
+            if (err) console.error(err)
+            .catch(err => {
+              console.error(err);
+          });
+            });
+          }
+
+        })
+
+client.on("guildMemberAdd", member => {
+  if(!antibots[member.guild.id]) antibots[member.guild.id] = {
+onoff: 'Off'
+}
+  if(antibots[member.guild.id].onoff === 'Off') return;
+if(member.user.bot) return member.kick()
+})
+
+fs.writeFile("./antibots.json", JSON.stringify(antibots), (err) => {
+if (err) console.error(err)
+.catch(err => {
+console.error(err);
+});
+
+})
+client.on("guildMemberAdd", async member => {
+  let moment2 = require('moment-duration-format'),
+      moment = require("moment"),
+      date = moment.duration(new Date() - member.user.createdAt).format("d");
+
+  if(date < 6) {
+    member.ban("Member account age is lower than 6 days.")
+  }
+});
+
 client.login(process.env.BOT_TOKEN)
