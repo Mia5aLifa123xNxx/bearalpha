@@ -3541,7 +3541,6 @@ message.channel.send(`**⛔ The AntiBots Is __𝐎𝐅𝐅__ !**`)
           }
 
         })
-
 client.on("guildMemberAdd", member => {
   if(!antibots[member.guild.id]) antibots[member.guild.id] = {
 onoff: 'Off'
@@ -3566,5 +3565,4 @@ client.on("guildMemberAdd", async member => {
     member.ban("Member account age is lower than 6 days.")
   }
 });
-
 client.login(process.env.BOT_TOKEN)
