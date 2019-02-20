@@ -3500,10 +3500,9 @@ client.on("message", message => {
    
   }
 });
-
-const fs = require("fs")
   
 let antibots = JSON.parse(fs.readFileSync('./antibots.json' , 'utf8'));//require antihack.json file
+
 client.on('message', message => {
     if(message.content.startsWith(prefix + "antibots on")) {
         if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
