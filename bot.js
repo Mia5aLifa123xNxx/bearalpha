@@ -91,6 +91,7 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
 ._.inv/لدعوة البوت الى سيرفرك
 ._.support/سيرفر الدعم
 ._.contact/ارسال اقتراح او لمراسلة صاحب البوت
+._.mcskin/يظهرلك سكينك
 **
   `
 ,`
@@ -3499,4 +3500,16 @@ client.on("message", message => {
    
   }
 });
+client.on("message", message => {
+    var prefix = "._."
+    if (!message.content.startsWith(prefix)) return;
+      let command = message.content.split(" ")[0];
+      command = command.slice(prefix.length);
+        if(command === "mcskin") {
+                const args = message.content.split(" ").slice(1).join(" ")
+        if (!args) return message.channel.send("**اكتب اسم السكن الي تبيه**");
+        const image = new Discord.Attachment(`https://minotar.net/armor/body/${args}`, "skin.png");
+    message.channel.send(image)
+        }
+    });
 client.login(process.env.BOT_TOKEN)
