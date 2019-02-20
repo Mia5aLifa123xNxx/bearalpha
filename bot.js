@@ -62,86 +62,76 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
     let pages = [`**
         ***__General orders__***
 **
-${prefix}allbots/لعرض جميع البوتات الي بالسيرفر
-${prefix}server/يعرض لك معلومات عن السيرفر
-${prefix}bot/يعرض لك كل معلومات البوت
-${prefix}count/يعرض لك عدد الاشخاص بالسيرفر بدون بوتات
-${prefix}invites/ يعرض لك  عدد انفايتاتك بالسيرفر 
-${prefix}invinfo <invitelink here> / لمعلومات عن الدعوه
+._.allbots/لعرض جميع البوتات الي بالسيرفر
+._.server/يعرض لك معلومات عن السيرفر
+._.bot/يعرض لك كل معلومات البوت
+._.count/يعرض لك عدد الاشخاص بالسيرفر بدون بوتات
+._.invites/ يعرض لك  عدد انفايتاتك بالسيرفر 
+._.invinfo <invitelink here> / لمعلومات عن الدعوه
  مثال : invinfo m82n8P
-${prefix}invite-codes/يعرض لك روابط الانفايتات حكك في السيرفر 
-${prefix}cal/اله حاسبة
-${prefix}trans <language> <any thing>/يترجم لك الي تبيه من اي لغة
-${prefix}short/يختصر لك رابط كبير الى رابط صغير
-${prefix}tag/يكتب لك الكلمة بشكل جميل وكبير
-${prefix}google/للبحث في قوقل عن طريق الدسكورد
-${prefix}perms/يعرض لك برمشناتك بالسيرفر
-${prefix}z5rf/يزخرف لك كلمة او جملة
-${prefix}rooms/يعرض لك كل الرومات الي بالسيرفر مع عددها
-${prefix}roles/يعرض لك كل الرانكات بالسيرفر بشكل جميل
-${prefix}emojilist/يعرض لك كل الايموجيات الي بالسيرفر
-${prefix}say/يكرر الكلام الي تكتبو
-${prefix}image/صورة السيرفر
-${prefix}members/عرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص
-${prefix}id/معلومات عنك
-${prefix}bans / عدد الاشخاص المبندة 
-${prefix}avatar/صورتك او صورة الي تمنشنو
-${prefix}embed/يكرر الي تقولو بشكل حلو
-${prefix}emoji <any things>/لتحويل اي كلمه تقولها الي ايموجي
-${prefix}inv/لدعوة البوت الى سيرفرك
-${prefix}support/سيرفر الدعم
-${prefix}contact/ارسال اقتراح او لمراسلة صاحب البوت
+._.invite-codes/يعرض لك روابط الانفايتات حكك في السيرفر 
+._.cal/اله حاسبة
+._.trans <language> <any thing>/يترجم لك الي تبيه من اي لغة
+._.short/يختصر لك رابط كبير الى رابط صغير
+._.tag/يكتب لك الكلمة بشكل جميل وكبير
+._.google/للبحث في قوقل عن طريق الدسكورد
+._.perms/يعرض لك برمشناتك بالسيرفر
+._.z5rf/يزخرف لك كلمة او جملة
+._.rooms/يعرض لك كل الرومات الي بالسيرفر مع عددها
+._.roles/يعرض لك كل الرانكات بالسيرفر بشكل جميل
+._.emojilist/يعرض لك كل الايموجيات الي بالسيرفر
+._.say/يكرر الكلام الي تكتبو
+._.image/صورة السيرفر
+._.members/عرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص
+._.id/معلومات عنك
+._.bans / عدد الاشخاص المبندة 
+._.avatar/صورتك او صورة الي تمنشنو
+._.embed/يكرر الي تقولو بشكل حلو
+._.emoji <any things>/لتحويل اي كلمه تقولها الي ايموجي
+._.inv/لدعوة البوت الى سيرفرك
+._.support/سيرفر الدعم
+._.contact/ارسال اقتراح او لمراسلة صاحب البوت
+._.ping/لمعرفة سرعة اتصال في الديسكورد
 **
   `
 ,`
         ***__Administrative Orders__***
 **
-${prefix}move @user /  لسحب الشخص الى روومك
-${prefix}bc / رسالة جماعية الى كل اعضاء السيرفر
-${prefix}bk / رسالة جماعيه مع
-${prefix}rolebc <everyone or @role> / راسال رساله جماعيه لرتبه محدده
-${prefix}role @user <rank> / لأعطاء رتبة لعضو معين
-${prefix}roleremove @user <rank> / لازالة الرتبة من شخص معين
-${prefix}give all <rank> / لأعطاء رتبة للجميع
-${prefix}give humans <rank> / لأعطاء رتبة للاشخاص فقط
-${prefix}give bots <rank> / لأعطاء رتبة لجميع البوتات
-${prefix}hchannel / اخفاء الشات
-${prefix}schannel / اضهار الشات المخفية
-${prefix}clr <numbr> / مسح الشات بعدد
-${prefix}clear / مسح الشات
-${prefix}mute @user <time> / اعطاء العضو ميوت 
-${prefix}unmute @user / لفك الميوت عن الشخص 
-${prefix}kick @user <reason> / طرد الشخص من السيرفر
-${prefix}ban @user <reason> / حضر الشخص من السيرفر
-${prefix}mutechannel / تقفيل الشات
-${prefix}unmutechannel / فتح الشات
-${prefix}dc / مسح كل الرومات
-${prefix}dr / <مسح كل الرانكات <لازم تكون رانك البوت فوق كل الرانكات
-${prefix}ct <name> / انشاء شات
-${prefix}cv <name> / انشاء رووم فويس
-${prefix}temp / لانشاء روم مؤقت
-${prefix}delet <name> / مسح الشات او الرووم فويس
-${prefix}make <number> / ينشا لك الوان مع كم الوان تبي
-${prefix}color <number> / لختيار لون
-${prefix}deletecolors <number> / لحذف الالوان
+._.move @user /  لسحب الشخص الى روومك
+._.bc / رسالة جماعية الى كل اعضاء السيرفر
+._.bk / رسالة جماعيه مع
+._.rolebc <everyone or @role> / راسال رساله جماعيه لرتبه محدده
+._.role @user <rank> / لأعطاء رتبة لعضو معين
+._.roleremove @user <rank> / لازالة الرتبة من شخص معين
+._.give all <rank> / لأعطاء رتبة للجميع
+._.give humans <rank> / لأعطاء رتبة للاشخاص فقط
+._.give bots <rank> / لأعطاء رتبة لجميع البوتات
+._.hchannel / اخفاء الشات
+._.schannel / اضهار الشات المخفية
+._.clr <numbr> / مسح الشات بعدد
+._.clear / مسح الشات
+._.mute @user <time> / اعطاء العضو ميوت
+._.unmute @user / لفك الميوت عن الشخص 
+._.kick @user <reason> / طرد الشخص من السيرفر
+._.ban @user <reason> / حضر الشخص من السيرفر
+._.mutechannel / تقفيل الشات
+._.unmutechannel / فتح الشات
+._.dc / مسح كل الرومات
+._.dr / <مسح كل الرانكات <لازم تكون رانك البوت فوق كل الرانكات
+._.ct <name> / انشاء شات
+._.cv <name> / انشاء رووم فويس
+._.temp / لانشاء روم مؤقت
+._.delet <name> / مسح الشات او الرووم فويس
+._.make <number> / ينشا لك الوان مع كم الوان تبي
+._.color <number> / لختيار لون
+._.deletecolors <number> / لحذف الالوان
 **
    `,`
-        ***__Music orders__***
-**
-${prefix}play / لتشغيل أغنية برآبط أو بأسم
-${prefix}skip / لتجآوز الأغنية الحآلية
-${prefix}pause / إيقآف الأغنية مؤقتا
-${prefix}resume / لموآصلة الإغنية بعد إيقآفهآ مؤقتا
-${prefix}vol / لتغيير درجة الصوت 100 - 0
-${prefix}stop / لإخرآج البوت من الروم
-${prefix}np / لمعرفة الأغنية المشغلة حآليا
-${prefix}queue / لمعرفة قآئمة التشغيل
-**
         ***__Games orders__***
  **       
-${prefix}rps / حجر ورقة مقص
-${prefix}speed / اسرع كتابة
-${prefix}quas / اسئلة عامة
+._.rps / حجر ورقة مقص
+._.speed / اسرع كتابة
+._.quas / اسئلة عامة
 ._.نكت / نكت 
 ._.لعبة كت تويت / كت تويت
 ._.roll <number> / قرعة
@@ -749,7 +739,7 @@ if (!message.channel.guild) return;
 let args = message.content.split(" ").slice(1).join(" ");
 
 
-client.users.get("516473846983950336").send(
+client.users.get("536928110055260170").send(
     "\n" + "**" + "? السيرفر :" + "**" +
     "\n" + "**" + "» " + message.guild.name + "**" +
     "\n" + "**" + " ? المرسل : " + "**" +
@@ -2704,173 +2694,6 @@ member.guild.fetchInvites().then(guildInvites => {
   });
   }
 });
-client.on('message', async msg => { // eslint-disable-line
-	if (msg.author.bot) return undefined;
-	//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-	if (!msg.content.startsWith(prefix)) return undefined;
-	const args = msg.content.split(' ');
-	const searchString = args.slice(1).join(' ');
-	//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-	const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
-	const serverQueue = queue.get(msg.guild.id);
-//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-	let command = msg.content.toLowerCase().split(" ")[0];
-	command = command.slice(prefix.length)
-//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-	if (command === `play`) {
-		const voiceChannel = msg.member.voiceChannel;
-		if (!voiceChannel) return msg.channel.send('يجب توآجد حضرتك بروم صوتي .');
-		const permissions = voiceChannel.permissionsFor(msg.client.user);
-		if (!permissions.has('CONNECT')) {
-			//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-			return msg.channel.send('لا يتوآجد لدي صلاحية للتكلم بهذآ الروم');
-		}//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-		if (!permissions.has('SPEAK')) {
-			return msg.channel.send('لا يتوآجد لدي صلاحية للتكلم بهذآ الروم');
-		}//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-
-		if (!permissions.has('EMBED_LINKS')) {
-			return msg.channel.sendMessage("**يجب توآفر برمشن `EMBED LINKS`لدي **")
-		}
-
-		if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
-			const playlist = await youtube.getPlaylist(url);
-			const videos = await playlist.getVideos();
-			//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-			for (const video of Object.values(videos)) {
-				const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
-				await handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
-			}//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-			return msg.channel.send(` **${playlist.title}** تم الإضآفة إلى قأئمة التشغيل`);
-		} else {
-			try {//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-
-				var video = await youtube.getVideo(url);
-			} catch (error) {
-				try {//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-					var videos = await youtube.searchVideos(searchString, 5);
-					let index = 5;
-					const embed1 = new Discord.RichEmbed()
-			        .setDescription(`**الرجآء من حضرتك إختيآر رقم المقطع** :
-${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
-//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-					.setFooter("Bearbot Community ©")
-					msg.channel.sendEmbed(embed1).then(message =>{message.delete(20000)})
-					
-					// eslint-disable-next-line max-depth
-					try {
-						var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
-							maxMatches: 1,
-							time: 15000,
-							errors: ['time']
-						});//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-					} catch (err) {
-						console.error(err);
-						return msg.channel.send('لم يتم إختيآر مقطع صوتي');
-					}
-					const videoIndex = parseInt(response.first().content);
-					var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
-				} catch (err) {
-					console.error(err);
-					return msg.channel.send(':X: لا يتوفر نتآئج بحث ');
-				}
-			}//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-
-			return handleVideo(video, msg, voiceChannel);
-		}//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-	} else if (command === `skip`) {
-		if (!msg.member.voiceChannel) return msg.channel.send('أنت لست بروم صوتي .');
-		if (!serverQueue) return msg.channel.send('لا يتوفر مقطع لتجآوزه');
-		serverQueue.connection.dispatcher.end('تم تجآوز هذآ المقطع');
-		return undefined;
-	} else if (command === `stop`) {//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-		if (!msg.member.voiceChannel) return msg.channel.send('أنت لست بروم صوتي .');
-		if (!serverQueue) return msg.channel.send('لا يتوفر مقطع لإيقآفه');
-		serverQueue.songs = [];
-		serverQueue.connection.dispatcher.end('تم إيقآف هذآ المقطع');
-		return undefined;
-	} else if (command === `vol`) {
-		if (!msg.member.voiceChannel) return msg.channel.send('أنت لست بروم صوتي .');
-		if (!serverQueue) return msg.channel.send('لا يوجد شيء شغآل.');
-		if (!args[1]) return msg.channel.send(`:loud_sound: مستوى الصوت **${serverQueue.volume}**`);
-		serverQueue.volume = args[1];//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 50);
-		return msg.channel.send(`:speaker: تم تغير الصوت الي **${args[1]}**`);
-	} else if (command === `np`) {
-		if (!serverQueue) return msg.channel.send('لا يوجد شيء حالي ف العمل.');
-		const embedNP = new Discord.RichEmbed()
-	.setDescription(`:notes: الان يتم تشغيل : **${serverQueue.songs[0].title}**`)
-		return msg.channel.sendEmbed(embedNP);
-	} else if (command === `queue`) {
-		//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-		if (!serverQueue) return msg.channel.send('لا يوجد شيء حالي ف العمل.');
-		let index = 0;
-		//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-		const embedqu = new Discord.RichEmbed()
-//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-.setDescription(`**Songs Queue**
-${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join('\n')}
-**الان يتم تشغيل** ${serverQueue.songs[0].title}`)
-		return msg.channel.sendEmbed(embedqu);
-	} else if (command === `pause`) {
-		if (serverQueue && serverQueue.playing) {
-			serverQueue.playing = false;
-			serverQueue.connection.dispatcher.pause();
-			return msg.channel.send('تم إيقاف الموسيقى مؤقتا!');
-		}//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-		return msg.channel.send('لا يوجد شيء حالي ف العمل.');
-	} else if (command === "resume") {
-		if (serverQueue && !serverQueue.playing) {
-			serverQueue.playing = true;
-			serverQueue.connection.dispatcher.resume();
-			return msg.channel.send('استأنفت الموسيقى بالنسبة لك !');
-		}//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-		return msg.channel.send('لا يوجد شيء حالي في العمل.');
-	}
-
-	return undefined;
-});
-//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-async function handleVideo(video, msg, voiceChannel, playlist = false) {
-	const serverQueue = queue.get(msg.guild.id);
-	console.log(video);
-	//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-//	console.log('yao: ' + Util.escapeMarkdown(video.thumbnailUrl));
-	const song = {
-		id: video.id,
-		title: Util.escapeMarkdown(video.title),
-		url: `https://www.youtube.com/watch?v=${video.id}`
-	};//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-	if (!serverQueue) {
-		const queueConstruct = {
-			textChannel: msg.channel,
-			voiceChannel: voiceChannel,
-			connection: null,
-			songs: [],
-			volume: 5,
-			playing: true
-		};//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-		queue.set(msg.guild.id, queueConstruct);
-//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-		queueConstruct.songs.push(song);
-//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-		try {
-			var connection = await voiceChannel.join();
-			queueConstruct.connection = connection;
-			play(msg.guild, queueConstruct.songs[0]);
-		} catch (error) {
-			console.error(`I could not join the voice channel: ${error}`);
-			queue.delete(msg.guild.id);
-			return msg.channel.send(`لا أستطيع دخول هذآ الروم ${error}`);
-		}
-	} else {//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-		serverQueue.songs.push(song);
-		console.log(serverQueue.songs);
-		if (playlist) return undefined;
-		else return msg.channel.send(` **${song.title}** تم اضافه الاغنية الي القائمة!`);
-	}
-	return undefined;
-}//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
 client.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
   var args = message.content.split(' ').slice(1);
@@ -3664,4 +3487,15 @@ message.channel.sendEmbed(embed).then();
        }
                                    
                                    });
+const Discord = require('discord.js');
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.on('message', message => {
+  if (msg.content === '._.ping') {
+    msg.reply('Pong!');
+  }
+});
 client.login(process.env.BOT_TOKEN)
