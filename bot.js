@@ -3360,7 +3360,7 @@ client.on('messageReactionAdd', (reaction, user) => {
     if(!stopReacord) {
       var done = false;
       reactionRoles[reaction.message.id] = { role: definedReactionRole, message_id: reaction.message.id, emoji: reaction.emoji};
-      stopReacord =  true;
+      stopReacord =  false;
       definedReactionRole = null;
       reaction.message.react(reaction.emoji.name)
       .catch(err => {done = true; reaction.message.channel.send(`sorry i can't use this emoji but the reaction role done! anyone react will get the role!`)})
