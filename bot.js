@@ -3460,14 +3460,14 @@ client.on("message", (message) => {
     }
  
 });
-client.on('._.guildMemberAdd', member => {
+client.on('guildMemberAdd', member => {
     const botCount = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
     client.channels.get('548623772320792576').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
     client.channels.get('548623892793524226').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
 });
 
-client.on('._.guildMemberRemove', member => {
+client.on('guildMemberRemove', member => {
     const botCount = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
     client.channels.get('548623772320792576').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
