@@ -3460,17 +3460,17 @@ client.on("message", (message) => {
     }
  
 });
-client.on('guildMemberAdd', member => {
+client.on('._.guildMemberAdd', member => {
     const botCount = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
-    client.channels.get('548228497458593822').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
-    client.channels.get('548228680879439912').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
+    client.channels.get('548623772320792576').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
+    client.channels.get('548623892793524226').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
 });
 
-client.on('guildMemberRemove', member => {
+client.on('._.guildMemberRemove', member => {
     const botCount = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
-    client.channels.get('548228497458593822').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
-    client.channels.get('548228680879439912').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
+    client.channels.get('548623772320792576').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
+    client.channels.get('548623892793524226').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
 });
 client.login(process.env.BOT_TOKEN)
