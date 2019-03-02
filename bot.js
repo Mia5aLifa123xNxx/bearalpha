@@ -3511,4 +3511,108 @@ client.on('message', async message => {//alpha codes & Mrx -Dev
                         )}
                         
                 });
+client.on("message",async msg => {
+    var prefix = '._.';
+    if(msg.content.startsWith(prefix + "تقديم")){
+        var channel = msg.guild.channels.find("name", "التقديمات");
+        if(!channel) return msg.reply("**لا اجد روم باْسم `التقديمات`**")
+    let fltr = m => m.author.id === msg.author.id
+    let name = '';
+   await msg.reply('**اكتب اسمك الان**').then(e => {
+msg.channel.awaitMessages(fltr, {
+    time: 600000,
+    max: 1
+})
+.then(co => {
+    name = co.first().content
+    co.first().delete()
+    let age = '';
+    e.edit(`**${msg.author} اكتب عمرك الان**`).then(e => {
+     msg.channel.awaitMessages(fltr, {
+         time: 600000,
+         max: 1
+     })   
+     .then(co => {
+     age = co.first().content
+     co.first().delete();
+     let from = '';
+     e.edit(`**${msg.author} اكتب من اين الان**`).then(e => {
+     msg.channel.awaitMessages(fltr, {
+         time: 600000,
+         max: 1
+     }) 
+     .then(co => {
+      from = co.first().content
+      co.first().delete();
+      e.edit("**Are You Sure On Your Submite? | ✅ Yes | ❌ No**").then(o => {
+          o.react("❌")
+          .then(() => o.react('✅'))
+            .then(() =>o.react('❌'))
+            let react1 = (reacton, user) => reacton.emoji.name === '✅' && user.id === msg.author.id
+            let react2 = (reacton, user) => reacton.emoji.name === '❌' && user.id === msg.author.id
+            let cr1 = o.createReactionCollector(react1, { time: 12000 });
+            let cr2 = o.createReactionCollector(react2, { time: 12000 });
+            cr2.on("collect", r => {
+                msg.reply("**Done Your Submite Has Been Cancelled**").then(k => {
+                    o.delete(2222);
+                    k.delete(2222);
+                  
+                })
+            })
+            cr1.on("collect", r => {
+                msg.reply("**Done Your Submite Has Been Send**").then(b => {
+                    o.delete(2222);
+                    b.delete(2222);
+                   let emb = new Discord.RichEmbed()
+                   .setTitle("**تقديم اداره**")
+                   .addField("**الاسم**", name)
+                   .addField("**العمر**", age)
+                   .addField("**البلد**", from)
+                   .addField("**الحساب**", msg.author)
+                   .addField("**ايدي الحساب**", msg.author.id)
+                   .setThumbnail(msg.author.avatarURL)
+                   channel.send(emb);
+                })
+               
+            })
+      })
+     })
+     })
+     })
+    })
+})
+   })
+    }
+});
+const rWlc = JSON.parse(fs.readFileSync("./AutoRole.json", "utf8"));
+client.on('message', message => {
+var prefix = "._.";//البرفكس 
+if(message.channel.type === "dm") return;
+if(message.author.bot) return;
+   if(!rWlc[message.guild.id]) rWlc[message.guild.id] = {
+    role: "member"
+  }
+const channel = rWlc[message.guild.id].role
+  if (message.content.startsWith(prefix + "autorole")) {
+    if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
+    let newrole = message.content.split(' ').slice(1).join(" ")
+    if(!newrole) return message.reply(`**${prefix}autorole <role name>**`)
+    rWlc[message.guild.id].role = newrole
+    message.channel.send(`**${message.guild.name}'s role has been changed to ${newrole}**`);
+  }
+fs.writeFile("./AutoRole.json", JSON.stringify(rWlc), function(e){
+    if (e) throw e;
+})
+});
+client.on("guildMemberAdd", member => {
+      if(!rWlc[member.guild.id]) rWlc[member.guild.id] = {
+    role: "member"
+  }
+    const sRole = rWlc[member.guild.id].role
+    let Rrole = member.guild.roles.find('name', sRole);
+  member.addRole(Rrole);
+ 
+  
+      
+      });
 client.login(process.env.BOT_TOKEN)
