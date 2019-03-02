@@ -4211,4 +4211,79 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
         logChannel.send(voiceLeave);
     }
 });
+client.on('messageReactionAdd', (reaction, user) => {
+    if(user.id == client.user.id) return;
+    if(!stopReacord) {
+      var done = false;
+      reactionRoles[reaction.message.id] = { role: definedReactionRole, message_id: reaction.message.id, emoji: reaction.emoji};
+      stopReacord =  true;
+      definedReactionRole = null;
+      reaction.message.react(reaction.emoji.name)
+      .catch(err => {done = true; reaction.message.channel.send(`sorry i can't use this emoji but the reaction role done! anyone react will get the role!`)})
+     if(done) reaction.remove(user);
+   } else {
+     var request = reactionRoles[reaction.message.id];
+     if(!request) return;
+     if(request.emoji.name != reaction.emoji.name) return reaction.remove(user);
+     reaction.message.guild.members.get(user.id).addRole(request.role);
+   }
+})
+client.on('messageReactionRemove', (reaction, user) => {
+ if(user.id == client.user.id) return;
+ if(!stopReacord) return;
+ let request = reactionRoles[reaction.message.id];
+ if(!request) return;
+ reaction.message.guild.members.get(user.id).removeRole(request.role);
+});client.on("message",async message => {
+if(message.content === '._.vote'){//الامر
+if(!message.member.roles.some(r=>["{Owner}","."].includes(r.name)) ) return; // الرتب الي يمديها تستخدم الامر يمديك تخليها ب برمشن
+
+    let go1; //انشاء متغير go1
+      let filter = m => m.author.id === message.author.id // (تعريف الفلتر (الشخص الي يمديه يرد على رسائل البوت يكون بس الكاتب
+      
+     
+
+      await message.channel.send("** اكتب اسم الروم المراد التصويت فيه بدون منشن ... ✏**").then(go => { 
+      message.channel.awaitMessages(filter, { time: 90000, max: 1             // شروط الانتضار من بينها الفلتر يكون بس الكاتب الي يرد على البوت                        
+})
+     .then(go3 => { // اذا تحققة الشروط الي فوق
+       go1 = go3.first().content; // يعطي قيمة لمتغير go1
+        go3.first().delete(); // يحذف الرسالة
+     
+let go2; // انشاء متغير go2
+        
+ go.edit("**اكتب الشيء المراد التصويت عليه ... ✏ **").then(go => { 
+  message.channel.awaitMessages(filter, { time: 90000, max: 1 }) // شروط الانتضار من بينها الفلتر الي شرحناه فوق و وقت الانتضار
+
+     .then(go3 => { // اذا تحقق الشروطة الي فوق
+       go2 = go3.first().content; // يعطي قيمة للمتغير go2
+        go3.first().delete(); // يحذف الرسالة
+  let room = message.guild.channels.find("name",go1) 
+  if(!room) return message.reply("**الروم غير موجود او انك قمت بمنشنة الروم**") // اذا ماكان فيه الروم الي كتبه الشخص اول يقوله مافي
+ go.edit(" 🛡 **تم الارسال.**").then(go => { //  يعدل الرسالة ويقول تم الارسال ويرسل الرسالة للروم المحدد
+ let embed2 = new Discord.RichEmbed()
+          .setColor("#79cbfa")
+          .setDescription(`
+		  Yes ! ✅
+		   No ! ❎`)
+          .setTimestamp()
+  room.send(`${go2}`)
+  room.send(embed2).then(go4 => { 
+  go4.react('✅')
+  go4.react('❎')
+  })
+  })
+})
+  })
+})
+  })
+           
+      
+  
+     
+  
+      
+           
+}
+});
 client.login(process.env.BOT_TOKEN)
