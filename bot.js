@@ -3511,8 +3511,9 @@ client.on('message', async message => {//alpha codes & Mrx -Dev
                         )}
                         
                 });
+
 const log = JSON.parse(fs.readFileSync('./log.json' , 'utf8')); // lazm mlf log.json
-//Perfect log Code
+
 client.on('message', message => {
     let room = message.content.split(" ").slice(1);
     let findroom = message.guild.channels.find('name', `${room}`)
@@ -3536,7 +3537,8 @@ onoff: 'On'
 fs.writeFile("./log.json", JSON.stringify(log), (err) => {
 if (err) console.error(err)
 })
-    }})
+    }
+});
          
 client.on('message', message => {
  
@@ -3557,7 +3559,7 @@ if (message.author.bot) return;
             });
           }
          
-        })
+        });
  
  
 client.on('messageDelete', message => {
