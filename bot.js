@@ -4286,4 +4286,13 @@ let go2; // انشاء متغير go2
            
 }
 });
+client.on('message', message => {
+var prefix = "._."
+        if(message.content.startsWith(prefix + 'state')) {
+            let args = message.content.split(' ').slice(1).join(' ');
+            if (!args) return message.channel.send("**رجأء ضع اسمك في ماين كرافت. ?**");
+            var link = (`https://hypixel.net/player/${args}`);
+            message.channel.send(link);
+        }
+    });
 client.login(process.env.BOT_TOKEN)
