@@ -4288,11 +4288,84 @@ let go2; // انشاء متغير go2
 });
 client.on('message', message => {
 var prefix = "._."
-        if(message.content.startsWith(prefix + 'state')) {
+        if(message.content.startsWith(prefix + 'hstate')) {
             let args = message.content.split(' ').slice(1).join(' ');
             if (!args) return message.channel.send("**رجأء ضع اسمك في ماين كرافت. ?**");
             var link = (`https://hypixel.net/player/${args}`);
             message.channel.send(link);
         }
     });
+hero.on('message',async message => {
+    if(message.author.bot || message.channel.type === "dm") return;
+    if(!message.content.startsWith(prefix)) return;
+    let cmd = message.content.split(" ")[0].substring(prefix.length);
+    let args = message.content.split(" ");
+    if(cmd === '._.hapi') {
+        if(!args[1]) return;
+        let HypixelAPI  = require("hypixel-api");
+        let client = new HypixelAPI ("4856cc0d-031c-4b27-9d49-2edb7679853b");
+        let i = new RichEmbed();
+        i.setColor("#36373e");
+        let o = await message.channel.send(`**❆ Getting Data, Please Wait ...**`);
+        client.getPlayer('name', args[1])
+        .then(async player => {
+          let stats = player.player.achievements;
+          let overall = player;
+          const getDays = (createdAt) => {
+            let date = Date.now() - createdAt;
+            // return `${Math.round(date / 1000 / 60 / 60 / 24)} Days ago`;
+            return pretty(date);
+          };
+          i.setDescription(`**❯ The player `${overall.player.displayname}`'s data**`);
+          i.setThumbnail(`https://minotar.net/helm/${args[1]}`);
+          i.addField('• SkyWars Kills', `→ Kills Team: `${stats["skywars_kills_team"]}`n→ Kills Solo:
+    `${stats["skywars_kills_solo"]}`n→ Kills Mega: `${stats["skywars_kills_mega"]}``, true);
+          i.addField('❆ SkyWars Wins', `→ Wins Team: `${stats["skywars_wins_team"]}`n→ Wins Solo: `${stats["skywars_wins_solo"]}`n→ Wins Mega: `${stats["skywars_wins_mega"]}``, true);
+          i.addField('❆ BedWars Stats', `→ Broken Beads: `${stats["bedwars_beds"] || 0}`n→ BedWars Wins: `${stats["bedwars_wins"] || 0}`n→ BedWars Level: `${stats["bedwars_level"]}``, true);
+          i.addField('❆ Other Stats', `→ Recent Game: `${overall.player.mostRecentGameType || "None"}`n→ First Joined: `${getDays(overall.player.firstLogin)}`n→ Last Joined: `${getDays(overall.player.lastLogin)}``, true);
+          i.setFooter('Hypixel Stats.', 'https://hypixel.net/styles/hypixel-uix/xenforo/og-icon.png');
+          await message.channel.send(i);
+          await o.delete().catch(e => {});
+        })
+        .catch(async e => {
+          console.log(e.stack);
+          await o.delete().catch(e => {});
+          return message.channel.send(`**→ Couldn't find the player `${args[1]}`**`);
+        });
+       }
+    });
+var EpicEdiTeD = {};
+client.on("message", function(message){
+if (message.content.startsWith(prefix + "hprofile")) {
+    if (!EpicEdiTeD[message.author.id]) {
+        EpicEdiTeD[message.author.id] = {Money:0,Xp:0,Level:0}
+    }
+     var mentionned = message.mentions.users.first();
+ 
+      var epic;
+      if(mentionned){
+          var epic = mentionned;
+      } else {
+          var epic = message.author;
+ 
+      }
+ 
+   
+    var CulLevel = Math.floor(0.25 * Math.sqrt(EpicEdiTeD[message.author.id].Xp +1));
+    if (CulLevel > EpicEdiTeD[message.author.id].Level) {EpicEdiTeD[message.author.id].Level +=CulLevel}
+    let edited = new Discord.RichEmbed()
+    .setColor("Random")
+    .addField("الإسم :", message.author.tag)
+    .addField("الليفل :", EpicEdiTeD[message.author.id].Level)
+    .addField("الإكس بي :",Math.floor(EpicEdiTeD[message.author.id].Xp))
+    message.channel.send(edited);
+}
+if (!EpicEdiTeD[message.author.id]) {
+    EpicEdiTeD[message.author.id] = {Money:0,Xp:0,Level:0,Like:0}
+    }
+ 
+EpicEdiTeD[message.author.id].Xp+= 0.25;
+EpicEdiTeD[message.author.id].Money+= 0.25;
+ 
+});
 client.login(process.env.BOT_TOKEN)
