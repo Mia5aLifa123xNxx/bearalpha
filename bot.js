@@ -145,11 +145,6 @@ welcome يتم الترحيب فى روم باسم
 ._.setwelcomer <text channel name> لاختيار روم للترحيب
 ._.voiceonline / لتفعيل روم الفويس اونلاين
 **
-  `,`
-        ***__Hypixel orders__***
-  **       
-Soon ...
-  ** 
 `]
     let page = 1;
 
@@ -4290,13 +4285,4 @@ let go2; // انشاء متغير go2
            
 }
 });
-client.on('message', message => {
-var prefix = "._."
-        if(message.content.startsWith(prefix + 'hypixel')) {
-            let args = message.content.split(' ').slice(1).join(' ');
-            if (!args) return message.channel.send("**رجأء ضع اسمك في ماين كرافت. ?**");
-            var link = (`https://hypixel.net/player/${args}`);
-            message.channel.send(link);
-        }
-    });
 client.login(process.env.BOT_TOKEN)
