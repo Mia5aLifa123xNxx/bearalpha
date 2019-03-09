@@ -4287,7 +4287,8 @@ let go2; // انشاء متغير go2
 });
 client.on('message', message => {
 var prefix = "._."
-        if(message.content.startsWith(prefix + 'hypixel')) {
+var args = message.content.split(' ').slice(1).join(' ');
+        if(message.content.startsWith(prefix + 'hypixel' + args)) {
             let args = message.content.split(' ').slice(1).join(' ');
             if (args) return message.channel.send("**رجأء ضع اسمك في ماين كرافت. ?**");
             var link = (`https://hypixel.net/player/${args}/`);
