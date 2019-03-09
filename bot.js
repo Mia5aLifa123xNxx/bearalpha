@@ -4290,21 +4290,20 @@ let go2; // انشاء متغير go2
            
 }
 });
-client.on('message', message => {
-var prefix = "._."
-        if(message.content.startsWith(prefix + 'hstate')) {
+client.on("message", async message => {
+        if(message.content.startsWith('hstate')) {
             let args = message.content.split(' ').slice(1).join(' ');
             if (!args) return message.channel.send("**رجأء ضع اسمك في ماين كرافت. ?**");
             var link = (`https://hypixel.net/player/${args}`);
             message.channel.send(link);
         }
     });
-hero.on('message',async message => {
+client.on("message", async message => {
     if(message.author.bot || message.channel.type === "dm") return;
     if(!message.content.startsWith(prefix)) return;
     let cmd = message.content.split(" ")[0].substring(prefix.length);
     let args = message.content.split(" ");
-    if(cmd === '._.hapi') {
+    if(cmd === 'hapi') {
         if(!args[1]) return;
         let HypixelAPI  = require("hypixel-api");
         let client = new HypixelAPI ("4856cc0d-031c-4b27-9d49-2edb7679853b");
@@ -4338,9 +4337,11 @@ hero.on('message',async message => {
         });
        }
     });
+
 var EpicEdiTeD = {};
+
 client.on("message", function(message){
-if (message.content.startsWith(prefix + "hprofile")) {
+if (message.content.startsWith("hprofile")) {
     if (!EpicEdiTeD[message.author.id]) {
         EpicEdiTeD[message.author.id] = {Money:0,Xp:0,Level:0}
     }
