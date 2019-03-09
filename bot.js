@@ -4324,12 +4324,12 @@ EpicEdiTeD[message.author.id].Xp+= 0.25;
 EpicEdiTeD[message.author.id].Money+= 0.25;
  
 });
-hero.on('message',async message => {
+client.on.on('message',async message => {
     if(message.author.bot || message.channel.type === "dm") return;
     if(!message.content.startsWith(prefix)) return;
     let cmd = message.content.split(" ")[0].substring(prefix.length);
     let args = message.content.split(" ");
-    if(cmd === 'Hgames') {
+    if(cmd === 'hgames') {
         if(!args[1]) return;
         let HypixelAPI  = require("hypixel-api");
         let client = new HypixelAPI ("4856cc0d-031c-4b27-9d49-2edb7679853b");
