@@ -4323,5 +4323,44 @@ if (!EpicEdiTeD[message.author.id]) {
 EpicEdiTeD[message.author.id].Xp+= 0.25;
 EpicEdiTeD[message.author.id].Money+= 0.25;
  
-});//AlphaCodes
+});
+hero.on('message',async message => {
+    if(message.author.bot || message.channel.type === "dm") return;
+    if(!message.content.startsWith(prefix)) return;
+    let cmd = message.content.split(" ")[0].substring(prefix.length);
+    let args = message.content.split(" ");
+    if(cmd === 'Hgames') {
+        if(!args[1]) return;
+        let HypixelAPI  = require("hypixel-api");
+        let client = new HypixelAPI ("4856cc0d-031c-4b27-9d49-2edb7679853b");
+        let i = new RichEmbed();
+        i.setColor("#36373e");
+        let o = await message.channel.send(`**❆ Getting Data, Please Wait ...**`);
+        client.getPlayer('name', args[1])
+        .then(async player => {
+          let stats = player.player.achievements;
+          let overall = player;
+          const getDays = (createdAt) => {
+            let date = Date.now() - createdAt;
+            // return `${Math.round(date / 1000 / 60 / 60 / 24)} Days ago`;
+            return pretty(date);
+          };
+          i.setDescription(`**❯ The player `${overall.player.displayname}`'s data**`);
+          i.setThumbnail(`https://minotar.net/helm/${args[1]}`);
+          i.addField('• SkyWars Kills', `→ Kills Team: `${stats["skywars_kills_team"]}`n→ Kills Solo:
+    `${stats["skywars_kills_solo"]}`n→ Kills Mega: `${stats["skywars_kills_mega"]}``, true);
+          i.addField('❆ SkyWars Wins', `→ Wins Team: `${stats["skywars_wins_team"]}`n→ Wins Solo: `${stats["skywars_wins_solo"]}`n→ Wins Mega: `${stats["skywars_wins_mega"]}``, true);
+          i.addField('❆ BedWars Stats', `→ Broken Beads: `${stats["bedwars_beds"] || 0}`n→ BedWars Wins: `${stats["bedwars_wins"] || 0}`n→ BedWars Level: `${stats["bedwars_level"]}``, true);
+          i.addField('❆ Other Stats', `→ Recent Game: `${overall.player.mostRecentGameType || "None"}`n→ First Joined: `${getDays(overall.player.firstLogin)}`n→ Last Joined: `${getDays(overall.player.lastLogin)}``, true);
+          i.setFooter('Hypixel Stats.', 'https://hypixel.net/styles/hypixel-uix/xenforo/og-icon.png');
+          await message.channel.send(i);
+          await o.delete().catch(e => {});
+        })
+        .catch(async e => {
+          console.log(e.stack);
+          await o.delete().catch(e => {});
+          return message.channel.send(`**→ Couldn't find the player `${args[1]}`**`);
+        });
+       }
+    });
 client.login(process.env.BOT_TOKEN)
