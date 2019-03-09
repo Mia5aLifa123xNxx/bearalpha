@@ -4290,7 +4290,7 @@ let go2; // انشاء متغير go2
            
 }
 });
-client.on("message", async message => {
+client.on("message",async message => {
         if(message.content.startsWith('hstate')) {
             let args = message.content.split(' ').slice(1).join(' ');
             if (!args) return message.channel.send("**رجأء ضع اسمك في ماين كرافت. ?**");
@@ -4298,7 +4298,7 @@ client.on("message", async message => {
             message.channel.send(link);
         }
     });
-client.on("message", async message => {
+client.on("message",async message => {
     if(message.author.bot || message.channel.type === "dm") return;
     if(!message.content.startsWith(prefix)) return;
     let cmd = message.content.split(" ")[0].substring(prefix.length);
@@ -4337,9 +4337,7 @@ client.on("message", async message => {
         });
        }
     });
-
 var EpicEdiTeD = {};
-
 client.on("message", function(message){
 if (message.content.startsWith("hprofile")) {
     if (!EpicEdiTeD[message.author.id]) {
