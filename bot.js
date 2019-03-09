@@ -34,8 +34,8 @@ var ti={}
 ,attentions={};
 
 client.on('ready', function(){
-    var ms = 60000 ;
-    var setGame = ['._.help','Type ._.help'];
+    var ms = 0 ;
+    var setGame = ['Type ._.help'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -145,7 +145,11 @@ welcome يتم الترحيب فى روم باسم
 ._.setwelcomer <text channel name> لاختيار روم للترحيب
 ._.voiceonline / لتفعيل روم الفويس اونلاين
 **
-   
+  `,`
+        ***__Hypixel orders__***
+  **       
+Soon ...
+  ** 
 `]
     let page = 1;
 
