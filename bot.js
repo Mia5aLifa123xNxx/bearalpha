@@ -34,7 +34,7 @@ var ti={}
 ,attentions={};
 
 client.on('ready', function(){
-    var ms = 0 ;
+    var ms = 60000;
     var setGame = ['Type ._.help'];
     var i = -1;
     var j = 0;
