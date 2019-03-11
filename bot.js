@@ -4336,11 +4336,4 @@ client.on('message', message => {
    message.channel.send(`${emoji}`)//يرسل المتغير emoji 
     }
 });
-
-client.on("message", message => {
-if(message.content.startsWith(prefix + "تفعل مانع الحمل")) {
-if(isFucking) = "True" return 7ml.no
-}
-});
-
 client.login(process.env.BOT_TOKEN)
