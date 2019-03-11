@@ -4326,14 +4326,14 @@ client.on('message', message => {
    let emoji = client.guilds.get("551159757814235140").emojis.find(r => r.name === "fire_server"); //كود تعريف المتغير emoji
  
     if(message.content === '._.firemoji'){ //تحقق اذا الرساله هي sebdemji
-   message.channel.send(`[ ${emoji} ]`)//يرسل المتغير emoji 
+   message.channel.send(`${emoji}`)//يرسل المتغير emoji 
     }  // xomar933 نهاية قوس التحقق
 });
 client.on('message', message => {
    let emoji = client.guilds.get("551159757814235140").emojis.find(r => r.name === "heartrainbow"); //كود تعريف المتغير emoji
  
-    if(message.content === '._.heartemoji'){ //تحقق اذا الرساله هي sebdemji
+    if(message.content === '._.heartemoji'){ 
    message.channel.send(`${emoji}`)//يرسل المتغير emoji 
-    }  // xomar933 نهاية قوس التحقق
+    }
 }); // x نهاية قوس الايفنت 
 client.login(process.env.BOT_TOKEN)
