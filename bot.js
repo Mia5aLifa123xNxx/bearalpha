@@ -2391,11 +2391,11 @@ client.on('message', message => {
          var Embed = new Discord.RichEmbed()
 .setImage(al7arthyCodes[Math.floor(Math.random() * al7arthyCodes.length)])
 message.channel.sendEmbed(Embed).then(msg => {
-    msg.react('??').then( r => {
-        msg.react('??')
+    msg.react('📘').then( r => {
+        msg.react('📙')
  
-        let blueFilter = (reaction, user) => reaction.emoji.name === '??' && user.id === message.author.id;
-    let orangeFilter = (reaction, user) => reaction.emoji.name === '??' && user.id === message.author.id;
+        let blueFilter = (reaction, user) => reaction.emoji.name === '📘' && user.id === message.author.id;
+    let orangeFilter = (reaction, user) => reaction.emoji.name === '📙' && user.id === message.author.id;
  
  
     let blue = msg.createReactionCollector(blueFilter, { time: 15000 });
