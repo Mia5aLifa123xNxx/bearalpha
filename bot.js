@@ -4336,14 +4336,37 @@ client.on('message', message => {
    message.channel.send(`${emoji}`)//يرسل المتغير emoji 
     }
 });
-
 const Discord = require('discord.js');
 const tpoints = {};
 const vpoints = {};
 const jimp = require("jimp");
 const client = new Discord.Client();
 
-
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+ client.user.setActivity("",{type: 'watching'})
+  console.log('')
+  console.log('')
+  console.log('╔[═════════════════════════════════════════════════════════════════]╗')
+  console.log(`[Start] ${new Date()}`);
+  console.log('╚[═════════════════════════════════════════════════════════════════]╝')
+  console.log('')
+  console.log('╔[════════════════════════════════════]╗');
+  console.log(`Logged in as * [ " ${client.user.username} " ]`);
+  console.log('')
+  console.log('Informations :')
+  console.log('')
+  console.log(`servers! [ " ${client.guilds.size} " ]`);
+  console.log(`Users! [ " ${client.users.size} " ]`);
+  console.log(`channels! [ " ${client.channels.size} " ]`);
+  console.log('╚[════════════════════════════════════]╝')
+  console.log('')
+  console.log('╔[════════════]╗')
+  console.log(' Bot Is Online')
+  console.log('╚[════════════]╝')
+  console.log('')
+  console.log('')
+});
 
 
 
@@ -4351,7 +4374,6 @@ const client = new Discord.Client();
 
 const fs = require("fs");
  const data = JSON.parse(fs.readFileSync('./data.json', 'utf8'));
-
   let banse = new Set();
   client.on('guildBanAdd', function(guild) {
     guild.fetchAuditLogs().then(logs => {
@@ -4481,7 +4503,17 @@ const fs = require("fs");
 
 
 
-
+client.on('ready', () => {
+   console.log(`----------------`);
+      console.log(`Welcome bearperson`);
+        console.log(`----------------`);
+      console.log(`ON ${client.guilds.size} Servers @bearserver@ `);
+    console.log(`----------------`);
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`type ._.help`,"https://www.twitch.tv/Mdax77xR1")
+client.user.setStatus("dnd")
+ 
+});
 
 
 
@@ -4636,5 +4668,4 @@ client.on('message', message => {
           if (err) console.log(err.message);
       });
  });
-
 client.login(process.env.BOT_TOKEN)
