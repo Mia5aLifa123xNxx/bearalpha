@@ -2568,11 +2568,12 @@ client.on('messageUpdate', (oldRebel, newRebel) => {
            newRebel.author.send("ممنوع روآبط الدسكورد. \n إذآ كنت تريد النشر توآصل من الإدآرة.");
     }
 });
+
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 var Canvas = require('canvas');// npm i canvas
 var jimp = require('jimp');// npm i jimp 
-const fs = require("fs");// npm i fs
+const fs = require('fs');// npm i fs
 
       bot.on('guildMemberAdd', member => {
       const welcomer =  member.guild.channels.find('name', 'welcome👋');
