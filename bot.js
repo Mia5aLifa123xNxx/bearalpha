@@ -62,12 +62,12 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
     let pages = [`**
         ***__General orders__***
 **
-._.allbots/لعرض جميع البوتات الي بالسيرفر
+```._.allbots/لعرض جميع البوتات الي بالسيرفر
 ._.server/يعرض لك معلومات عن السيرفر
 ._.bot/يعرض لك كل معلومات البوت
 ._.count/يعرض لك عدد الاشخاص بالسيرفر بدون بوتات
-._.invites/ يعرض لك  عدد انفايتاتك بالسيرفر 
-._.invinfo <invitelink here> / لمعلومات عن الدعوه
+._.invites/يعرض لك  عدد انفايتاتك بالسيرفر
+._.invinfo <invitelink here> /لمعلومات عن الدعوه
  مثال : invinfo m82n8P
 ._.invite-codes/يعرض لك روابط الانفايتات حكك في السيرفر 
 ._.cal/اله حاسبة
@@ -91,13 +91,13 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
 ._.inv/لدعوة البوت الى سيرفرك
 ._.support/سيرفر الدعم
 ._.contact/ارسال اقتراح او لمراسلة صاحب البوت
-._.mcskin/يظهرلك سكينك
+._.mcskin/يظهرلك سكينك ```
 **
   `
 ,`
         ***__Administrative Orders__***
 **
-._.move @user /  لسحب الشخص الى روومك
+``` ._.move @user /  لسحب الشخص الى روومك
 ._.bc / رسالة جماعية الى كل اعضاء السيرفر
 ._.bk / رسالة جماعيه مع
 ._.rolebc <everyone or @role> / راسال رساله جماعيه لرتبه محدده
@@ -124,12 +124,12 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
 ._.delet <name> / مسح الشات او الرووم فويس
 ._.make <number> / ينشا لك الوان مع كم الوان تبي
 ._.color <number> / لختيار لون
-._.deletecolors <number> / لحذف الالوان
+._.deletecolors <number> /لحذف الالوان ```
 **
    `,`
         ***__Games orders__***
  **       
-._.rps / حجر ورقة مقص
+``` ._.rps / حجر ورقة مقص
 ._.speed / اسرع كتابة
 ._.quas / اسئلة عامة
 ._.نكت / نكت 
@@ -139,11 +139,11 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
 ._.لو خيروك بطريقة حلوة / لو خيروك
 ._.لعبة مريم / مريم
 ._.فوائد ونصائح  / هل تعلم
-._.يعطيك عقابات قاسية / عقاب 
+._.يعطيك عقابات قاسية / عقاب ``` 
 =.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.
 welcome يتم الترحيب فى روم باسم
-._.setwelcomer <text channel name> لاختيار روم للترحيب
-._.voiceonline / لتفعيل روم الفويس اونلاين
+._.setwelcomer <text channel name>/لاختيار روم للترحيب
+._.voiceonline/لتفعيل روم الفويس اونلاين
 **
 `]
     let page = 1;
