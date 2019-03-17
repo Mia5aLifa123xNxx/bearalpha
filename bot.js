@@ -4440,12 +4440,12 @@ ${data}`+"```")
 }
 
 })}});
+
 const Discord = require('discord.js');
 const logger = require('winston'); //NOURELDIEN ALPHACODES
 const connect4 = require('./connect4/connect4.js');
-//NOURELDIEN ALPHACODES
 const runningGames = new Map(); //NOURELDIEN ALPHACODES 
-// Configure logger settings
+
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
     colorize: true
@@ -4568,8 +4568,6 @@ bot.on('message', (message) => {
                 message.channel.send(`:fire: **${message.author}** VS **NourBot** :fire:`)
                 playTheGame(message);
                 createMessageAndCollector(message);
-                ///////////////////////////////////////////
-               /* 
                 theMsgWeWorkWith = message.channel.send('Play')
                 .then(function(msg){
                     msg.react('\u0031\u20E3').then(() => {
@@ -4602,8 +4600,7 @@ bot.on('message', (message) => {
                     collector.on('end', function(collected, reason){
                   
                     });
-                });*/
-                ////////////////////////////////////////
+                });
             break; //NOURELDIEN ALPHACODES //NOURELDIEN ALPHACODES //NOURELDIEN ALPHACODES //NOURELDIEN ALPHACODES //NOURELDIEN ALPHACODES
             case 'c4play':
                 console.log(runningGames.get(message.author.id));
