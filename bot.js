@@ -2569,17 +2569,13 @@ client.on('messageUpdate', (oldRebel, newRebel) => {
     }
 });
 
-const Discord = require("discord.js");
-const bot = new Discord.Client();
 var Canvas = require('canvas');// npm i canvas
 var jimp = require('jimp');// npm i jimp 
-const fs = require('fs');// npm i fs
 
-      bot.on('guildMemberAdd', member => {
+bot.on('guildMemberAdd', member => {
       const welcomer =  member.guild.channels.find('name', 'welcome👋');
       var Canvas = require('canvas')
       var jimp = require('jimp')
-
       const w = ['./img/w1.png',
       './img/w2.png',
       './img/w3.png',
@@ -2637,9 +2633,9 @@ const fs = require('fs');// npm i fs
 
 
 
-      })
-      })
-      });
+})
+})
+});
    client.on('message',async message => {
   if(message.content.startsWith(prefix + "voiceonline")) {
   if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply(':x: **ليس لديك الصلاحيات الكافية**');
