@@ -4348,34 +4348,4 @@ m.sendMessage(args)
 })
 }
 });
-client.on('message', edward => {
-    if(!prefix) prefix = "._."
-    var commandedward = "name" // for edit command
-    if(edward.content.startsWith(prefix + commandedward)) {
-        if(!edward.channel.guild) return;
-        let argsedward = edward.content.split(" ").slice(1).join(" ")
-     if(!argsedward) return edward.channel.send(`**Hey There , Type SomeThing to ASCII** 🌦.`)
-figlet(argsedward, function(err, data) {
-    if(err) {
-        edward.channel.send("```html"+`
-${err}`+"```")
-    }
-    var edwardhere = ""
-    let edwardem = new Discord.RichEmbed()
-    .setColor(edward.member.displayHexColor || "36393e")
-    .setAuthor(`${commandedward} Service;`,edward.author.avatarURL || edward.author.defaultAvatarURL)
-    .setDescription("|| ------------------------------------------------------------------- ||```html"+`
-${data} ${edwardhere}`+"```")
-.setThumbnail(edward.guild.iconURL || edward.author.avatarURL || edward.author.defaultAvatarURL)
-.setTimestamp()
-.setFooter(client.user.username,client.user.avatarURL || client.user.defaultAvatarURL)
-if(argsedward.length <= 6){
-    edward.channel.send(edwardem)
-}
-if(argsedward.length >= 7){
-    edward.channel.send("```html"+`
-${data}`+"```")
-}
-
-})}});
 client.login(process.env.BOT_TOKEN)
