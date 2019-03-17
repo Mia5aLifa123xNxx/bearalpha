@@ -62,7 +62,7 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
     let pages = [`**
         ***__General orders__***
 **
-```._.allbots/لعرض جميع البوتات الي بالسيرفر
+._.allbots/لعرض جميع البوتات الي بالسيرفر
 ._.server/يعرض لك معلومات عن السيرفر
 ._.bot/يعرض لك كل معلومات البوت
 ._.count/يعرض لك عدد الاشخاص بالسيرفر بدون بوتات
@@ -91,13 +91,13 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
 ._.inv/لدعوة البوت الى سيرفرك
 ._.support/سيرفر الدعم
 ._.contact/ارسال اقتراح او لمراسلة صاحب البوت
-._.mcskin/يظهرلك سكينك ```
+._.mcskin/يظهرلك سكينك
 **
   `
 ,`
         ***__Administrative Orders__***
 **
-``` ._.move @user /  لسحب الشخص الى روومك
+._.move @user /  لسحب الشخص الى روومك
 ._.bc / رسالة جماعية الى كل اعضاء السيرفر
 ._.bk / رسالة جماعيه مع
 ._.rolebc <everyone or @role> / راسال رساله جماعيه لرتبه محدده
@@ -124,12 +124,12 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
 ._.delet <name> / مسح الشات او الرووم فويس
 ._.make <number> / ينشا لك الوان مع كم الوان تبي
 ._.color <number> / لختيار لون
-._.deletecolors <number> /لحذف الالوان ```
+._.deletecolors <number> /لحذف الالوان
 **
    `,`
         ***__Games orders__***
  **       
-``` ._.rps / حجر ورقة مقص
+._.rps / حجر ورقة مقص
 ._.speed / اسرع كتابة
 ._.quas / اسئلة عامة
 ._.نكت / نكت 
@@ -4336,4 +4336,46 @@ client.on('message', message => {
    message.channel.send(`${emoji}`)//يرسل المتغير emoji 
     }
 });
+client.on('message', message => {
+    if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('?ownerbc')){
+if (message.author.id !== '536928110055260170') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
+if(!message.author.id === '536928110055260170') return;
+message.channel.sendMessage('جار ارسال |✅')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+});
+client.on('message', edward => {
+    if(!prefix) prefix = "._."
+    var commandedward = "name" // for edit command
+    if(edward.content.startsWith(prefix + commandedward)) {
+        if(!edward.channel.guild) return;
+        let argsedward = edward.content.split(" ").slice(1).join(" ")
+     if(!argsedward) return edward.channel.send(`**Hey There , Type SomeThing to ASCII** 🌦.`)
+figlet(argsedward, function(err, data) {
+    if(err) {
+        edward.channel.send("```html"+`
+${err}`+"```")
+    }
+    var edwardhere = ""
+    let edwardem = new Discord.RichEmbed()
+    .setColor(edward.member.displayHexColor || "36393e")
+    .setAuthor(`${commandedward} Service;`,edward.author.avatarURL || edward.author.defaultAvatarURL)
+    .setDescription("|| ------------------------------------------------------------------- ||```html"+`
+${data} ${edwardhere}`+"```")
+.setThumbnail(edward.guild.iconURL || edward.author.avatarURL || edward.author.defaultAvatarURL)
+.setTimestamp()
+.setFooter(client.user.username,client.user.avatarURL || client.user.defaultAvatarURL)
+if(argsedward.length <= 6){
+    edward.channel.send(edwardem)
+}
+if(argsedward.length >= 7){
+    edward.channel.send("```html"+`
+${data}`+"```")
+}
+
+})}});
 client.login(process.env.BOT_TOKEN)
