@@ -4441,11 +4441,11 @@ ${data}`+"```")
 
 })}});
 client.on('message', message => {
-    var prefix = '§';//هنا البريفيكس
-    if (message.content.startsWith(prefix + 'reject')) {//هنا الأمر
+    var prefix = '._.';//هنا البريفيكس
+    if (message.content.startsWith(prefix + 'no')) {//هنا الأمر
         if (message.author.bot) return;
         if (!message.guild) return;
-        let Room = message.guild.channels.find(`name`, 'accept-denied');
+        let Room = message.guild.channels.find(`name`, 'التقديمات');
         let user = message.mentions.users.first();
         let embedreject = new Discord.RichEmbed()/
         .setColor('RANDOM')//
@@ -4455,13 +4455,12 @@ client.on('message', message => {
         Room.sendEmbed(embedreject);
     }
 });
- 
 client.on('message', message => {
     var prefix = '._.';
-    if (message.content.startsWith(prefix + 'تقديم')) {
+    if (message.content.startsWith(prefix + 'yes')) {
         if (message.author.bot) return;
         if (!message.guild) return;
-        let Room = message.guild.channels.find(`name`, 'التقديمات');//هنا ضع إسم الروم
+        let Room = message.guild.channels.find(`name`,'التقديمات');
         let user = message.mentions.users.first();
         let embedreject = new Discord.RichEmbed()
         .setColor('RANDOM')
@@ -4470,5 +4469,5 @@ client.on('message', message => {
         .setThumbnail(message.author.avatarURL)
         Room.sendEmbed(embedreject);
     }
-});//By MrX_Dev && EditeD By LionDev_Dz
+});
 client.login(process.env.BOT_TOKEN)
