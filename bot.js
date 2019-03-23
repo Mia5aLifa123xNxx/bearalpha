@@ -4440,34 +4440,4 @@ ${data}`+"```")
 }
 
 })}});
-client.on('message', message => {
-    var prefix = '._.';//هنا البريفيكس
-    if (message.content.startsWith(prefix + 'no')) {//هنا الأمر
-        if (message.author.bot) return;
-        if (!message.guild) return;
-        let Room = message.guild.channels.find(`name`, 'التقديمات');
-        let user = message.mentions.users.first();
-        let embedreject = new Discord.RichEmbed()/
-        .setColor('RANDOM')//
-        .setAuthor(user.username,user.avatarURL)
-        .setTitle('» `لم يتم قبولك كإداري` :x: ')//هنا تقدر تغير الكلام حق الرسالة
-        .setThumbnail(message.author.avatarURL)
-        Room.sendEmbed(embedreject);
-    }
-});
-client.on('message', message => {
-    var prefix = '._.';
-    if (message.content.startsWith(prefix + 'yes')) {
-        if (message.author.bot) return;
-        if (!message.guild) return;
-        let Room = message.guild.channels.find(`name`,'التقديمات');
-        let user = message.mentions.users.first();
-        let embedreject = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setAuthor(user.username,user.avatarURL)
-        .setTitle('» `تم قبولك كإداري` :white_check_mark:  ')
-        .setThumbnail(message.author.avatarURL)
-        Room.sendEmbed(embedreject);
-    }
-});
 client.login(process.env.BOT_TOKEN)
