@@ -4491,7 +4491,7 @@ client.on("message", (message) => {
             message.reply("** There is a sweetie online ** | ❌");
             return {};
         }
-        message.guild.createChannel(`sweetie online: [${message.guild.members.filter(member => member.voiceChannel).size}]`, "voice").then(channel => {
+        message.guild.createChannel(`⟫『Voice Online ${message.guild.members.filter(member => member.voiceChannel).size}』⟪`, "voice").then(channel => {
             channel.setPosition(1);
             channel.overwritePermissions(message.guild.id, {
                 CONNECT: false
