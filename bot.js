@@ -4440,4 +4440,34 @@ ${data}`+"```")
 }
 
 })}});
+client.on('message', message => {
+    if(message.content.startsWith(prefix + 'ip')) {
+   const args = message.content.split(" ")
+   const ip = args[1]
+   const port = args[2]
+      if(!ip) return message.channel.send("** Write Server IP **");
+      if(!port){
+          let embed = new Discord.RichEmbed()
+          .setColor('#642EFE')
+          .setThumbnail(`https://api.minetools.eu/favicon/${ip}/25565`) 
+          .addField("📜 Server NIP",`${ip}`,true)
+          .addField("🌐 Server Port",`No PorT`)
+          .setImage(`http://status.mclive.eu/${ip}/${ip}/25565/banner.png`) 
+          .setFooter(`BearAlpha`)
+          .setTimestamp()
+      message.channel.send(embed)
+      }
+      if(port){
+          let rembed = new Discord.RichEmbed()
+          .setColor('#642EFE')
+          .setThumbnail(`https://api.minetools.eu/favicon/${ip}/${port}`) 
+          .addField("📜 Server NIP",`${ip}`,true)
+          .addField("🌐 Server Port",`${port}`, true)
+          .setImage(`http://status.mclive.eu/${ip}/${ip}/${port}/banner.png`) 
+          .setFooter(`KingBoT`)
+                  .setTimestamp()
+      message.channel.send(rembed)
+      }
+      
+  }})
 client.login(process.env.BOT_TOKEN)
