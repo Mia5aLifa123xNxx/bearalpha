@@ -4502,7 +4502,7 @@ client.on("message", (message) => {
         break;
     }
 })
-.on("ready", () => {
+client.on("ready", () => {
     client.guilds.forEach(guild => {
         var channel = guild.channels.find(channel => channel.name.includes("Voice Online"))
         if (channel) {
@@ -4510,11 +4510,11 @@ client.on("message", (message) => {
         }
     })
 })
-.on("voiceStateUpdate", (oldMember, newMember) => {
+client.on("voiceStateUpdate", (oldMember, newMember) => {
     newMember.guild.channels.forEach(channel => {
         if (data[channel.id]) {
             channel.edit({
-                name: ` ⟫『Voice Online ${channel.guild.members.filter(member => member.voiceChannel).size}』⟪`
+                name: `⟫『Voice Online ${channel.guild.members.filter(member => member.voiceChannel).size}』⟪`
             });
         }
     });
