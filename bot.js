@@ -2622,7 +2622,7 @@ hours = hours - 12;
 if (hours == 0) {
 hours = 12;
 }
-const w = ['./m.png'];
+const w = ['./9.png'];
               let Image = Canvas.Image,
                   canvas = new Canvas(557, 241),
                   ctx = canvas.getContext('2d');
