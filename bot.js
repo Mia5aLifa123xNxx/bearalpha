@@ -4391,7 +4391,6 @@ client.on('message', message => {
   }})
 
 var data = {};
-
 client.on("message", (message) => {
     if (message.author.bot) return;
     if (!prefix) {
