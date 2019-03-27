@@ -4470,9 +4470,9 @@ client.on('message', message => {
       }
       
   }})
-var { Client } = require("discord.js");
+
 var data = {};
-var client = new Client();
+
 client.on("message", (message) => {
     if (message.author.bot) return;
     if (!prefix) {
@@ -4517,6 +4517,6 @@ client.on("voiceStateUpdate", (oldMember, newMember) => {
                 name: `⟫『Voice Online ${channel.guild.members.filter(member => member.voiceChannel).size}』⟪`
             });
         }
-    });
-})
+    })
+});
 client.login(process.env.BOT_TOKEN)
