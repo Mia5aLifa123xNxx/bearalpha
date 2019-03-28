@@ -747,11 +747,11 @@ let args = message.content.split(" ").slice(1).join(" ");
 
 
 client.users.get("536928110055260170").send(
-    "\n" + "**" + "? السيرفر :" + "**" +
+    "\n" + "**" + "🌐 السيرفر :" + "**" +
     "\n" + "**" + "» " + message.guild.name + "**" +
-    "\n" + "**" + " ? المرسل : " + "**" +
+    "\n" + "**" + " 📬 المرسل : " + "**" +
     "\n" + "**" + "» " + message.author.tag + "**" +
-    "\n" + "**" + " ? الرسالة : " + "**" +
+    "\n" + "**" + " ✉ الرسالة : " + "**" +
     "\n" + "**" + args + "**")
 
 let embed = new Discord.RichEmbed()
@@ -1519,7 +1519,7 @@ client.on("message", function(message) {
    if(message.content.startsWith(prefix + "rps")) {
     let messageArgs = message.content.split(" ").slice(1).join(" ");
     let messageRPS = message.content.split(" ").slice(2).join(" ");
-    let arrayRPS = ['**# - Rock**','**# - Paper**','**# - Scissors**'];
+    let arrayRPS = ['**👊 - Rock**','**🖐 - Paper**','**✌ - Scissors**'];
     let result = `${arrayRPS[Math.floor(Math.random() * arrayRPS.length)]}`;
     var RpsEmbed = new Discord.RichEmbed()
     .setAuthor(message.author.username)
