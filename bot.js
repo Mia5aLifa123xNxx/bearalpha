@@ -3455,7 +3455,7 @@ client.on('guildMemberRemove', member => {
     client.channels.get('551159758292254761').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
 });
 client.on('message', async message => {//alpha codes & Mrx -Dev
-                    if (message.content.startsWith(prefix + 'cr')) {//alpha codes & Mrx -Dev
+                    if (message.content.startsWith(prefix + 'rc')) {//alpha codes & Mrx -Dev
                         let args = message.content.split(' ').slice(1);//alpha codes & Mrx -Dev
                         if (!args) return message.reply('Type Name Role') //alpha codes & Mrx -Dev
                         if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
@@ -4437,5 +4437,18 @@ client.on("voiceStateUpdate", (oldMember, newMember) => {
             });
         }
     })
+});
+client.on("message", message => {
+
+            if (message.content.startsWith(prefix + "bcm")) {
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); 
+  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'all').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     
 });
 client.login(process.env.BOT_TOKEN)
