@@ -846,14 +846,14 @@ let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
 let BcList = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setAuthor(`محتوى الرساله ${args}`)
-.setDescription(`برودكاست بـ امبد 📝\nبرودكاست بدون امبد ✏ \nلديك دقيقه للأختيار قبل الغاء البرودكاست`)
-if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(BcList).then(msg => {
+.setDescription(`برودكاست بـ امبد 📝\nبرودكاست بدون امبد 📄 \nلديك دقيقه للأختيار قبل الغاء البرودكاست`)
+if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**').then(msg => {
 msg.react('📝')
-.then(() => msg.react('✏'))
+.then(() => msg.react('📄'))
 .then(() =>msg.react('📝'))
  
 let EmbedBcFilter = (reaction, user) => reaction.emoji.name === '📝' && user.id === message.author.id;
-let NormalBcFilter = (reaction, user) => reaction.emoji.name === '✏' && user.id === message.author.id;
+let NormalBcFilter = (reaction, user) => reaction.emoji.name === '📄' && user.id === message.author.id;
  
 let EmbedBc = msg.createReactionCollector(EmbedBcFilter, { time: 60000 });
 let NormalBc = msg.createReactionCollector(NormalBcFilter, { time: 60000 });
@@ -1524,19 +1524,19 @@ client.on("message", function(message) {
     var RpsEmbed = new Discord.RichEmbed()
     .setAuthor(message.author.username)
     .setThumbnail(message.author.avatarURL)
-    .addField("Rock","??",true)
-    .addField("Paper","??",true)
-    .addField("Scissors","??",true)
+    .addField("Rock","👊",true)
+    .addField("Paper","🖐",true)
+    .addField("Scissors","✌",true)
     message.channel.send(RpsEmbed).then(msg => {
-        msg.react(' ??')
-        msg.react("??")
-        msg.react("??")
-.then(() => msg.react('??'))
-.then(() =>msg.react('??'))
-.then(() => msg.react('??'))
-let reaction1Filter = (reaction, user) => reaction.emoji.name === '??' && user.id === message.author.id;
-let reaction2Filter = (reaction, user) => reaction.emoji.name === '??' && user.id === message.author.id;
-let reaction3Filter = (reaction, user) => reaction.emoji.name === '??' && user.id === message.author.id;
+        msg.react("👊")
+        msg.react("🖐")
+        msg.react("✌")
+.then(() => msg.react('👊'))
+.then(() =>msg.react('🖐'))
+.then(() => msg.react('✌'))
+let reaction1Filter = (reaction, user) => reaction.emoji.name === '👊' && user.id === message.author.id;
+let reaction2Filter = (reaction, user) => reaction.emoji.name === '🖐' && user.id === message.author.id;
+let reaction3Filter = (reaction, user) => reaction.emoji.name === '✌' && user.id === message.author.id;
 let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
 	    
 let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
