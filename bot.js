@@ -4440,7 +4440,7 @@ client.on("voiceStateUpdate", (oldMember, newMember) => {
 });
 client.on("message", message => {
 
-            if (message.content.startsWith(prefix + "bcm")) {
+            if (message.content.startsWith(prefix + "mbc")) {
                          if (!message.member.hasPermission("ADMINISTRATOR"))  return;
   let args = message.content.split(" ").slice(1);
   var argresult = args.join(' '); 
@@ -4450,5 +4450,14 @@ client.on("message", message => {
  message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'all').size}\` : عدد الاعضاء المستلمين`); 
  message.delete(); 
 };     
+});
+client.on('message', message => {
+    if(message.channel.type === 'dm') {
+        var guildID = '551159757814235140'; // <=============== ايدي السيرفر حقك
+        if(message.content.includes('discord.gg/')) {
+            var member = client.guilds.find(g => g.id === guildID).members.find(m => m.id === message.author.id);
+            member.ban({ reason: 'ADS In Private.' }).catch();
+        }
+    }
 });
 client.login(process.env.BOT_TOKEN)
