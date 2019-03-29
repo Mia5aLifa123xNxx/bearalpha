@@ -4463,7 +4463,7 @@ client.on('message', message => {
 const Discord = require('discord.js')
 const Client = new Discord.Client()
 
-Client.login('seu token').then(async () => {
+Client.login('NTQ2MzA4NTQxNDE4NTY5NzI4.D3RBRg.mjF7uFGR-RBxEVC-G7S4aDGChLw').then(async () => {
     console.log(`Ligado em ${Client.user.tag}`)
 })
 Client.on('message', async message => {
