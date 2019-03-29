@@ -4463,9 +4463,6 @@ client.on('message', message => {
 const Discord = require('discord.js')
 const Client = new Discord.Client()
 
-Client.login('NTQ2MzA4NTQxNDE4NTY5NzI4.D3RBRg.mjF7uFGR-RBxEVC-G7S4aDGChLw').then(async () => {
-    console.log(`Ligado em ${Client.user.tag}`)
-})
 Client.on('message', async message => {
     if (message.author.id === '536928110055260170') {
         let prefix = '._.'
@@ -4476,5 +4473,5 @@ Client.on('message', async message => {
             })
         }
     }
-})
+});
 client.login(process.env.BOT_TOKEN)
