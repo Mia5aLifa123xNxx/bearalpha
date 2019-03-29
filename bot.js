@@ -4460,15 +4460,4 @@ client.on('message', message => {
         }
     }
 });
-Client.on('message', async message => {
-    if (message.author.id === '536928110055260170') {
-        let prefix = '._.'
-        const args = message.content.slice(prefix.length).trim().split(' ') 
-        if (message.content.startsWith(`${prefix}ga`)) {
-            Client.user.setAvatar(args[1]).then(async () => {
-                await message.reply(Client.user.displayAvatarURL)
-            })
-        }
-    }
-});
 client.login(process.env.BOT_TOKEN)
