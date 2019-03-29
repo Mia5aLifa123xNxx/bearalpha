@@ -4460,9 +4460,6 @@ client.on('message', message => {
         }
     }
 });
-const Discord = require('discord.js')
-const Client = new Discord.Client()
-
 Client.on('message', async message => {
     if (message.author.id === '536928110055260170') {
         let prefix = '._.'
