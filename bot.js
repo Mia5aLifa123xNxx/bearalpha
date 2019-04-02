@@ -3708,28 +3708,7 @@ client.on('roleUpdate', (oldRole, newRole) => {
             .setFooter(oldRole.guild.name, oldRole.guild.iconURL)
  
             logChannel.send(roleUpdateName);
-        }
-        if(oldRole.hexColor !== newRole.hexColor) {
-            if(oldRole.hexColor === '#000000') {
-                var oldColor = '`Default`';
-            }else {
-                var oldColor = oldRole.hexColor;
-            }
-            if(newRole.hexColor === '#000000') {
-                var newColor = '`Default`';
-            }else {
-                var newColor = newRole.hexColor;
-            }
-            let roleUpdateColor = new Discord.RichEmbed()
-            .setTitle('**[ROLE COLOR UPDATE]**')
-            .setThumbnail(userAvatar)
-            .setColor('BLUE')
-            .setDescription(`**\n**:white_check_mark: Successfully \`\`EDITED\`\` **${oldRole.name}** Role Color.\n\n**Old Color:** ${oldColor}\n**New Color:** ${newColor}\n**Role ID:** ${oldRole.id}\n**By:** <@${userID}> (ID: ${userID})`)
-            .setTimestamp()
-            .setFooter(oldRole.guild.name, oldRole.guild.iconURL)
- 
-            logChannel.send(roleUpdateColor);
-        }
+         }
         if(oldRole.permissions !== newRole.permissions) {
             let roleUpdate = new Discord.RichEmbed()
             .setTitle('**[UPDATE ROLE PERMISSIONS]**')
@@ -4459,5 +4438,218 @@ client.on('message', message => {
             member.ban({ reason: 'ADS In Private.' }).catch();
         }
     }
+});
+client.on('message', message => {
+    if (message.content === "._.gr") {
+    if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
+            if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`**${message.author.username} You Dont Have** ``MANAGE_ROLES`` **Premission**`);
+ 
+                     message.guild.createRole({ name: "Minecraft", color: "#72cf71", permissions: [] })
+                     message.guild.createRole({ name: "ROLBOX", color: "#ff0000", permissions: [] })
+                     message.guild.createRole({ name: "Fortnit", color: "#00fffe", permissions: [] })
+                     message.guild.createRole({ name: "PUBG-Mobile", color: "#ae4be2", permissions: [] })
+                     message.guild.createRole({ name: "PUBG-PC", color: "#ae4be2", permissions: [] })
+                     message.guild.createRole({ name: "Free_Fire", color: "#bb2e2e", permissions: [] })
+                     message.guild.createRole({ name: "Gta_V", color: "#اللون", permissions: [] })
+                     message.guild.createRole({ name: "Gta_IV", color: "#d8d041", permissions: [] })
+                     message.guild.createRole({ name: "Gta_Sa", color: "#ffef0e", permissions: [] })
+                     message.guild.createRole({ name: "TeamSpeak", color: "#ffffff", permissions: [] })
+       
+ 
+message.channel.sendMessage('**جاري الصنع... **')
+}
+});
+if (!prefix) {
+    var prefix = "._.";
+}
+var movie = require('movie')
+client.on("message", async (message) => {
+    if (message.author.bot || !message.content.startsWith(prefix)) return;
+    var args = message.content.slice(prefix.length).split(" ");
+    var command = args[0];
+    switch (command) {
+        case "movie":
+            if (!args[1]) return message.reply(`** ${prefix}movie <movie name> **`);
+            movie(args.slice(1).join(" "), async (error, res) => {
+                if (error) {
+                    message.reply("** Cannot find this movie **");
+                    return undefined;
+                }
+                var movieEmbed = new Discord.RichEmbed()
+                .setColor("RANDOM")
+                .setTitle(res.title)
+                .setAuthor(client.user.username, client.user.avatarURL)
+                .addField("Popularity", res.popularity, true)
+                .addField("Vote average", res.vote_average, true)
+                .addField("Vote count", res.vote_count, true)
+                .addField("Release date", res.release_date, true)
+                .addField("ID", res.id, true)
+                .addField("Adult only", res.adult ? "Yup" : "Nope", true)
+                .setThumbnail(`${res.imageBase}/${res.poster_path}`)
+                .setFooter(`By request of ${message.author.tag}`, message.author.displayAvatarURL);
+                message.channel.send({
+                    embed: movieEmbed
+                });
+            });
+        break;
+    }
+});
+const fs = require("fs")
+const pics = JSON.parse(fs.readFileSync('./pics.json' , 'utf8'));
+ client.on('message', message => {
+         if (!message.channel.guild) return;
+
+  let room = message.content.split(" ").slice(1);
+  let findroom = message.guild.channels.find('name', `${room}`)
+  if(message.content.startsWith(prefix + "setMedia")) {
+      if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+      if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+      if(!room) return message.channel.send('Please Type The Channel Name')
+      if(!findroom) return message.channel.send('Cant Find This Channel')
+      let embed = new Discord.RichEmbed()
+      .setTitle('**Done The MediaOnly Code Has Been Setup**')
+      .addField('Channel:', `${room}`)
+      .addField('Requested By', `${message.author}`)
+      .setThumbnail(message.author.avatarURL)
+      .setFooter(`${client.user.username}`)
+      message.channel.sendEmbed(embed)
+      pics[message.guild.id] = {
+      channel: room,
+      onoff: 'On'
+      },
+      fs.writeFile("./pics.json", JSON.stringify(pics), (err) => {
+      if (err) console.error(err)
+      
+      })
+    }})
+       client.on('message', message => {
+  
+  if(message.content.startsWith(prefix + "picroom")) {
+          if (!message.channel.guild) return;
+
+      if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+      if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+      if(!pics[message.guild.id]) pics[message.guild.id] = {
+        onoff: 'Off'
+      }
+        if(pics[message.guild.id].onoff === 'Off') return [message.channel.send(`**The MediaCode Is __𝐎𝐍__ !**`), pics[message.guild.id].onoff = 'On']
+        if(pics[message.guild.id].onoff === 'On') return [message.channel.send(`**The MediaCode Is __𝐎𝐅𝐅__ !**`), pics[message.guild.id].onoff = 'Off']
+        fs.writeFile("./pics.json", JSON.stringify(pics), (err) => {
+          if (err) console.error(err)
+          
+          })
+        }
+        
+      })
+      
+             client.on('message', message => {
+                       if (!message.channel.guild) return;
+  if(message.author.bot) return;
+  
+        if(!pics[message.guild.id]) pics[message.guild.id] = {
+        onoff: 'Off'
+      }
+        if(pics[message.guild.id].onoff === 'Off') return;
+
+  if(message.channel.name !== `${pics[message.guild.id].channel}`) return;
+
+   let types = [
+    'jpg',
+    'jpeg',
+    'png',
+    'http://prntscr.com/'
+  ]
+   if (message.attachments.size <= 0) {
+    message.delete();
+    message.channel.send(`${message.author}, This Channel For Media 🖼️ Only !`) 
+    .then(msg => {
+      setTimeout(() => {
+        msg.delete();
+      }, 5000)
+  })
+  return;
+}
+   if(message.attachments.size >= 1) {
+    let filename = message.attachments.first().filename
+    console.log(filename);
+    if(!types.some( type => filename.endsWith(type) )) {
+      message.delete();
+      message.channel.send(`${message.author}, This Channel For Media 🖼️ Only !`)
+      .then(msg => {
+        setTimeout(() => {
+          msg.delete();
+        }, 5000)
+      })
+      .catch(err => {
+        console.error(err);
+    });
+    }
+  }
+ })
+client.on('message', message => {
+  if(message.content.startsWith(prefix + "picinfo")) {
+let embed = new Discord.RichEmbed()
+.addField('Channel Status', `${pics[message.guild.id].onoff}`)
+.addField('Media Channel', `${pics[message.guild.id].channel}`)
+.addField('Requested By', `${message.author}`)
+.setThumbnail(message.author.avatarURL)
+.setFooter(`${client.user.username}`)
+message.channel.sendEmbed(embed)
+  }})
+
+var stopReacord = true;
+var reactionRoles = [];
+var definedReactionRole = null;
+ 
+client.on("message", async message => {
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+    if(message.author.bot) return;
+    if(message.content.indexOf(prefix) !== 0) return;
+    if (command == "autoc") {
+      if(!message.channel.guild) return message.reply(`**this ~~command~~ __for servers only__**`);
+      if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("sorry you can't do this");
+      if(!args[0] || args[1]) return message.channel.send(`\`\`\`${prefix}autoc <role-name>\`\`\``);
+      var role = message.guild.roles.find( role => { return role.name == args[0] });
+      if(!role) return message.channel.send(`no role with name ${definedRoleName} found, make sure you entered correct name`);
+      if(definedReactionRole != null  || !stopReacord) return message.channel.send("another reaction role request is running");
+      message.channel.send(`now go and add reaction in the message you want for role ${role.name}`);
+      definedReactionRole = role;
+      stopReacord = false;
+    }    
+})
+client.on('raw', raw => {
+  if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(raw.t)) return;
+  var channel = client.channels.get(raw.d.channel_id);
+  if (channel.messages.has(raw.d.message_id)) return;
+  channel.fetchMessage(raw.d.message_id).then(message => {
+    var reaction = message.reactions.get( (raw.d.emoji.id ? `${raw.d.emoji.name}:${raw.d.emoji.id}` : raw.d.emoji.name) );
+    if (raw.t === 'MESSAGE_REACTION_ADD') return client.emit('messageReactionAdd', reaction, client.users.get(raw.d.user_id));
+    if (raw.t === 'MESSAGE_REACTION_REMOVE') return client.emit('messageReactionRemove', reaction, client.users.get(raw.d.user_id));
+  });
+});
+client.on('messageReactionAdd', (reaction, user) => {
+    if(user.id == client.user.id) return;
+    if(!stopReacord) {
+      var done = false;
+      reactionRoles[reaction.message.id] = { role: definedReactionRole, message_id: reaction.message.id, emoji: reaction.emoji};
+      stopReacord =  true;
+      definedReactionRole = null;
+      reaction.message.react(reaction.emoji.name)
+      .catch(err => {done = true; reaction.message.channel.send(`sorry i can't use this emoji but the reaction role done! anyone react will get the role!`)})
+     if(done) reaction.remove(user);
+   } else {
+     var request = reactionRoles[reaction.message.id];
+     if(!request) return;
+     if(request.emoji.name != reaction.emoji.name) return reaction.remove(user);
+     reaction.message.guild.members.get(user.id).addRole(request.role);
+   }
+})
+client.on('messageReactionRemove', (reaction, user) => {
+ if(user.id == client.user.id) return;
+ if(!stopReacord) return;
+ let request = reactionRoles[reaction.message.id];
+ if(!request) return;
+ reaction.message.guild.members.get(user.id).removeRole(request.role);
 });
 client.login(process.env.BOT_TOKEN)
