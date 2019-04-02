@@ -4459,40 +4459,6 @@ message.channel.sendMessage('**جاري الصنع... **')
 }
 });
 
-var movie = require('movie')
-
-client.on("message", async (message) => {
-    if (message.author.bot || !message.content.startsWith(prefix)) return;
-    var args = message.content.slice(prefix.length).split(" ");
-    var command = args[0];
-    switch (command) {
-        case "movie":
-            if (!args[1]) return message.reply(`** ${prefix}movie <movie name> **`);
-            movie(args.slice(1).join(" "), async (error, res) => {
-                if (error) {
-                    message.reply("** Cannot find this movie **");
-                    return undefined;
-                }
-                var movieEmbed = new Discord.RichEmbed()
-                .setColor("RANDOM")
-                .setTitle(res.title)
-                .setAuthor(client.user.username, client.user.avatarURL)
-                .addField("Popularity", res.popularity, true)
-                .addField("Vote average", res.vote_average, true)
-                .addField("Vote count", res.vote_count, true)
-                .addField("Release date", res.release_date, true)
-                .addField("ID", res.id, true)
-                .addField("Adult only", res.adult ? "Yup" : "Nope", true)
-                .setThumbnail(`${res.imageBase}/${res.poster_path}`)
-                .setFooter(`By request of ${message.author.tag}`, message.author.displayAvatarURL);
-                message.channel.send({
-                    embed: movieEmbed
-                });
-            });
-        break;
-    }
-});
-
 var stopReacord = true;
 var reactionRoles = [];
 var definedReactionRole = null;
