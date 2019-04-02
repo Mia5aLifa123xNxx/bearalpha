@@ -927,8 +927,8 @@ client.on('message', message => {
     if (message.mentions.users.size < 1) return message.reply('**ضع منشن الشخص!!**').then(msg => {msg.delete(5000)});
     let MRole = message.content.split(" ").slice(2).join(" ");
     if(!MRole)return message.reply("يجب عليك وضع اسم الرتبة").then(msg => {msg.delete(5000)});
-    message.guild.member(user).addRole(message.guild.roles.find("name", MRole));
-    message.reply('** Done ? **').then(msg => {msg.delete(10000)});
+    message.guild.member(user).addRole(message.guild.roles.find("name", Role));
+    message.reply('** Done ✅ **').then(msg => {msg.delete(10000)});
     }
     });
     client.on('message', message => { 
@@ -944,8 +944,8 @@ client.on('message', message => {
     if (message.mentions.users.size < 1) return message.reply('**ضع منشن الشخص!!**').then(msg => {msg.delete(5000)});
     let MRole = message.content.split(" ").slice(2).join(" ");
     if(!MRole)return message.reply("يجب عليك وضع اسم الرتبة").then(msg => {msg.delete(5000)});
-    message.guild.member(user).removeRole(message.guild.roles.find("name", MRole));
-    message.reply('** Done ? **').then(msg => {msg.delete(10000)});
+    message.guild.member(user).removeRole(message.guild.roles.find("name", Role));
+    message.reply('** Done ✅ **').then(msg => {msg.delete(10000)});
     }
     });
     client.on('message', message => {
@@ -4309,36 +4309,6 @@ m.sendMessage(args)
 })
 }
 });
-client.on('message', edward => {
-    if(!prefix) prefix = "._."
-    var commandedward = "name" // for edit command
-    if(edward.content.startsWith(prefix + commandedward)) {
-        if(!edward.channel.guild) return;
-        let argsedward = edward.content.split(" ").slice(1).join(" ")
-     if(!argsedward) return edward.channel.send(`**Hey There , Type SomeThing to ASCII** 🌦.`)
-figlet(argsedward, function(err, data) {
-    if(err) {
-        edward.channel.send("```html"+`
-${err}`+"```")
-    }
-    var edwardhere = ""
-    let edwardem = new Discord.RichEmbed()
-    .setColor(edward.member.displayHexColor || "36393e")
-    .setAuthor(`${commandedward} Service;`,edward.author.avatarURL || edward.author.defaultAvatarURL)
-    .setDescription("|| ------------------------------------------------------------------- ||```html"+`
-${data} ${edwardhere}`+"```")
-.setThumbnail(edward.guild.iconURL || edward.author.avatarURL || edward.author.defaultAvatarURL)
-.setTimestamp()
-.setFooter(client.user.username,client.user.avatarURL || client.user.defaultAvatarURL)
-if(argsedward.length <= 6){
-    edward.channel.send(edwardem)
-}
-if(argsedward.length >= 7){
-    edward.channel.send("```html"+`
-${data}`+"```")
-}
-
-})}});
 client.on('message', message => {
     if(message.content.startsWith(prefix + 'ip')) {
    const args = message.content.split(" ")
@@ -4396,7 +4366,7 @@ client.on("message", (message) => {
             });
             data[channel.id] = true;
         });
-        message.channel.send("** Done **");
+        message.channel.send("** Done ✅ **");
         break;
     }
 })
@@ -4461,21 +4431,20 @@ message.channel.sendMessage('**جاري الصنع... **')
 
 var stopReacord = true;
 var reactionRoles = [];
-var definedReactionRole = null;
- 
+var definedReactionRole = null; 
 client.on("message", async message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     if(message.author.bot) return;
     if(message.content.indexOf(prefix) !== 0) return;
-    if (command == "autoc") {
+    if (command == "autor") {
       if(!message.channel.guild) return message.reply(`**this ~~command~~ __for servers only__**`);
       if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("sorry you can't do this");
-      if(!args[0] || args[1]) return message.channel.send(`\`\`\`${prefix}autoc <role-name>\`\`\``);
+      if(!args[0] || args[1]) return message.channel.send(`\`\`\`${prefix}autor <role-name>\`\`\``);
       var role = message.guild.roles.find( role => { return role.name == args[0] });
       if(!role) return message.channel.send(`no role with name ${definedRoleName} found, make sure you entered correct name`);
       if(definedReactionRole != null  || !stopReacord) return message.channel.send("another reaction role request is running");
-      message.channel.send(`now go and add reaction in the message you want for role ${role.name}`);
+      message.channel.send(` `` now go and add reaction in the message you want for role `` ${role.name}`);
       definedReactionRole = role;
       stopReacord = false;
     }    
@@ -4498,7 +4467,7 @@ client.on('messageReactionAdd', (reaction, user) => {
       stopReacord =  true;
       definedReactionRole = null;
       reaction.message.react(reaction.emoji.name)
-      .catch(err => {done = true; reaction.message.channel.send(`sorry i can't use this emoji but the reaction role done! anyone react will get the role!`)})
+      .catch(err => {done = true; reaction.message.channel.send(`done`)})
      if(done) reaction.remove(user);
    } else {
      var request = reactionRoles[reaction.message.id];
