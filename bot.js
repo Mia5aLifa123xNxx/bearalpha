@@ -925,8 +925,8 @@ client.on('message', message => {
     if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
     let user = message.mentions.users.first();
     if (message.mentions.users.size < 1) return message.reply('**ضع منشن الشخص!!**').then(msg => {msg.delete(5000)});
-    let MRole = message.content.split(" ").slice(2).join(" ");
-    if(!MRole)return message.reply("يجب عليك وضع اسم الرتبة").then(msg => {msg.delete(5000)});
+    let Role = message.content.split(" ").slice(2).join(" ");
+    if(!Role)return message.reply("يجب عليك وضع اسم الرتبة").then(msg => {msg.delete(5000)});
     message.guild.member(user).addRole(message.guild.roles.find("name", Role));
     message.reply('** Done ✅ **').then(msg => {msg.delete(10000)});
     }
@@ -942,8 +942,8 @@ client.on('message', message => {
     if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
     let user = message.mentions.users.first();
     if (message.mentions.users.size < 1) return message.reply('**ضع منشن الشخص!!**').then(msg => {msg.delete(5000)});
-    let MRole = message.content.split(" ").slice(2).join(" ");
-    if(!MRole)return message.reply("يجب عليك وضع اسم الرتبة").then(msg => {msg.delete(5000)});
+    let Role = message.content.split(" ").slice(2).join(" ");
+    if(!Role)return message.reply("يجب عليك وضع اسم الرتبة").then(msg => {msg.delete(5000)});
     message.guild.member(user).removeRole(message.guild.roles.find("name", Role));
     message.reply('** Done ✅ **').then(msg => {msg.delete(10000)});
     }
