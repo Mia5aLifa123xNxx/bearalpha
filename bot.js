@@ -4521,7 +4521,8 @@ const pics = JSON.parse(fs.readFileSync('./pics.json' , 'utf8'));
       if (err) console.error(err)
       
       })
-    }})
+    }
+ });
        client.on('message', message => {
   
   if(message.content.startsWith(prefix + "picroom")) {
@@ -4540,9 +4541,8 @@ const pics = JSON.parse(fs.readFileSync('./pics.json' , 'utf8'));
           })
         }
         
-      })
-      
-             client.on('message', message => {
+      });
+client.on('message', message => {
                        if (!message.channel.guild) return;
   if(message.author.bot) return;
   
@@ -4585,7 +4585,7 @@ const pics = JSON.parse(fs.readFileSync('./pics.json' , 'utf8'));
     });
     }
   }
- })
+ });
 client.on('message', message => {
   if(message.content.startsWith(prefix + "picinfo")) {
 let embed = new Discord.RichEmbed()
@@ -4595,7 +4595,7 @@ let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setFooter(`${client.user.username}`)
 message.channel.sendEmbed(embed)
-  }})
+  }});;
 
 var stopReacord = true;
 var reactionRoles = [];
@@ -4617,7 +4617,7 @@ client.on("message", async message => {
       definedReactionRole = role;
       stopReacord = false;
     }    
-})
+});
 client.on('raw', raw => {
   if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(raw.t)) return;
   var channel = client.channels.get(raw.d.channel_id);
@@ -4644,7 +4644,7 @@ client.on('messageReactionAdd', (reaction, user) => {
      if(request.emoji.name != reaction.emoji.name) return reaction.remove(user);
      reaction.message.guild.members.get(user.id).addRole(request.role);
    }
-})
+});
 client.on('messageReactionRemove', (reaction, user) => {
  if(user.id == client.user.id) return;
  if(!stopReacord) return;
