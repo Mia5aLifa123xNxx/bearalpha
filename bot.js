@@ -4458,10 +4458,9 @@ client.on('message', message => {
 message.channel.sendMessage('**جاري الصنع... **')
 }
 });
-if (!prefix) {
-    var prefix = "._.";
-}
+
 var movie = require('movie')
+
 client.on("message", async (message) => {
     if (message.author.bot || !message.content.startsWith(prefix)) return;
     var args = message.content.slice(prefix.length).split(" ");
@@ -4493,6 +4492,7 @@ client.on("message", async (message) => {
         break;
     }
 });
+
 var stopReacord = true;
 var reactionRoles = [];
 var definedReactionRole = null;
