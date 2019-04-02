@@ -4443,7 +4443,6 @@ client.on('message', message => {
     if (message.content === "._.gr") {
     if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
             if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`**${message.author.username} You Dont Have** ``MANAGE_ROLES`` **Premission**`);
- 
                      message.guild.createRole({ name: "Minecraft", color: "#72cf71", permissions: [] })
                      message.guild.createRole({ name: "ROLBOX", color: "#ff0000", permissions: [] })
                      message.guild.createRole({ name: "Fortnit", color: "#00fffe", permissions: [] })
@@ -4498,7 +4497,6 @@ const fs = require("fs")
 const pics = JSON.parse(fs.readFileSync('./pics.json' , 'utf8'));
  client.on('message', message => {
          if (!message.channel.guild) return;
-
   let room = message.content.split(" ").slice(1);
   let findroom = message.guild.channels.find('name', `${room}`)
   if(message.content.startsWith(prefix + "setMedia")) {
@@ -4523,8 +4521,7 @@ const pics = JSON.parse(fs.readFileSync('./pics.json' , 'utf8'));
       })
     }
  });
-       client.on('message', message => {
-  
+client.on('message', message => {  
   if(message.content.startsWith(prefix + "picroom")) {
           if (!message.channel.guild) return;
 
@@ -4595,7 +4592,8 @@ let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setFooter(`${client.user.username}`)
 message.channel.sendEmbed(embed)
-  }});;
+  }
+});
 
 var stopReacord = true;
 var reactionRoles = [];
