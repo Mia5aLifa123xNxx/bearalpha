@@ -4556,19 +4556,6 @@ if (message.content.startsWith(prefix + 'tpoint')) {
 }
   
 });
-client.on('guildMemberAdd', member => {
-member.guild.fetchInvites().then(guildInvites => {
-const ei = invites[member.guild.id];
-invites[member.guild.id] = guildInvites;
-const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-const inviter = client.users.get(invite.inviter.id);
-const logChannel = member.guild.channels.find(channel => channel.name === `welcome`);
-if(!logChannel) return;
-setTimeout(() => {
-logChannel.send(`Invited By: || <@${inviter.id}> ||`);
-},2000)
-})
-});
 client.on("guildMemberAdd", member => {
       if(!sWlc[member.guild.id]) sWlc[member.guild.id] = {
     channel: "welcome"
