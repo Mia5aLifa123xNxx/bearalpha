@@ -4501,7 +4501,7 @@ hastebin(`${array.slice(0, 30).join('\n')}`, 'txt').then(l => {
 }).catch(console.error);
 });
 client.on('message' , message => {
-var PREFIX = 'البرفكس';
+var PREFIX = '._.';
 if(message.content === `${PREFIX}dis         `         ) {
                       let array = [];
                       var i = 0;
