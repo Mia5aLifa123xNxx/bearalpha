@@ -4433,7 +4433,9 @@ client.on('message', async message => {//alpha codes & Mrx -Dev
             )}
             
     });
+	
 giftKeys = {};
+	
 let devs = ["359761327184674818","537356784159948816","536928110055260170"];  let devs = ["536928110055260170","537356784159948816","359761327184674818"]; 
 client.on("message", msg =>{
   let args = msg.content.split(" ").slice(1)[0];
@@ -4517,28 +4519,5 @@ let embed = new Discord.RichEmbed()
     msgs.edit(embed)
   }});
 };
-});
-const hastebin = require('hastebin-gen');
-client.on('message', message => {
-var PREFIX = '._.';
-    if(message.content.startsWith(PREFIX + 'dis')) {
-            var args = message.content.split(' ').slice(1).join(' ');
-}
-      var array = [];
-      var i = 0;
-      if(args){
-client.users.filter(u => u.discriminator == args).map(u => {
-    if(i > 4){
-     return;
-    }
-    i = i + 1;
- 
-   array.push(`${u.tag}`);
-}});
-      }
-hastebin(`${array.slice(0, 30).join('\n')}`, 'txt').then(l => {
-    message.channel.send(`${l}`);
-	.catch(console.error);
-})
 });
 client.login(process.env.BOT_TOKEN)
