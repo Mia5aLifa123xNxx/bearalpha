@@ -3233,12 +3233,12 @@ client.on('messageReactionRemove', (reaction, user) => {
 client.on('message', message => {//new msg event
 if(!message.channel.guild) return;
   if(message.content.startsWith(prefix + 'sr')) {//to create the rainbow role
-	  let role = message.guild.roles.find('name', '..')
+	  let role = message.guild.roles.find('name', ' ')
     if(role) return message.channel.send(`This Step Already Completed !`)//if the role already created return with this msg
   //start of create role 
   if(!role){
     rainbow =  message.guild.createRole({
-   name: "..",//the role will create name
+   name: " ",//the role will create name
    color: "#000000",//the default color
    permissions:[]//the permissions
  //end of create role
@@ -3251,12 +3251,12 @@ message.channel.send('Done The Rainbow Role Setup Has Been Completed')//if the s
 client.on('ready', () => {//new ready event
   setInterval(function(){
       client.guilds.forEach(g => {
-                  var role = g.roles.find('name', '..');//rainbow role name
+                  var role = g.roles.find('name', ' ');//rainbow role name
                   if (role) {
                       role.edit({color : "RANDOM"});
                   };
       });
-  }, 500);//the rainbow time
+  }, 1000);//the rainbow time
 })
 client.on("message", (message) => {
    if (message.content.startsWith("._.new")) {     
@@ -3442,7 +3442,7 @@ var prefix = "._.";//البرفكس
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
    if(!rWlc[message.guild.id]) rWlc[message.guild.id] = {
-    role: "member"
+    role: "þř - Friends"
   }
 const channel = rWlc[message.guild.id].role
   if (message.content.startsWith(prefix + "autorole")) {
@@ -3458,7 +3458,7 @@ fs.writeFile("./AutoRole.json", JSON.stringify(rWlc), function(e){
 });
 client.on("guildMemberAdd", member => {
       if(!rWlc[member.guild.id]) rWlc[member.guild.id] = {
-    role: "member"
+    role: "þř - Friends"
   }
     const sRole = rWlc[member.guild.id].role
     let Rrole = member.guild.roles.find('name', sRole);
