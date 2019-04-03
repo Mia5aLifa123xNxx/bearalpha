@@ -4534,7 +4534,7 @@ client.on('message' , message => {
     .catch(console.error);
   }
   else {
-    message.channel.send(`جرب v!xo @uesr`)
+    message.channel.send(`جرب ._.xo @uesr`)
     .then(console.log("Successful error reply"))
     .catch(console.error);
   }
