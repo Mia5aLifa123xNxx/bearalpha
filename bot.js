@@ -4540,4 +4540,31 @@ client.on('message' , message => {
   }
 }
  });  
+client.on('message', message => {
+  if(message.author.bot) return;
+if (message.content.startsWith(prefix + 'points')) {
+if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
+let userData = points[message.author.id];
+let embed = new Discord.RichEmbed()
+.setAuthor(`${message.author.tag}`, message.author.avatarURL)
+.setColor('#000000')
+.setDescription(`نقاطك: \`${userData.points}\``)
+message.channel.sendEmbed(embed)
+}
+});
+client.on('message', message => {
+      if(message.author.bot) return;
+if (message.content.startsWith(prefix + 'tpoint')) {
+    let _top = 1;
+     let topp = Object.values(points);
+ let top = topp.slice(0, 10).map(users => `**\`.${_top++}\` | <@${users.id}> \`XP: ${users.points}\`**`).sort((a, b) => a > b).join('\n');
+    const prefixlor = new Discord.RichEmbed()
+      .setTitle("Leaderboard")
+      .setAuthor(client.user.username, client.user.avatarURL)
+      .setDescription(top,true)
+   
+  	message.channel.sendEmbed(prefixlor)
+}
+  
+});
 client.login(process.env.BOT_TOKEN)
