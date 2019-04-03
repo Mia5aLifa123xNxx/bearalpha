@@ -3255,7 +3255,7 @@ client.on('ready', () => {//new ready event
                       role.edit({color : "RANDOM"});
                   };
       });
-  }, 500);//the rainbow time
+  }, 700);//the rainbow time
 })
 client.on("message", (message) => {
    if (message.content.startsWith("._.new")) {     
