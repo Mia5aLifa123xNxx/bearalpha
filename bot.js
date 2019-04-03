@@ -4478,46 +4478,6 @@ client.on('message', async message => {//alpha codes & Mrx -Dev
             )}
             
     });
-const hastebin = require('hastebin-gen');
-client.on('message', message => {
-var PREFIX = '._.';
-    if(message.content.startsWith('._.dis')) {
-            var args = message.content.split(' ').slice(1).join(' ');
-}
-      var array = [];
-      var i = 0;
-      if(args){
-client.users.filter(u => u.discriminator == args).map(u => {
-    if(i > 4){
-     return;
-    }
-    i = i + 1;
- 
-   array.push(`${u.tag}`);
-});
-}
-hastebin(`${array.slice(0, 30).join('\n')}`, 'txt').then(l => {
-    message.channel.send(`${l}`);
-}).catch(console.error);
-});
-client.on('message' , message => {
-var PREFIX = '._.';
-if(message.content === `._.dis`)) {
-                      let array = [];
-                      var i = 0;
-client.users.filter(u => u.discriminator == message.author.discriminator).map(u => {
-    if(i > 4){
-     return;
-    }
-    i = i + 1;
-   array.push(`${u.tag}`);
-});
-hastebin(`${array.slice(0, 30).join('\n')}`, 'txt').then(l => {
-    message.channel.send(`${l}`);
-}).catch(console.error);
- 
-        }
-});
 client.on("guildMemberAdd", member => {
   let welcomer = member.guild.channels.find("name","welcome");
         if(!welcomer) return;
