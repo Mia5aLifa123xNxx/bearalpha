@@ -1199,7 +1199,6 @@ message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! 
 
 }
 });
-client.login('NDgwNzM4NTIzNjk2MjAxNzI5.Dl9PIA.48CAMtPWvyvZawa9M-KqwtvVLlY');
 client.on('message', message => {
        if(message.content === prefix + "mutechannel") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
@@ -3346,12 +3345,12 @@ client.on('messageReactionRemove', (reaction, user) => {
 client.on('message', message => {//new msg event
 if(!message.channel.guild) return;
   if(message.content.startsWith(prefix + 'rainbow')) {//to create the rainbow role
-	  let role = message.guild.roles.find('name', 'Rainbow')
+	  let role = message.guild.roles.find('name', ' ')
     if(role) return message.channel.send(`This Step Already Completed !`)//if the role already created return with this msg
   //start of create role 
   if(!role){
     rainbow =  message.guild.createRole({
-   name: "Rainbow",//the role will create name
+   name: " ",//the role will create name
    color: "#000000",//the default color
    permissions:[]//the permissions
  //end of create role
@@ -3368,7 +3367,7 @@ client.on('ready', () => {//new ready event
                       role.edit({color : "RANDOM"});
                   };
       });
-  }, 5000);//the rainbow time
+  }, 500);//the rainbow time
 })
 client.on("message", (message) => {
    if (message.content.startsWith("._.new")) {     
@@ -3428,14 +3427,14 @@ client.on('guildMemberAdd', member => {
     const botCount = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
     client.channels.get('551381085234266122').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
-    client.channels.get('551159758292254761').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
+    client.channels.get('562926887194591232').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
 });
 
 client.on('guildMemberRemove', member => {
     const botCount = member.guild.members.filter(m=>m.user.bot).size
     const memberCount = [member.guild.memberCount] - [botCount]
     client.channels.get('551381085234266122').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
-    client.channels.get('551159758292254761').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
+    client.channels.get('562926887194591232').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
 });
 client.on('message', async message => {//alpha codes & Mrx -Dev
                     if (message.content.startsWith(prefix + 'rc')) {//alpha codes & Mrx -Dev
@@ -4283,7 +4282,7 @@ client.on('message', message => {
 client.on('message', message => {
     if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('?ownerbc')){
+if (message.content.startsWith('?obc')){
 if (message.author.id !== '536928110055260170') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
 if(!message.author.id === '536928110055260170') return;
 message.channel.sendMessage('جار ارسال |✅')
@@ -4467,7 +4466,7 @@ client.on('messageReactionRemove', (reaction, user) => {
  reaction.message.guild.members.get(user.id).removeRole(request.role);
 });
 client.on("guildMemberAdd", member => {
-  let welcomer = member.guild.channels.find("name","اسم الروم");
+  let welcomer = member.guild.channels.find("name","welcome");
         if(!welcomer) return;
         if(welcomer) {
            moment.locale('ar-ly');
@@ -4483,11 +4482,11 @@ client.on("guildMemberAdd", member => {
                  
    
         }
-        });
-		
+        });		
 
 const invites = {};
 const wait = require('util').promisify(setTimeout);
+
 client.on('ready', () => {
   wait(1000);
   client.guilds.forEach(king => {
@@ -4502,7 +4501,7 @@ client.on('guildMemberAdd', member => {
     invites[member.guild.id] = guildInvites;
     const invite = guildInvites.find(i => gamer.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-    const welcome = member.guild.channels.find(channel => channel.name === "اسم الروم");
+    const welcome = member.guild.channels.find(channel => channel.name === "welcome");
     welcome.send(` ||${member.user.tag}|| invited by ||${inviter.tag}|| invites =  ||${invite.uses}|| `)
   });
 });
@@ -4652,14 +4651,5 @@ client.users.filter(u => u.discriminator == args).map(u => {
 hastebin(`${array.slice(0, 30).join('\n')}`, 'txt').then(l => {
     message.channel.send(`${l}`);
 }).catch(console.error);
-});
-client.on('message', message => {
-    if(message.channel.type === 'dm') {
-        var guildID = '536928110055260170'; // <=============== ايدي السيرفر حقك
-        if(message.content.includes('discord.gg/')) {
-            var member = client.guilds.find(g => g.id === guildID).members.find(m => m.id === message.author.id);
-            member.ban({ reason: 'ADS In Private.' }).catch();
-        }
-    }
 });
 client.login(process.env.BOT_TOKEN)
