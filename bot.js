@@ -4556,12 +4556,32 @@ if (message.content.startsWith(prefix + 'tpoint')) {
 }
   
 });
+let sWlc = JSON.parse(fs.readFileSync("./setWlc.json", "UTF8"))   
+client.on('message', message => {
+if(message.channel.type === "dm") return;
+if(message.author.bot) return;
+  if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
+    channel: "welcome"
+}
+const channel = sWlc[message.guild.id].channel
+  if (message.content.startsWith(prefix + "setwelcomer")) {
+    if(!message.member.hasPermission(`MANAGE_GUILD`)) return;
+    let newChannel = message.content.split(' ').slice(1).join(" ")
+    if(!newChannel) return message.reply(`**${prefix}setwelcomer <channel name>**`)
+    sWlc[message.guild.id].channel = newChannel
+    message.channel.send(`**${message.guild.name}'s channel has been changed to ${newChannel}**`);
+  }
+   fs.writeFile('./setWlc.json', JSON.stringify(sWlc), (err) => {
+if (err) console.error(err);
+})
+});
 client.on("guildMemberAdd", member => {
       if(!sWlc[member.guild.id]) sWlc[member.guild.id] = {
     channel: "welcome"
   }
-    const channel = sWlc[member.guild.id].channel
-    let welcomer = member.guild.channels.find("name", `welcome`)
+  const channel = sWlc[member.guild.id].channel
+    const sChannel = sWlc[member.guild.id].channel
+    let welcomer = member.guild.channels.find('name', sChannel);
     let memberavatar = member.user.avatarURL
       if (!welcomer) return;
       if(welcomer) {
@@ -4569,14 +4589,14 @@ member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-    const yumz = member.guild.channels.find("name", `invite-by`)
-     //yumz.send(`<@${member.user.id}> joined by <@${inviter.id}>`)
-     yumz.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
+    const yumz = member.guild.channels.find("name", `${sChannel}`);
+     //yumz.send(`<@${member.user.id}> joined by <@${inviter.id}>`);
+    yumz.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
   }); 
       var Canvas = require('canvas')
       var jimp = require('jimp')
       
-      const w = ['./w9png'];
+      const w = ['./w9.png','./welcome_4'];
       
               let Image = Canvas.Image,
                   canvas = new Canvas(400, 200),
