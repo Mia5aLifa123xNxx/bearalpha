@@ -4285,7 +4285,7 @@ client.on('message', message => {
             if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`**${message.author.username} You Dont Have** ``MANAGE_ROLES`` **Premission**`);
                      message.guild.createRole({ name: "Minecraft", color: "#72cf71", permissions: [] })
                      message.guild.createRole({ name: "ROLBOX", color: "#ff0000", permissions: [] })
-                     message.guild.createRole({ name: "Fortnit", color: "#00fffe", permissions: [] })
+                     message.guild.createRole({ name: "Fortnite", color: "#00fffe", permissions: [] })
                      message.guild.createRole({ name: "PUBG-Mobile", color: "#ae4be2", permissions: [] })
                      message.guild.createRole({ name: "PUBG-PC", color: "#ae4be2", permissions: [] })
                      message.guild.createRole({ name: "Free_Fire", color: "#bb2e2e", permissions: [] })
@@ -4352,127 +4352,5 @@ client.on('messageReactionRemove', (reaction, user) => {
  let request = reactionRoles[reaction.message.id];
  if(!request) return;
  reaction.message.guild.members.get(user.id).removeRole(request.role);
-});
-client.on("guildMemberAdd", member => {
-  let welcomer = member.guild.channels.find("name","welcome");
-        if(!welcomer) return;
-        if(welcomer) {
-           moment.locale('ar-ly');
-           var h = member.user;
-          let norelden = new Discord.RichEmbed()
-          .setColor('RANDOM')
-          .setThumbnail(h.avatarURL)
-          .setAuthor(h.username,h.avatarURL)
-          .addField(': تاريخ دخولك الدسكورد',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')} **n** `${moment(member.user.createdAt).fromNow()}``,true)            
-           .addField(': تاريخ دخولك السيرفر',`${moment(member.joinedAt).format('D/M/YYYY h:mm a ')} n``${moment(member.joinedAt).startOf(' ').fromNow()}```, true) 
-           .setFooter(`${h.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
-       welcomer.send({embed:norelden})         
-                 
-   
-        }      
-});        
-const invites = {};
-const wait = require('util').promisify(setTimeout);
-client.on('ready', () => {
-  wait(1000);
-  client.guilds.forEach(king => {
-    king.fetchInvites().then(guildInvites => {
-      invites[king.id] = guildInvites;
-    });
-  });
-});
-client.on('guildMemberAdd', member => {
-  member.guild.fetchInvites().then(guildInvites => {
-    const gamer = invites[member.guild.id];
-    const guildInvites = invites[member.guild.id];
-    const invite = guildInvites.find(i => gamer.get(i.code).uses < i.uses);
-    const inviter = client.users.get(invite.inviter.id);
-    const welcome = member.guild.channels.find(channel => channel.name === "welcome");
-    welcome.send(` ||${member.user.tag}|| invited by ||${inviter.tag}|| invites =  ||${invite.uses}|| `)
-  }); 
-giftKeys = {};
-let devs = ["359761327184674818","537356784159948816","536928110055260170"];  
-client.on("message", msg =>{
-  let args = msg.content.split(" ").slice(1)[0];
-  let cmd = msg.content.split(' ')[0]
-  if(cmd === `._.giftR`){
-  let roleW = msg.mentions.roles.first();
-  if(!devs.includes(msg.author.id)){
-    let embed = new Discord.RichEmbed()
-    .setColor("#42f4f4")
-    .setTitle(`:x: - انت لاتمتلك الصلاحية`);
-    msg.reply(embed).then( z => z.delete(3000));
-     return
-  } 
-  if(!roleW) {
-    let embed = new Discord.RichEmbed()
-    .setColor("#42f4f4")
-    .setTitle(`:x: - منشن الرتبة \`._.giftR <@admin-role>\``);
-    msg.reply(embed).then( z => z.delete(3000)); return
-  };
-  let role = msg.guild.roles.find(`name`, roleW.name);
-  if(!role) {
-    let embed = new Discord.RichEmbed()
-    .setColor("#42f4f4")
-    .setTitle(`:x: - Could't find \`${roleW.name}\` role.`);
-  msg.reply(embed).then( msgs => msgs.delete(3000)); 
-  return
-  }
-  var randomkeys = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  var gift = "";
-  for (var y = 0; y < 16; y++) {   ///16
-    gift +=  `${randomkeys.charAt(Math.floor(Math.random() * randomkeys.length))}`;
-  }
-  giftKeys[gift] = role;
-  let embed = new Discord.RichEmbed()
-  .setColor("#42f4f4")
-  .setTitle(`:ok_hand: - **تم ارسآل الكود على الخاص**`);
-  msg.reply(embed);
-  let embed2= new Discord.RichEmbed()
-  .setAuthor(msg.author.username, msg.author.displayAvatarURL)
-  .setThumbnail(msg.author.avatarURL)
-  .addField("**Key Of Gift**", gift,true)
-  .addField("Role",giftKeys[gift].name,true)
-  .addField("This Key Made by", msg.author, true)
-  .addField("The Room", msg.channel , true)
-  .setTimestamp()
-  .setFooter(client.user.username,client.user.displayAvatarURL)  
-  msg.author.send(embed2);
-};
-if( cmd === `._.use`){
-  
-  if(!args) {   
-    let embed = new Discord.RichEmbed()
-    .setColor("#42f4f4")
-    .setTitle(`:x: - **الرجاء ادخال كود الهدية** \`._.use <Key>\``)
-    msg.reply(embed).then( z => z.delete(3000));
-    return
-}
-let embed = new Discord.RichEmbed()
-.setTitle(`**جاري التحقق من الكود**`)
-.setColor("#42f4f4")
-  msg.reply(embed).then( msgs =>{
-  if(giftKeys[args]){
-    let hav = msg.member.roles.find(`name`, giftKeys[args].name);
-    if(hav){
-    let embed = new Discord.RichEmbed()
-    .setTitle(`:x: - **انت تمتلك هذه الرتبة مسبقًا**  \`${giftKeys[args].name}\``)
-    .setColor("#42f4f4")
-    msgs.edit(embed)
-    return
-    }
-    let embed = new Discord.RichEmbed()
-    .setTitle(`:tada: - **مبروك تم اعطائك رتبة** \`${giftKeys[args].name}\``)
-    .setColor("#42f4f4")
-    msgs.edit(embed)
-    msg.member.addRole(giftKeys[args]);
-    delete giftKeys[args]
-  }else{
-    let embed = new Discord.RichEmbed()
-    .setTitle(`:x: - **الكود غير صيحيح أو انه مستعمل من قبل**`)
-    .setColor("#42f4f4")
-    msgs.edit(embed)
-  }});
-};
 });
 client.login(process.env.BOT_TOKEN)
