@@ -4372,10 +4372,8 @@ client.on("guildMemberAdd", member => {
    
         }	  
 });		
-
 const invites = {};
 const wait = require('util').promisify(setTimeout);
-
 client.on('ready', () => {
   wait(1000);
   client.guilds.forEach(king => {
@@ -4435,12 +4433,11 @@ client.on('message', async message => {//alpha codes & Mrx -Dev
     });
 	
 giftKeys = {};
-	
 let devs = ["359761327184674818","537356784159948816","536928110055260170"];  let devs = ["536928110055260170","537356784159948816","359761327184674818"]; 
 client.on("message", msg =>{
   let args = msg.content.split(" ").slice(1)[0];
   let cmd = msg.content.split(' ')[0]
-  if(cmd === `${prefix}giftR`){
+  if(cmd === `._.giftR`){
   let roleW = msg.mentions.roles.first();
   if(!devs.includes(msg.author.id)){
     let embed = new Discord.RichEmbed()
@@ -4484,7 +4481,7 @@ client.on("message", msg =>{
   .setFooter(client.user.username,client.user.displayAvatarURL)  
   msg.author.send(embed2);
 };
-if( cmd === `${prefix}use`){
+if( cmd === `._.use`){
   
   if(!args) {   
     let embed = new Discord.RichEmbed()
