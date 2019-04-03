@@ -4481,7 +4481,7 @@ client.on('message', async message => {//alpha codes & Mrx -Dev
 const hastebin = require('hastebin-gen');
 client.on('message', message => {
 var PREFIX = '._.';
-    if(message.content.startsWith(PREFIX + 'dis')) {
+    if(message.content.startsWith('._.dis')) {
             var args = message.content.split(' ').slice(1).join(' ');
 }
       var array = [];
@@ -4502,7 +4502,7 @@ hastebin(`${array.slice(0, 30).join('\n')}`, 'txt').then(l => {
 });
 client.on('message' , message => {
 var PREFIX = '._.';
-if(message.content === `${PREFIX}dis         `         ) {
+if(message.content === `._.dis`)) {
                       let array = [];
                       var i = 0;
 client.users.filter(u => u.discriminator == message.author.discriminator).map(u => {
