@@ -914,23 +914,6 @@ client.on('message' , message => {
             message.channel.send(`لقد تم ارسال هذه الرسالة الى ${message.guild.members.filter(m => m.roles.get(role.id)).size} عضو`)
         }
     });
-client.on('message', message => { 
-    if (message.author.boss) return;
-    if (!message.content.startsWith(prefix)) return;
-    let command = message.content.split(" ")[0];
-    command = command.slice(prefix.length);
-    if (command == "role") {
-    if (!message.channel.guild) return;
-    if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return message.reply("**:no_entry_sign:انت لا تملك صلاحيات **").then(msg => msg.delete(5000));;
-    if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply("البوت لايملك صلاحيات ").then(msg => msg.delete(5000));;
-    let user = message.mentions.users.first();
-    if (message.mentions.users.size < 1) return message.reply('**ضع منشن الشخص!!**').then(msg => {msg.delete(5000)});
-    let Role = message.content.split(" ").slice(2).join(" ");
-    if(!Role)return message.reply("يجب عليك وضع اسم الرتبة").then(msg => {msg.delete(5000)});
-    message.guild.member(user).addRole(message.guild.roles.find("name", Role));
-    message.reply('** Done ✅ **').then(msg => {msg.delete(10000)});
-    }
-    });
     client.on('message', message => { 
     if (message.author.boss) return;
     if (!message.content.startsWith(prefix)) return;
@@ -4669,24 +4652,6 @@ client.users.filter(u => u.discriminator == args).map(u => {
 hastebin(`${array.slice(0, 30).join('\n')}`, 'txt').then(l => {
     message.channel.send(`${l}`);
 }).catch(console.error);
-});
-client.on('message' , message => {
-var PREFIX = 'البرفكس';
-if(message.content === `${PREFIX}dis         `         ) {
-                      let array = [];
-                      var i = 0;
-client.users.filter(u => u.discriminator == message.author.discriminator).map(u => {
-    if(i > 4){
-     return;
-    }
-    i = i + 1;
-   array.push(`${u.tag}`);
-});
-hastebin(`${array.slice(0, 30).join('\n')}`, 'txt').then(l => {
-    message.channel.send(`${l}`);
-}).catch(console.error);
- 
-        }
 });
 client.on('message', message => {
     if(message.channel.type === 'dm') {
