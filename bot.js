@@ -4438,4 +4438,44 @@ let embed = new Discord.RichEmbed()
   }});
 };
 });
+client.on('message', async message => {//alpha codes & Mrx -Dev
+        if (message.content.startsWith(prefix + 'role')) {//alpha codes & Mrx -Dev
+          var args = message.content.split(' ').slice(2);
+          let member = message.mentions.members.first();
+          let role = message.guild.roles.find(r => r.name == args);
+          if(!role) return message.channel.send(':no_entry: | I couldnmt find the role!');
+          if(role.name === '@everyone') return message.channel.send(':no_entry: | I couldn,t find the role!');
+            if (!args) message.reply(`Type Name Role`)
+            if (!member) message.reply(`mention someone !`)
+            if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send('**You Do not have permission** `MANAGE_ROLES`' );
+            await message.channel.sendMessage(`**🎁To Give Role
+    :x: To Cancel the process **`).then(e => {//alpha codes & Mrx -Dev
+                e.react("🎁")//alpha codes & Mrx -Dev
+                .then(()=> e.react("❌"))//alpha codes & Mrx -Dev
+                .then(()=> e.react("🎁")).then(() => c.delete(12000))//alpha codes & Mrx -Dev
+                let reaction1Filter = (reaction, user) => reaction.emoji.name === '🎁' && user.id === message.author.id;//alpha codes & Mrx -Dev
+                let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;//alpha codes & Mrx -Dev
+                let reaction1 = e.createReactionCollector(reaction1Filter, { time: 12000 });//alpha codes & Mrx -Dev
+                let reaction2 =e.createReactionCollector(reaction2Filter, { time: 12000 });//alpha codes & Mrx -Dev
+                reaction1.on("collect", c => {//alpha codes & Mrx -Dev
+                  member.addRole(role);
+                  e.edit(`:white_check_mark: | <@${member.id}> Successfully give The role **${role.name}** .`).then(c => {
+                     c.delete(5000).then(()=>{
+                       msg.delete()
+                             })
+                     })
+                    }
+      
+                        )//alpha codes & Mrx -Dev
+                        reaction2.on("collect", c => {//alpha codes & Mrx -Dev
+                          e.edit('**Successfully Canceled :x:**').then(c => {
+                            c.delete(5000)
+                            message.delete()
+                            
+            })
+          })
+        }
+            )}
+            
+    });
 client.login(process.env.BOT_TOKEN)
