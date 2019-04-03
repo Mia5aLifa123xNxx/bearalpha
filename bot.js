@@ -4532,21 +4532,30 @@ client.on("guildMemberAdd", member => {
            .addField(': تاريخ دخولك السيرفر',`${moment(member.joinedAt).format('D/M/YYYY h:mm a ')} n``${moment(member.joinedAt).startOf(' ').fromNow()}```, true) 
            .setFooter(`${h.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
        welcomer.send({embed:norelden});          
-                 
-   
         }
         });
 const invites = {};
+//Narox
 const wait = require('util').promisify(setTimeout);
-
+//Narox
+client.on('ready', () => {
+  wait(1000);
+//Narox
+  client.guilds.forEach(g => {
+    g.fetchInvites().then(guildInvites => {
+      invites[g.id] = guildInvites;
+    });
+  });
+});//Narox
+//Narox
 client.on('guildMemberAdd', member => {
   member.guild.fetchInvites().then(guildInvites => {
-    const gamer = invites[member.guild.id];
-    invites[member.guild.id] = guildInvites;
-    const invite = guildInvites.find(i => gamer.get(i.code).uses < i.uses);
+    const ei = invites[member.guild.id];
+    invites[member.guild.id] = guildInvites;//Narox
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-    const welcome = member.guild.channels.find(channel => channel.name === "welcome");
-    welcome.send(` ||${member.user.tag}|| invited by ||${inviter.tag}|| invites =  ||${invite.uses}|| `)
+    const logChannel = member.guild.channels.find(channel => channel.name === "welcome");
+    logChannel.send(`${member} Invited by: <@${inviter.id}>`);
   });
 });
 client.login(process.env.BOT_TOKEN)
