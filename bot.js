@@ -4518,28 +4518,4 @@ hastebin(`${array.slice(0, 30).join('\n')}`, 'txt').then(l => {
  
         }
 });
-const invites = {};
-//Narox
-const wait = require('util').promisify(setTimeout);
-//Narox
-client.on('ready', () => {
-  wait(1000);
-//Narox
-client.guilds.forEach(g => {
-    g.fetchInvites().then(guildInvites => {
-      invites[g.id] = guildInvites;
-    });
-  });
-});//Narox
-//Narox
-client.on('guildMemberAdd', member => {
-  member.guild.fetchInvites().then(guildInvites => {
-    const ei = invites[member.guild.id];
-    invites[member.guild.id] = guildInvites;//Narox
-    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    const inviter = client.users.get(invite.inviter.id);
-    const logChannel = member.guild.channels.find(channel => channel.name === "welcome");
-    logChannel.send(`${member} Invited by: <@${inviter.id}>`);
-  });
-});//Narox
 client.login(process.env.BOT_TOKEN)
