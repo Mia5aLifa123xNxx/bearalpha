@@ -4481,8 +4481,8 @@ client.on("guildMemberAdd", member => {
        welcomer.send({embed:norelden});          
                  
    
-        }
-        });		
+        }	  
+});		
 
 const invites = {};
 const wait = require('util').promisify(setTimeout);
@@ -4504,7 +4504,6 @@ client.on('guildMemberAdd', member => {
     const welcome = member.guild.channels.find(channel => channel.name === "welcome");
     welcome.send(` ||${member.user.tag}|| invited by ||${inviter.tag}|| invites =  ||${invite.uses}|| `)
   });
-});
 client.on('message', async message => {//alpha codes & Mrx -Dev
         if (message.content.startsWith(prefix + 'role')) {//alpha codes & Mrx -Dev
           var args = message.content.split(' ').slice(2);
@@ -4633,7 +4632,7 @@ let embed = new Discord.RichEmbed()
 const hastebin = require('hastebin-gen');
 client.on('message', message => {
 var PREFIX = '._.';
-    if(message.content.startsWith(PREFIX + '#')) {
+    if(message.content.startsWith(PREFIX + 'dis')) {
             var args = message.content.split(' ').slice(1).join(' ');
 }
       var array = [];
