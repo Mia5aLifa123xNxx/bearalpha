@@ -2613,11 +2613,13 @@ client.on('guildMemberAdd', member => {
         .setColor('RANDOM')
         .setThumbnail(memberavatar)
         .addField('Hello Dude' , `Welcome to the server **${member}**`)
-        .addField('User Id :', "**[" + `${member.id}` + "]**" )
-                .addField(' Member Number',`${member.guild.memberCount}`)
-               
-                  .addField("Name:",`<@` + `${member.id}` + `>`, true)
-                      
+       .addField("**Welcome To**", `[${member.guild.name}]`, true)
+      .addField(`**Number**`, `[${member.guild.memberCount}]`, true)
+      .addField("**Name**", `[${member.user.username}#${member.user.discriminator}]`,true)
+      .addField("**ID**", `[${member.user.id}]`, true)
+      .addField('**Created AT**',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')}**n** `${moment(member.user.createdAt).fromNow()}``,true)            
+       .addField('**Inviter**',`[${inviter.id}]`, true)
+        .addField("**Joined At**",`${moment(member.user.joinedAt).format('D/M/YYYY h:mm a')}**n** `${moment(member.user.joinedAt).fromNow()}``,true)                               
                                      .addField(' Server', `${member.guild.name}`,true)
 .setFooter(member.user.username,'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')  
 
