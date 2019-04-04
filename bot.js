@@ -4588,8 +4588,7 @@ client.on('guildMemberAdd', member => {
         .addField('👥 | **name** :  ',`${member}`)
         .addField('📢 | ``نورت السيرفر يا قلبي``' , `Welcome to the server, ${member}`)
         .addField('🆔 | ``user`` :', "**[" + `${member.id}` + "]**" )
-                
-    .addField('➡| **ا**نت العضو رقم',`${member.guild.memberCount}`)
+        .addField('➡| **ا**نت العضو رقم',`${member.guild.memberCount}`)
                
                   .addField("Name:",`<@` + `${member.id}` + `>`,true)
                      
