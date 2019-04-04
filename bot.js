@@ -4585,7 +4585,7 @@ client.on('guildMemberAdd', member => {
     const invite = guildInvites.find(i => gamer.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
     const welcome = member.guild.channels.find(channel => channel.name === "📌❨ωєℓcσмє❩💞");
-    welcome.send(` || @${member.user.tag} || ``invited by`` : @${inviter.tag} **invites** =  || [${invite.uses}] || `)
+    welcome.send(` user : || @${member.user.tag} || **invited by** : @${inviter.tag} invites =  || [${invite.uses}] || `)
   });
 });
 client.on('guildMemberAdd', member => {
@@ -4595,10 +4595,10 @@ client.on('guildMemberAdd', member => {
     let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setThumbnail(memberavatar)
-        .addField('🎽 | name :  ',`${member}`)
-        .addField('📢 | نورت السيرفر يا قلبي' , `Welcome to the server, ${member}`)
-        .addField('🆔 | user :', "**[" + `${member.id}` + "]**" )
-                .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
+        .addField(' | **name** :  ',`${member}`)
+        .addField('📢 | ``نورت السيرفر يا قلبي``' , `Welcome to the server, ${member}`)
+        .addField('🆔 | **user** :', "**[" + `${member.id}` + "]**" )
+                .addField('➡| ``انت العضو رقم``',`${member.guild.memberCount}`)
                
                   .addField("Name:",`<@` + `${member.id}` + `>`, true)
                      
