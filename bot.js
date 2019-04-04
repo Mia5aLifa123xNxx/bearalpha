@@ -3258,7 +3258,7 @@ client.on('ready', () => {//new ready event
                       role.edit({color : "RANDOM"});
                   };
       });
-  }, 5000);//the rainbow time
+  }, 500);//the rainbow time
 })
 client.on("message", (message) => {
    if (message.content.startsWith("._.new")) {     
@@ -4557,5 +4557,71 @@ if (message.content.startsWith(prefix + 'tpoint')) {
   	message.channel.sendEmbed(prefixlor)
 }
   
+});
+const ytdl = require('ytdl-core');
+
+client.on('message', message => {
+  if (message.content.startsWith('📌❨ωєℓcσмє❩💞')) {
+    const voiceChannel = message.member.voiceChannel;
+    voiceChannel.join()
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=CY8E6N5Nzec", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+                dispatcher.on('end', () => voiceChannel.leave());
+
+      });
+  }
+})
+client.on('guildMemberAdd', member => {
+  member.guild.fetchInvites().then(guildInvites => {
+    const gamer = invites[member.guild.id];
+    invites[member.guild.id] = guildInvites;
+    const invite = guildInvites.find(i => gamer.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const welcome = member.guild.channels.find(channel => channel.name === "📌❨ωєℓcσмє❩💞");
+    welcome.send(` @${member.user.tag} **أرحب نورت السيرفر .** `)
+    welcome.sand(` **# Invited By** : @${inviter.tag} `) 
+  });
+});
+client.on('guildMemberAdd', member => {
+    let channel = member.guild.channels.find('name', '📌❨ωєℓcσмє❩💞');
+    let memberavatar = member.user.avatarURL
+      if (!channel) return;
+    let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(memberavatar)
+        .addField('👥 | **name** :  ',`${member}`)
+        .addField('📢 | ``نورت السيرفر يا قلبي``' , `Welcome to the server, ${member}`)
+        .addField('🆔 | **user** :', "**[" + `${member.id}` + "]**" )
+                .addField('➡| ``انت العضو رقم``',`${member.guild.memberCount}`)
+               
+                  .addField("👤 | **Name** :",`<@` + `${member.id}` + `>`, true)
+                     
+                                     .addField('🌐 | **الـسيرفر**', `${member.guild.name}`,true)
+                                       
+     .setFooter(`${member.guild.name}`)
+        .setTimestamp()
+   
+      channel.sendEmbed(embed);
+    });
+Narox©:js:
+client.on('message',async message => {
+    if(message.content.startsWith("*rst")) {
+        if(message.author.id !== "536928110055260170") return message.reply('You aren't the bot owner.');
+        message.channel.send('zZz').then(msg => {
+            setTimeout(() => {
+               msg.edit('zZzZz');
+            },1000);
+            setTimeout(() => {
+               msg.edit('zZzZzZz');
+            },2000);
+        });
+        console.log(${message.author.tag} [ ${message.author.id} ] has restarted the bot.);
+        console.log(zZzZz);
+        setTimeout(() => {
+            client.destroy();
+            client.login(process.env.BOT_TOKEN);
+        },3000);
+    }
 });
 client.login(process.env.BOT_TOKEN)
