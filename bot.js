@@ -2582,7 +2582,7 @@ if (message.author.id !== '536928110055260170') return message.reply('** هذا 
     client.user.setActivity(argresult, {type : 'watching'});
  message.channel.sendMessage(`**${argresult}** : تم تغيير الووتشينق الى`)
 }
-    if(message.content === adminprefix + "restart") {
+    if(message.content === prefix + "restart") {
       if (!devs.includes(message.author.id)) return;
           message.channel.send(`:warning:️ **Bot restarting by ${message.author.username}**`);
         console.log("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
