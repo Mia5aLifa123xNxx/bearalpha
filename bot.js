@@ -4591,7 +4591,7 @@ client.on('guildMemberAdd', member => {
                
                   .addField("Name:",`<@` + `${member.id}` + `>`, true)
                      
-                                     .addField(``الـسيرفر``, `${member.guild.name}`,true)
+                                     .addField('🌐 | **الـسيرفر**', `${member.guild.name}`,true)
                                        
      .setFooter(`${member.guild.name}`)
         .setTimestamp()
