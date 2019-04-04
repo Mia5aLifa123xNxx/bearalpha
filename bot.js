@@ -4558,20 +4558,6 @@ if (message.content.startsWith(prefix + 'tpoint')) {
 }
   
 });
-const ytdl = require('ytdl-core');
-
-client.on('message', message => {
-  if (message.content.startsWith('📌❨ωєℓcσмє❩💞')) {
-    const voiceChannel = message.member.voiceChannel;
-    voiceChannel.join()
-      .then(connnection => {
-        const stream = ytdl("https://www.youtube.com/watch?v=CY8E6N5Nzec", { filter: 'audioonly' });
-        const dispatcher = connnection.playStream(stream);
-                dispatcher.on('end', () => voiceChannel.leave());
-
-      });
-  }
-})
 client.on('guildMemberAdd', member => {
   member.guild.fetchInvites().then(guildInvites => {
     const gamer = invites[member.guild.id];
