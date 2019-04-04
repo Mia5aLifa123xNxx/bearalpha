@@ -151,8 +151,6 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
 🎮 ._.لعبة مريم / مريم
 🎮 ._.فوائد ونصائح  / هل تعلم
 🎮 ._.xo / xo with your friend
-🎮 ._.quiz / quetion
-🎮 ._.maths / maths quiz
 🎮 ._.يعطيك عقابات قاسية/عقاب
 **
 `]
@@ -2613,15 +2611,12 @@ client.on('guildMemberAdd', member => {
         .setColor('RANDOM')
         .setThumbnail(memberavatar)
         .addField('Hello Dude' , `Welcome to the server **${member}**`)
-            .addField('User Id :', "**[" + `${member.id}` + "]**" )
+        .addField('User Id :', "**[" + `${member.id}` + "]**" )
                 .addField(' Member Number',`${member.guild.memberCount}`)
                
                   .addField("Name:",`<@` + `${member.id}` + `>`, true)
                       
                                      .addField(' Server', `${member.guild.name}`,true)
-        .addField(':دخولك لديسكورد', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true)
-        .addField(':انضمامك لسيرفنا', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)   
-                                    .addField(' Server', `${member.guild.name}`,true)
 .setFooter(member.user.username,'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')  
 
                                        
@@ -2631,6 +2626,7 @@ client.on('guildMemberAdd', member => {
 return channel.send(embed)
     }
     )});
+
 client.on('message',   eyad =>{
     
     var  args = eyad.content.split(" ").slice(2).join(" ")
