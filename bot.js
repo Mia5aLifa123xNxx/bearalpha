@@ -4561,7 +4561,6 @@ if (message.content.startsWith(prefix + 'tpoint')) {
 client.on('guildMemberAdd', member => {
     let channel = member.guild.channels.find('name', '📌❨ωєℓcσмє❩💞');
     let memberavatar = member.user.avatarURL
-    const inviter = client.users.get(invite.inviter.id);
       if (!channel) return;
     let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
@@ -4571,7 +4570,7 @@ client.on('guildMemberAdd', member => {
         .addField('🆔 | **user** :', "**[" + `${member.id}` + "]**" )
                 .addField('➡| ``انت العضو رقم``',`${member.guild.memberCount}`)
                
-                  .addField("👤 | **Inviter** :",`<@` + `${inviter.tag}` + `>`, true)
+                  .addField("👤 | **Name** :",`<@` + `${member.id}` + `>`, true)
                      
                                      .addField('🌐 | **الـسيرفر**', `${member.guild.name}`,true)
                                        
@@ -4597,8 +4596,8 @@ client.on('guildMemberAdd', member => {
     const invite = guildInvites.find(i => gamer.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
     const welcome = member.guild.channels.find(channel => channel.name === "📌❨ωєℓcσмє❩💞");
-    welcome.send(`<@${member.id}> **أرحب نورت السيرفر .**`)
-    welcome.send(`# **Invited By** : <@${inviter.tag}>`)
+    welcome.send(``<@` + `${member.id}` + `>` **أرحب نورت السيرفر .**`)
+    welcome.send(`# **Invited By** : `<@` + `${inviter.id}` + `>`)
   });
 });
 client.login(process.env.BOT_TOKEN)
