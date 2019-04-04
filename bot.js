@@ -4579,38 +4579,6 @@ client.on('message',async message => {
     }
 });
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', '📌❨ωєℓcσмє❩💞');
-    let memberavatar = member.user.avatarURL
-      if (!channel) return;
-    let embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(memberavatar)
-        .addField('👥 | **name** :  ',`${member}`)
-        .addField('📢 | ``نورت السيرفر يا قلبي``' , `Welcome to the server, ${member}`)
-        .addField('🆔 | ``user`` :', "**[" + `${member.id}` + "]**" )
-        .addField('➡| **ا**نت العضو رقم',`${member.guild.memberCount}`)
-               
-                  .addField("Name:",`<@` + `${member.id}` + `>`,true)
-                     
-                                     .addField('🌐 | **الـسيرفر**', `${member.guild.name}`,true)
-                                       
-     .setFooter(`${member.guild.name}`)
-        .setTimestamp()
-   
-      channel.sendEmbed(embed);
-    });
-const invites = {};
-const wait = require('util').promisify(setTimeout);
-client.on('ready', () => {
-  wait(1000);
-  client.guilds.forEach(king => {
-    king.fetchInvites().then(guildInvites => {
-      invites[king.id] = guildInvites;
-    });
-  });
-});
-
-client.on('guildMemberAdd', member => {
   member.guild.fetchInvites().then(guildInvites => {
     const gamer = invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
@@ -4620,4 +4588,39 @@ client.on('guildMemberAdd', member => {
     welcome.send(` || @${member.user.tag} || ``invited by`` : @${inviter.tag} **invites** =  || [${invite.uses}] || `)
   });
 });
+client.on('guildMemberAdd', member => {
+    let channel = member.guild.channels.find('name', '📌❨ωєℓcσмє❩💞');
+    let memberavatar = member.user.avatarURL
+      if (!channel) return;
+    let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(memberavatar)
+        .addField('🎽 | name :  ',`${member}`)
+        .addField('📢 | نورت السيرفر يا قلبي' , `Welcome to the server, ${member}`)
+        .addField('🆔 | user :', "**[" + `${member.id}` + "]**" )
+                .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
+               
+                  .addField("Name:",`<@` + `${member.id}` + `>`, true)
+                     
+                                     .addField('🌐 | **الـسيرفر**', `${member.guild.name}`,true)
+                                       
+     .setFooter(`${member.guild.name}`)
+        .setTimestamp()
+   
+      channel.sendEmbed(embed);
+    });
+const ytdl = require('ytdl-core');
+
+client.on('message', message => {
+  if (message.content.startsWith('📌❨ωєℓcσмє❩💞')) {
+    const voiceChannel = message.member.voiceChannel;
+    voiceChannel.join()
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=CY8E6N5Nzec", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+                dispatcher.on('end', () => voiceChannel.leave());
+
+      });
+  }
+})
 client.login(process.env.BOT_TOKEN)
