@@ -4604,24 +4604,4 @@ client.on('guildMemberAdd', member => {
    
       channel.sendEmbed(embed);
     });
-Narox©:js:
-client.on('message',async message => {
-    if(message.content.startsWith("*rst")) {
-        if(message.author.id !== "536928110055260170") return message.reply('You aren't the bot owner.');
-        message.channel.send('zZz').then(msg => {
-            setTimeout(() => {
-               msg.edit('zZzZz');
-            },1000);
-            setTimeout(() => {
-               msg.edit('zZzZzZz');
-            },2000);
-        });
-        console.log(${message.author.tag} [ ${message.author.id} ] has restarted the bot.);
-        console.log(zZzZz);
-        setTimeout(() => {
-            client.destroy();
-            client.login(process.env.BOT_TOKEN);
-        },3000);
-    }
-});
 client.login(process.env.BOT_TOKEN)
