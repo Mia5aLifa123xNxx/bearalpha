@@ -4571,7 +4571,7 @@ client.on('guildMemberAdd', member => {
         .addField('🆔 | **user** :', "**[" + `${member.id}` + "]**" )
                 .addField('➡| ``انت العضو رقم``',`${member.guild.memberCount}`)
                
-                  .addField("👤 | **Inviter** :",`<@` + `${inviter.id}` + `>`, true)
+                  .addField("👤 | **Inviter** :",`<@` + `${inviter.tag}` + `>`, true)
                      
                                      .addField('🌐 | **الـسيرفر**', `${member.guild.name}`,true)
                                        
@@ -4598,7 +4598,7 @@ client.on('guildMemberAdd', member => {
     const inviter = client.users.get(invite.inviter.id);
     const welcome = member.guild.channels.find(channel => channel.name === "📌❨ωєℓcσмє❩💞");
     welcome.send(`<@${member.id}> **أرحب نورت السيرفر .**`)
-    welcome.send(`# **Invited By** : <@${inviter.id}>`)
+    welcome.send(`# **Invited By** : <@${inviter.tag}>`)
   });
 });
 client.login(process.env.BOT_TOKEN)
