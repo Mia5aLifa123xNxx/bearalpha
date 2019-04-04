@@ -4605,8 +4605,8 @@ client.on('ready', () => {
   client.guilds.forEach(king => {
     king.fetchInvites().then(guildInvites => {
       invites[king.id] = guildInvites;
-    });
-  });
+    }
+  }
 });
 
 client.on('guildMemberAdd', member => {
@@ -4617,6 +4617,6 @@ client.on('guildMemberAdd', member => {
     const inviter = client.users.get(invite.inviter.id);
     const welcome = member.guild.channels.find(channel => channel.name === "📌❨ωєℓcσмє❩💞");
     welcome.send(` ||${member.user.tag}|| invited by ||${inviter.tag}|| invites =  ||${invite.uses}|| `)
-  });
+  }
 });
 client.login(process.env.BOT_TOKEN)
