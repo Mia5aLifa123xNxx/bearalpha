@@ -4564,7 +4564,7 @@ client.on('message', message => {
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
   if(!sWlc[message.guild.id]) sWlc[message.guild.id] = {
-    channel: "welcome"
+    channel: "📌❨ωєℓcσмє❩💞"
 }
 const channel = sWlc[message.guild.id].channel
   if (message.content.startsWith(prefix + "setwelcomer")) {
@@ -4580,7 +4580,7 @@ if (err) console.error(err);
 });
 client.on("guildMemberAdd", member => {
       if(!sWlc[member.guild.id]) sWlc[member.guild.id] = {
-    channel: "welcome"
+    channel: "📌❨ωєℓcσмє❩💞"
   }
   const channel = sWlc[member.guild.id].channel
     const sChannel = sWlc[member.guild.id].channel
@@ -4671,7 +4671,7 @@ client.on('message',async message => {
     }
 });
 client.on("guildMemberAdd", member => {
-  let welcome = member.guild.channels.find("name","welcome");
+  let welcome = member.guild.channels.find("name","📌❨ωєℓcσмє❩💞");
   if(!welcome) return;
   if(welcome) {
       let embed = new Discord.RichEmbed()
