@@ -140,17 +140,20 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
    `,`
         ***__Games orders__***
  **       
-._.rps / حجر ورقة مقص
-._.speed / اسرع كتابة
-._.quas / اسئلة عامة
-._.نكت / نكت 
-._.لعبة كت تويت / كت تويت
-._.roll <number> / قرعة
-._.عواصم عشوائي/عواصم
-._.لو خيروك بطريقة حلوة / لو خيروك
-._.لعبة مريم / مريم
-._.فوائد ونصائح  / هل تعلم
-._.يعطيك عقابات قاسية / عقاب
+🎮 ._.rps / حجر ورقة مقص
+🎮 ._.speed / اسرع كتابة
+🎮 ._.quas / اسئلة عامة
+🎮 ._.نكت / نكت 
+🎮 ._.لعبة كت تويت / كت تويت
+🎮 ._.roll <number> / قرعة
+🎮 ._.عواصم عشوائي/عواصم
+🎮 ._.لو خيروك بطريقة حلوة / لو خيروك
+🎮 ._.لعبة مريم / مريم
+🎮 ._.فوائد ونصائح  / هل تعلم
+🎮 ._.xo / xo with your friend
+🎮 ._.quiz / quetion
+🎮 ._.maths / maths quiz
+🎮 ._.يعطيك عقابات قاسية/عقاب
 **
 `]
     let page = 1;
@@ -2582,17 +2585,6 @@ if (message.author.id !== '536928110055260170') return message.reply('** هذا 
     client.user.setActivity(argresult, {type : 'watching'});
  message.channel.sendMessage(`**${argresult}** : تم تغيير الووتشينق الى`)
 }
-    if(message.content === prefix + "restart") {
-      if (!devs.includes(message.author.id)) return;
-          message.channel.send(`:warning:️ **Bot restarting by ${message.author.username}**`);
-        console.log("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        console.log(`⚠️ Bot restarting... ⚠️`);
-        console.log("===============================================\n\n");
-        client.destroy();
-        child_process.fork(__dirname + "/bot.js");
-        console.log(`Bot Successfully Restarted`);
-    }
-  
 });
 client.on('message', async message => {
   let messageArray = message.content.split(' ');
@@ -4659,4 +4651,251 @@ member.guild.fetchInvites().then(guildInvites => {
       
       }
       });
+client.on("guildMemberAdd", member => {
+  let welcome = member.guild.channels.find("name","welcome");
+  if(!welcome) return;
+  if(welcome) {
+      let embed = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setThumbnail(member.user.avatarURL)  
+      .setAuthor(member.user.username , member.user.avatarURL)
+      .addField("**Welcome To**", `[${member.guild.name}]`, true)
+      .addField(`**Number**`, `[${member.guild.memberCount}]`, true)
+      .addField("**Name**", `[${member.user.username}#${member.user.discriminator}]`,true)
+      .addField("**ID**", `[${member.user.id}]`, true)
+      .addField('**Created AT**',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')}**n** `${moment(member.user.createdAt).fromNow()}``,true)            
+      .addField("**Joined At**",`${moment(member.user.joinedAt).format('D/M/YYYY h:mm a')}**n** `${moment(member.user.joinedAt).fromNow()}``,true)    
+      welcome.send(embed)
+
+  }
+  });
+client.on('message',async message => {
+    if(message.content.startsWith(prefix + "rst")) {
+        if(message.author.id !== "536928110055260170") return message.reply('انت لست صاحب البوت!!!');
+        message.channel.send('**Restarting.**').then(msg => {
+            setTimeout(() => {
+               msg.edit('**Restarting..**');
+            },1000);
+            setTimeout(() => {
+               msg.edit('**Restarting...**');
+            },2000);
+        });
+        console.log(`${message.author.tag} [ ${message.author.id} ] تم إعادة تشغيل البوت بنجاح!`);
+        console.log(`Restarting..`);
+        setTimeout(() => {
+            client.destroy();
+            client.login('process.env.BOT_TOKEN');
+        },3000);
+    }
+});
+client.on('message', message => {
+	 if(message.author.bot) return;
+  if (!points[message.author.id]) points[message.author.id] = {
+             points: 0,id: message.author.id
+           };if (message.content.startsWith(prefix + 'quiz')) {
+	if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
+
+const type = require('./quiz.json');
+const item = type[Math.floor(Math.random() * type.length)];
+const filter = response => {
+    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+};
+message.channel.send('**لديك 15 ثانيه لحل هذه الغز**').then(msg => {
+ const w = ['./img/w1.png'];//الخافيه
+            let Image = Canvas.Image,
+            canvas = new Canvas(400, 150),
+            ctx = canvas.getContext('2d');
+    
+            fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
+            if (err) return console.log(err);
+            let BG = Canvas.Image;
+            let ground = new Image;
+            ground.src = Background;
+            ctx.drawImage(ground, 0, 0, 400, 150);
+ 
+});
+ let url = message.author.displayAvatarURL.endsWith(".webp") ? message.author.displayAvatarURL.slice(5, -20) + ".png" : message.author.displayAvatarURL;
+               jimp.read(url, (err, ava) => {
+                    if (err) return console.log(err);
+                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
+                        if (err) return console.log(err);
+                       
+                      
+                        ctx.font = '15px Arial';
+                              ctx.fontSize = '10px';
+                              ctx.fillStyle = "#FFFFFF";
+                              ctx.textAlign = "center";
+              ctx.fillText(`${item.type} ` , 250, 100);
+              
+               let Avatar = Canvas.Image;
+                              let ava = new Avatar;
+                              ava.src = buf;
+                              ctx.beginPath();
+                              ctx.arc(70, 80, 63, 0, Math.PI*2);
+                                 ctx.closePath();
+                                 ctx.clip();
+                                 ctx.drawImage(ava, 8, 18, 128, 126);   
+message.channel.sendFile(canvas.toBuffer());
+ })
+             
+                      message.channel.awaitMessages(filter, { maxMatches: 1, time: 30000, errors: ['time'] })//وقت الاجابة
+                      .then((collected) => {
+                           var embed = new Discord.RichEmbed()
+                            .setDescription(`${collected.first().author} ✅ احسنت لقت تمكنت من حل الغز`)
+                 message.channel.send(embed);
+                  console.log(`[Typing] ${collected.first().author} typed the word.`);
+                          let won = collected.first().author;
+                          points[won.id].points++;
+                        })
+                        .catch(collected => {
+                       var embed1 = new Discord.RichEmbed()
+                            .setDescription(`:x:لم يتمكن احد من حل الغز `)
+                 message.channel.send(embed1);
+                    console.log('[Typing] Error: No one type the word.');
+           
+                  })
+                })
+             
+  })
+}
+
+});
+ client.on('message', message => {
+	  if(message.author.bot) return;
+      if (!points[message.author.id]) points[message.author.id] = {
+             points: 0,id: message.author.id
+           };
+    if (message.content.startsWith(prefix + 'maths')) {
+      if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
+    
+    const type = require('./math.json');
+    const item = type[Math.floor(Math.random() * type.length)];
+    const filter = response => {
+        return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+    };
+    message.channel.send('**لديك 15 ثانيه لحل المسئله**').then(msg => {
+ const w = ['./img/w1.png'];//الخافيه
+            let Image = Canvas.Image,
+            canvas = new Canvas(400, 150),
+            ctx = canvas.getContext('2d');
+    
+            fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
+            if (err) return console.log(err);
+            let BG = Canvas.Image;
+            let ground = new Image;
+            ground.src = Background;
+            ctx.drawImage(ground, 0, 0, 400, 150);
+ 
+});
+ let url = message.author.displayAvatarURL.endsWith(".webp") ? message.author.displayAvatarURL.slice(5, -20) + ".png" : message.author.displayAvatarURL;
+               jimp.read(url, (err, ava) => {
+                    if (err) return console.log(err);
+                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
+                        if (err) return console.log(err);
+                       
+                      
+                        ctx.font = '15px Arial';
+                              ctx.fontSize = '10px';
+                              ctx.fillStyle = "#FFFFFF";
+                              ctx.textAlign = "center";
+              ctx.fillText(`${item.type} ` , 250, 100);
+              
+               let Avatar = Canvas.Image;
+                              let ava = new Avatar;
+                              ava.src = buf;
+                              ctx.beginPath();
+                              ctx.arc(70, 80, 63, 0, Math.PI*2);
+                                 ctx.closePath();
+                                 ctx.clip();
+                                 ctx.drawImage(ava, 8, 18, 128, 126);   
+message.channel.sendFile(canvas.toBuffer());
+ })
+             
+                       message.channel.awaitMessages(filter,{
+               thing: true,
+               maxMatches : 1,
+                time : 60000,
+                 maxUses: 1,
+                errors : ['time']
+            })//وقت الاجابة
+                      .then((collected) => {
+                           var embed = new Discord.RichEmbed()
+                            .setDescription(`${collected.first().author} ✅ **احسنت لقد تمكنت من أجابه عن معادله بسرعه**`)
+                 message.channel.send(embed);
+                  console.log(`[Typing] ${collected.first().author} typed the word.`);
+                          let won = collected.first().author;
+                          points[won.id].points++;
+                        })
+                        .catch(collected => {
+                       var embed1 = new Discord.RichEmbed()
+                            .setDescription(`:x: **لم يتمكن احد من حل معادله في الوقت المناسب**`)
+                 message.channel.send(embed1);
+                    console.log('[Typing] Error: No one type the word.');
+           
+                  })
+                })
+             
+  })
+}
+
+});
+var data = {};
+async function copyChannel (channel) {
+    data[channel.guild.ownerID].channels.push(channel);
+}
+async function copyRole (role) {
+    data[role.guild.ownerID].roles.push(role);
+}
+async function paste (guild, copyData) {
+    copyData.channels.forEach(async function (channel) {
+        guild.createChannel(channel.name, channel.type, channel.permissionOverwrites, "- Sweetie paste").then(channel2 => {
+            channel2.setPosition(channel.position);
+        });
+    });
+    copyData.roles.forEach(async function (role) {
+        guild.createRole({
+            name: role.name,
+            color: role.hexColor
+        }).then(async function (role2) {
+            role2.setPosition(role.position);
+        });
+    });
+}
+async function copyAll (guild) {
+    if (!data[guild.ownerID]) {
+        data[guild.ownerID] = {
+            roles: [],
+            channels: [],
+        };
+    }
+    guild.channels.sort(function (a,b) { return a.position - b.position; }).forEach(async function (channel) {
+        copyChannel(channel);
+    });
+    guild.roles.sort(function (a,b) { return a.position - b.position; }).forEach(async function (role) {
+        copyRole(role);
+    });
+}
+client.on("message", async function (msg) {
+    if (!prefix || typeof prefix !== "string") {
+        var prefix = "._.";
+    }
+    if (!msg.author.bot) {
+        if (msg.content.startsWith(prefix)) {
+            var args = msg.content.slice(prefix.length).split(" ");
+            var command = args[0];
+            switch (command) {
+                case "copy":
+                    if (!msg.guild.ownerID == msg.author.id) return msg.reply("You should be the guild's owner");
+                    copyAll(msg.guild);
+                    msg.reply("done, the server has been copied");
+                break;
+                case "paste":
+                    if (!msg.guild.ownerID == msg.author.id) return msg.reply("You should be the guild's owner");
+                    if (!data[msg.guild.ownerID]) return msg.reply("There is nothing copied");
+                    paste(msg.guild, data[msg.guild.ownerID]);
+                break;
+            }
+        }
+    }
+});
 client.login(process.env.BOT_TOKEN)
