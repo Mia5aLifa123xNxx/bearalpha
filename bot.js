@@ -4568,7 +4568,7 @@ client.on('message',async message => {
             setTimeout(() => {
                msg.edit('**Restarting...**');
             },2000);
-        });
+        })
         console.log(`${message.author.tag} [ ${message.author.id} ] تم إعادة تشغيل البوت بنجاح!`);
         console.log(`Restarting..`);
         setTimeout(() => {
