@@ -4594,7 +4594,7 @@ member.guild.fetchInvites().then(guildInvites => {
     const inviter = client.users.get(invite.inviter.id);
     const yumz = member.guild.channels.find("name", `${sChannel}`);
      //yumz.send(`<@${member.user.id}> joined by <@${inviter.id}>`);
-    yumz.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
+    yumz.send(`${member.user.id} joined using invite code ${invite.code} from ${inviter.id}. Invite was used ${invite.uses} times since its creation.`);
   }); 
       var Canvas = require('canvas')
       var jimp = require('jimp')
@@ -4651,6 +4651,25 @@ member.guild.fetchInvites().then(guildInvites => {
       
       }
       });
+client.on("guildMemberAdd", member => {
+  let welcome = member.guild.channels.find("name","📌❨ωєℓcσмє❩💞");
+  if(!welcome) return;
+  if(welcome) {
+      let embed = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setThumbnail(member.user.avatarURL)  
+      .setAuthor(member.user.username , member.user.avatarURL)
+      .addField("**Welcome To**", `[${member.guild.name}]`, true)
+      .addField(`**Number**`, `[${member.guild.memberCount}]`, true)
+      .addField("**Name**", `[${member.user.username}#${member.user.discriminator}]`,true)
+      .addField("**ID**", `[${member.user.id}]`, true)
+      .addField("**Inviter**", `[${inviter.id}]`, true)
+      .addField('**Created AT**',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')}**n** `${moment(member.user.createdAt).fromNow()}``,true)            
+      .addField("**Joined At**",`${moment(member.user.joinedAt).format('D/M/YYYY h:mm a')}**n** `${moment(member.user.joinedAt).fromNow()}``,true)    
+      welcome.send(embed)
+
+  }
+  })
 client.on('message',async message => {
     if(message.content.startsWith(prefix + "rst")) {
         if(message.author.id !== "536928110055260170") return message.reply('انت لست صاحب البوت!!!');
@@ -4669,24 +4688,5 @@ client.on('message',async message => {
             client.login('process.env.BOT_TOKEN');
         },3000);
     }
-});
-client.on("guildMemberAdd", member => {
-  let welcome = member.guild.channels.find("name","📌❨ωєℓcσмє❩💞");
-  if(!welcome) return;
-  if(welcome) {
-      let embed = new Discord.RichEmbed()
-      .setColor("RANDOM")
-      .setThumbnail(member.user.avatarURL)  
-      .setAuthor(member.user.username , member.user.avatarURL)
-      .addField("**Welcome To**", `[${member.guild.name}]`, true)
-      .addField("**Number**", `[${member.guild.memberCount}]`, true)
-      .addField("**Name**", `[${member.user.username}#${member.user.discriminator}]`,true)
-      .addField("**ID**", `[${member.user.id}]`, true)
-      .addFeild("**By**", `[<@${inviter.id}>]`true)
-      .addField("**Created AT**",`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')}**n** `${moment(member.user.createdAt).fromNow()}``,true)            
-      .addField("**Joined At**",`${moment(member.user.joinedAt).format('D/M/YYYY h:mm a')}**n** `${moment(member.user.joinedAt).fromNow()}``,true)    
-      welcome.send(embed)
-
-  }
 });
 client.login(process.env.BOT_TOKEN)
