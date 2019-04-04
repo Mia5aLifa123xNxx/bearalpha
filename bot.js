@@ -3258,7 +3258,8 @@ client.on('ready', () => {//new ready event
                       role.edit({color : "RANDOM"});
                   };
       });
-  }, 1000);//the rainbow time
+  }, 1
+7000);//the rainbow time
 })
 client.on("message", (message) => {
    if (message.content.startsWith("._.new")) {     
@@ -4587,8 +4588,6 @@ client.on('guildMemberAdd', member => {
         .addField('👥 | **name** :  ',`${member}`)
         .addField('📢 | ``نورت السيرفر يا قلبي``' , `Welcome to the server, ${member}`)
         .addField('🆔 | ``user`` :', "**[" + `${member.id}` + "]**" )
-              .addField(': تاريخ دخولك الدسكورد',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')} **n** `${moment(member.user.createdAt).fromNow()}``,true)            
-           .addField(': تاريخ دخولك السيرفر',`${moment(member.joinedAt).format('D/M/YYYY h:mm a ')} n``${moment(member.joinedAt).startOf(' ').fromNow()}```, true) 
                 .addField('➡| **ا**نت العضو رقم',`${member.guild.memberCount}`)
                
                   .addField("Name:",`<@` + `${member.id}` + `>`, true)
