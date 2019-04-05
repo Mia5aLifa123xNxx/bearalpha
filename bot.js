@@ -4596,8 +4596,8 @@ client.on('guildMemberAdd', member => {
     const invite = guildInvites.find(i => gamer.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
     const welcome = member.guild.channels.find(channel => channel.name === "📌❨ωєℓcσмє❩💞");
-    welcome.send(`|| ${member.user.tag} || **أرحب نورت السيرفر .**`)
-    welcome.send(`# **Invited By** : || ${inviter.tag} ||`)
+    welcome.send(`|| <@${member.id}> || **أرحب نورت السيرفر .**`)
+    welcome.send(`# **Invited By** : || <@${inviter.id}> ||`)
   });
 });
 client.login(process.env.BOT_TOKEN)
