@@ -4601,12 +4601,4 @@ client.on('guildMemberAdd', member => {
    
       channel.sendEmbed(embed);
     });
-client.on('guildMemberAdd', member => {
-    const millis = new Date().getTime() - member.user.createdAt.getTime();
-    const now = new Date();
-    const createdAt = millis / 1000 / 60 / 60 / 24;
-    const days = createdAt.toFixed(0);
-    if(!days) return;
-    if( days < 30 ) { member.ban() };    
-});
 client.login(process.env.BOT_TOKEN)
