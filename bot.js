@@ -3444,7 +3444,7 @@ var prefix = "._.";//البرفكس
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
    if(!rWlc[message.guild.id]) rWlc[message.guild.id] = {
-    role: "þř - Friends"
+    role: "Member"
   }
 const channel = rWlc[message.guild.id].role
   if (message.content.startsWith(prefix + "autorole")) {
