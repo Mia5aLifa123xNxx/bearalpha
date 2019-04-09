@@ -4555,14 +4555,14 @@ client.on('guildMemberAdd', member => {
     invites[member.guild.id] = guildInvites;
     const invite = guildInvites.find(i => gamer.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-    const welcome = member.guild.channels.find(channel => channel.name === "📌❨ωєℓcσмє❩💞");
+    const welcome = member.guild.channels.find(channel => channel.name === "📌❨invites❩💞");
     welcome.send(`|| <@${member.id}> || **أرحب نورت السيرفر .**`)
     welcome.send(`# **Invited By** : || <@${inviter.id}> ||`)
     welcome.send(`**عدد دعواتك** : ||${invite.uses}||`)
   });
 });
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', '📌❨ωєℓcσмє❩💞');
+    let channel = member.guild.channels.find('name', '📌❨welcome❩💞');
     let memberavatar = member.user.avatarURL
       if (!channel) return;
     let embed = new Discord.RichEmbed()
