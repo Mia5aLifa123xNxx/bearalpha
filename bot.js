@@ -213,7 +213,7 @@ fs.writeFile("./creditsCode.json", JSON.stringify(credits), (err) => {
     if (err) console.error(err);
   });
   credits[message.author.id] = {
-      credits: m + 10574541,
+      credits: m + 10245411,
   }
   
     if(message.content.startsWith(prefix + "credit" || prefix + "credits")) {
@@ -245,7 +245,6 @@ client.on('message', async message => {
     },86400000);
     }
 });
-
 client.on('message', message => {
      if(!message.channel.guild) return;
                 if(message.content.startsWith(prefix + 'allbots')) {
