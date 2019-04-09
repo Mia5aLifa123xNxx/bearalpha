@@ -203,7 +203,7 @@ client.on('message',async message => {
     
 if(message.author.bot) return;
 if(!credits[message.author.id]) credits[message.author.id] = {
-    credits: 50
+    credits: 12155611
 };
 
 let userData = credits[message.author.id];
@@ -213,7 +213,7 @@ fs.writeFile("./creditsCode.json", JSON.stringify(credits), (err) => {
     if (err) console.error(err);
   });
   credits[message.author.id] = {
-      credits: m + 1045412,
+      credits: m + 0.5,
   }
   
     if(message.content.startsWith(prefix + "credit" || prefix + "credits")) {
@@ -382,7 +382,7 @@ client.on('message', message => {
 
     language = toTrans[toTrans.length - 2] === 'to' ? toTrans.slice(toTrans.length - 2, toTrans.length)[1].trim() : undefined;
     if (!language) {
-        return message.reply(`Please supply valid agruments.\n**Example** \`G.trans [text] to [language]\``);
+        return message.reply(`Please supply valid agruments.\n**Example** \`._.trans [text] to [language]\``);
     }
     let finalToTrans = toTrans.slice(toTrans.length - toTrans.length, toTrans.length - 2).join(' ');
     translate(finalToTrans, {to: language}).then(res => {
