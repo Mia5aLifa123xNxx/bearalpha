@@ -4606,7 +4606,7 @@ const fs = require("fs");
 const bot = new Discord.Client();
 const pretty = require("pretty-ms");
 const moment = require("moment");
-const botconfig = JSON.parse(fs.readFileSync('./jsonfile/botconfig.json', 'utf8'));
+const botconfig = JSON.parse(fs.readFileSync('./botconfig.json', 'utf8'));
 const aprefix = "#"
 let gamesTime = 15000;
 
