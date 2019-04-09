@@ -203,7 +203,7 @@ client.on('message',async message => {
     
 if(message.author.bot) return;
 if(!credits[message.author.id]) credits[message.author.id] = {
-    credits: 12155611
+    credits: 50
 };
 
 let userData = credits[message.author.id];
@@ -246,7 +246,26 @@ client.on('message', async message => {
     }
 });
 
+client.on('message', message => {
+     if(!message.channel.guild) return;
+                if(message.content.startsWith(prefix + 'allbots')) {
 
+    
+    if (message.author.bot) return;
+    let i = 1;
+        const botssize = message.guild.members.filter(m=>m.user.bot).map(m=>`${i++} - <@${m.id}>`);
+          const embed = new Discord.RichEmbed()
+          .setAuthor(message.author.tag, message.author.avatarURL)
+          .setDescription(`**Found ${message.guild.members.filter(m=>m.user.bot).size} bots in this Server**
+${botssize.join('\n')}`)
+.setFooter(client.user.username, client.user.avatarURL)
+.setTimestamp();
+message.channel.send(embed)
+
+}
+
+
+});
 client.on('message', message => {
      if(!message.channel.guild) return;
                 if(message.content.startsWith(prefix + 'allbots')) {
@@ -382,7 +401,7 @@ client.on('message', message => {
 
     language = toTrans[toTrans.length - 2] === 'to' ? toTrans.slice(toTrans.length - 2, toTrans.length)[1].trim() : undefined;
     if (!language) {
-        return message.reply(`Please supply valid agruments.\n**Example** \`._.trans [text] to [language]\``);
+        return message.reply(`Please supply valid agruments.\n**Example** \`G.trans [text] to [language]\``);
     }
     let finalToTrans = toTrans.slice(toTrans.length - toTrans.length, toTrans.length - 2).join(' ');
     translate(finalToTrans, {to: language}).then(res => {
@@ -3239,7 +3258,7 @@ client.on('ready', () => {//new ready event
                       role.edit({color : "RANDOM"});
                   };
       });
-  }, 500);//the rainbow time
+  }, 1000);//the rainbow time
 })
 client.on("message", (message) => {
    if (message.content.startsWith("._.new")) {     
@@ -3425,7 +3444,7 @@ var prefix = "._.";//البرفكس
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
    if(!rWlc[message.guild.id]) rWlc[message.guild.id] = {
-    role: "Member"
+    role: "þř - Friends"
   }
 const channel = rWlc[message.guild.id].role
   if (message.content.startsWith(prefix + "autorole")) {
@@ -4539,47 +4558,23 @@ if (message.content.startsWith(prefix + 'tpoint')) {
 }
   
 });
-const invites = {};
-const wait = require('util').promisify(setTimeout);
-client.on('ready', () => {
-  wait(1000);
-  client.guilds.forEach(king => {
-    king.fetchInvites().then(guildInvites => {
-      invites[king.id] = guildInvites;
-    });
-  });
+client.on('message',async message => {
+    if(message.content.startsWith(prefix + "rst")) {
+        if(message.author.id !== "536928110055260170") return message.reply('انت لست صاحب البوت!!!');
+        message.channel.send('**Restarting.**').then(msg => {
+            setTimeout(() => {
+               msg.edit('**Restarting..**');
+            },1000);
+            setTimeout(() => {
+               msg.edit('**Restarting...**');
+            },2000);
+        });
+        console.log(`${message.author.tag} [ ${message.author.id} ] تم إعادة تشغيل البوت بنجاح!`);
+        console.log(`Restarting..`);
+        setTimeout(() => {
+            client.destroy();
+            client.login('process.env.BOT_TOKEN');
+        },3000);
+    }
 });
-client.on('guildMemberAdd', member => {
-  member.guild.fetchInvites().then(guildInvites => {
-    const gamer = invites[member.guild.id];
-    invites[member.guild.id] = guildInvites;
-    const invite = guildInvites.find(i => gamer.get(i.code).uses < i.uses);
-    const inviter = client.users.get(invite.inviter.id);
-    const welcome = member.guild.channels.find(channel => channel.name === "📌❨invites❩💞");
-    welcome.send(`|| <@${member.id}> || **أرحب نورت السيرفر .**`)
-    welcome.send(`# **Invited By** : || <@${inviter.id}> ||`)
-    welcome.send(`**عدد دعواتك** : ||${invite.uses}||`)
-  });
-});
-client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', '📌❨welcome❩💞');
-    let memberavatar = member.user.avatarURL
-      if (!channel) return;
-    let embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(memberavatar)
-        .addField('👥 | **name** :  ',`${member}`)
-        .addField('📢 | ``نورت السيرفر يا قلبي``' , `Welcome to the server, ${member}`)
-        .addField('🆔 | **user** :', "**[" + `${member.id}` + "]**" )
-                .addField('➡| ``انت العضو رقم``',`${member.guild.memberCount}`)
-               
-                  .addField("👤 | **Name** :",`<@` + `${member.id}` + `>`, true)
-                     
-                                     .addField('🌐 | **الـسيرفر**', `${member.guild.name}`,true)
-                                       
-     .setFooter(`${member.guild.name}`)
-        .setTimestamp()
-   
-      channel.sendEmbed(embed);
-    });
 client.login(process.env.BOT_TOKEN)
