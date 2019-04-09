@@ -4607,7 +4607,7 @@ const bot = new Discord.Client();
 const pretty = require("pretty-ms");
 const moment = require("moment");
 const botconfig = JSON.parse(fs.readFileSync('./jsonfile/botconfig.json', 'utf8'));
-const p = "#"
+const aprefix = "#"
 let gamesTime = 15000;
 
 bot.login(botconfig.token);
@@ -4647,7 +4647,7 @@ bot.on('message', message => {
     if (message.channel.type == "dm") return console.log(message.author.username + ` => type this (${message.content}) in Dm`);
     if (message.author.bot || message.system) return;
     /* T E X T - S Y S T E M */
-    if (message.content.startsWith(p + "daily") || message.content.startsWith(p + "هدية")) {
+    if (message.content.startsWith(aprefix + "daily") || message.content.startsWith(aprefix + "هدية")) {
       let cooldown = 8.64e+7;
       let lastDaily = dailies[message.author.id]
       if (lastDaily !== null && cooldown - (Date.now() - lastDaily) > 0) {
@@ -4663,7 +4663,7 @@ bot.on('message', message => {
         });
       };
     };
-    if (message.content.startsWith(p + "credits") || message.content.startsWith(p + "credit")) {
+    if (message.content.startsWith(aprefix + "credits") || message.content.startsWith(aprefix + "credit")) {
       let row = getUserData(message.author.id);
       if (message.mentions.users.size < 1) {
         return message.channel.send(` **${message.author.username}, your :credit_card: balance is** ``$${row.credit}`` `).catch(error => message.channel.send(`**:white_check_mark: | تم تفعيل حسابك البنكي **`));
