@@ -4647,7 +4647,7 @@ bot.on('message', message => {
     if (message.channel.type == "dm") return console.log(message.author.username + ` => type this (${message.content}) in Dm`);
     if (message.author.bot || message.system) return;
     /* T E X T - S Y S T E M */
-    if (message.content.startsWith(aprefix + "daily") || message.content.startsWith(aprefix + "هدية")) {
+    if (message.content.startsWith("d") || message.content.startsWith("هدية")) {
       let cooldown = 8.64e+7;
       let lastDaily = dailies[message.author.id]
       if (lastDaily !== null && cooldown - (Date.now() - lastDaily) > 0) {
@@ -4663,7 +4663,7 @@ bot.on('message', message => {
         });
       };
     };
-    if (message.content.startsWith(aprefix + "credits") || message.content.startsWith(aprefix + "credit")) {
+    if (message.content.startsWith("c") || message.content.startsWith("c")) {
       let row = getUserData(message.author.id);
       if (message.mentions.users.size < 1) {
         return message.channel.send(` **${message.author.username}, your :credit_card: balance is** ``$${row.credit}`` `).catch(error => message.channel.send(`**:white_check_mark: | تم تفعيل حسابك البنكي **`));
