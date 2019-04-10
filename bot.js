@@ -2844,7 +2844,7 @@ if(message.content.startsWith(prefix + "slots")) {
 client.on('message', message => {
     var command = message.content.split(" ")[0];
     var args1 = message.content.split(" ").slice(1).join(" ");
-    if(command == prefix + 'find') { // الامر : $find
+    if(command == prefix + 'find') { // الامر : ._.find
         let sizePlayers = 1;
         
         if(message.author.bot) return;
@@ -3439,7 +3439,7 @@ var prefix = "._.";//البرفكس
 if(message.channel.type === "dm") return;
 if(message.author.bot) return;
    if(!rWlc[message.guild.id]) rWlc[message.guild.id] = {
-    role: "þř - Friends"
+    role: "🔰 Fire ✨"
   }
 const channel = rWlc[message.guild.id].role
   if (message.content.startsWith(prefix + "autorole")) {
