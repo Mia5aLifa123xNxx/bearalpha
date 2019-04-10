@@ -4558,39 +4558,20 @@ if (message.content.startsWith(prefix + 'tpoint')) {
 }
   
 });
-client.on('message',async message => {
-    if(message.content.startsWith(prefix + "rst")) {
-        if(message.author.id !== "536928110055260170") return message.reply('انت لست صاحب البوت!!!');
-        message.channel.send('**Restarting.**').then(msg => {
-            setTimeout(() => {
-               msg.edit('**Restarting..**');
-            },1000);
-            setTimeout(() => {
-               msg.edit('**Restarting...**');
-            },2000);
-        });
-        console.log(`${message.author.tag} [ ${message.author.id} ] تم إعادة تشغيل البوت بنجاح!`);
-        console.log(`Restarting..`);
-        setTimeout(() => {
-            client.destroy();
-            client.login('process.env.BOT_TOKEN');
-        },3000);
-    }
-});
 client.on('guildMemberAdd', member => {
   member.guild.fetchInvites().then(guildInvites => {
     const gamer = invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
     const invite = guildInvites.find(i => gamer.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-    const welcome = member.guild.channels.find(channel => channel.name === "📌❨welcome❩💞");
+    const welcome = member.guild.channels.find(channel => channel.name === "invites");
     welcome.send(`|| <@${member.id}> || **أرحب نورت السيرفر .**`)
     welcome.send(`# **Invited By** : || <@${inviter.id}> ||`)
     welcome.send(`**عدد دعواتك** : ||${invite.uses}||`)
   });
 });
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', '📌❨welcome❩💞');
+    let channel = member.guild.channels.find('name', 'welcome');
     let memberavatar = member.user.avatarURL
       if (!channel) return;
     let embed = new Discord.RichEmbed()
