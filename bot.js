@@ -4558,37 +4558,4 @@ if (message.content.startsWith(prefix + 'tpoint')) {
 }
   
 });
-client.on('guildMemberAdd', member => {
-  member.guild.fetchInvites().then(guildInvites => {
-    const gamer = invites[member.guild.id];
-    invites[member.guild.id] = guildInvites;
-    const invite = guildInvites.find(i => gamer.get(i.code).uses < i.uses);
-    const inviter = client.users.get(invite.inviter.id);
-    const welcome = member.guild.channels.find(channel => channel.name === "invites");
-    welcome.send(`|| <@${member.id}> || **أرحب نورت السيرفر .**`)
-    welcome.send(`# **Invited By** : || <@${inviter.id}> ||`)
-    welcome.send(`**عدد دعواتك** : ||${invite.uses}||`)
-  });
-});
-client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'welcome');
-    let memberavatar = member.user.avatarURL
-      if (!channel) return;
-    let embed = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(memberavatar)
-        .addField('👥 | **name** :  ',`${member}`)
-        .addField('📢 | ``نورت السيرفر يا قلبي``' , `Welcome to the server, ${member}`)
-        .addField('🆔 | **user** :', "**[" + `${member.id}` + "]**" )
-                .addField('➡| ``انت العضو رقم``',`${member.guild.memberCount}`)
-               
-                  .addField("👤 | **Name** :",`<@` + `${member.id}` + `>`, true)
-                     
-                                     .addField('🌐 | **الـسيرفر**', `${member.guild.name}`,true)
-                                       
-     .setFooter(`${member.guild.name}`)
-        .setTimestamp()
-   
-      channel.sendEmbed(embed);
-    });
 client.login(process.env.BOT_TOKEN)
