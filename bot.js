@@ -213,7 +213,7 @@ fs.writeFile("./creditsCode.json", JSON.stringify(credits), (err) => {
     if (err) console.error(err);
   });
   credits[message.author.id] = {
-      credits: m + 0.5,
+      credits: m + 1,
   }
   
     if(message.content.startsWith(prefix + "credit" || prefix + "credits")) {
@@ -2742,19 +2742,19 @@ if(!message.channel.guild) return message.reply(' Error : \` Guild Command \`');
             return;
         }
       possibleInvites.push(['\n\ ' +'<@'+ i.inviter.id +'>' + '  :  ' +   i.uses]);
-      if (i.uses === 30) {//يمديك تعدل رقم وصول العدد حق الانفايت الى اأقل أو أكثر
-          message.member.addRole(message.member.guild.roles.find("name","🔰 Special ✨"))//هنآ أسم ألرتبه اللي تجيهه
+      if (i.uses === 5) {//يمديك تعدل رقم وصول العدد حق الانفايت الى اأقل أو أكثر
+          message.member.addRole(message.member.guild.roles.find("name","🔰 Paypal ✨"))//هنآ أسم ألرتبه اللي تجيهه
 .catch(RebeL =>{
 console.log('`Error`: ' + RebeL);
 });
 }
-if (i.uses === 30) {
-message.member.addRole(message.member.guild.roles.find("name","🔰 Special ✨"))
+if (i.uses === 10) {
+message.member.addRole(message.member.guild.roles.find("name","🔰 Netflix ✨"))
 .catch(RebeL =>{
 console.log('`Error`: ' + RebeL);
 });
 }
-if (i.uses === 30) {
+if (i.uses === 20) {
 message.member.addRole(message.member.guild.roles.find("name","🔰 Special ✨"))
 .catch(RebeL =>{
 console.log('`Error`: ' + RebeL);
@@ -3151,10 +3151,6 @@ client.on("message", (message) => {
         message.channel.send(`** <@${message.mentions.members.first().id}> Unmuted!??**`);
     }
 })
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setStatus('dnd')
-});
 client.on("message", message => {
   if (message.channel.type === "dm") {
 
@@ -3263,7 +3259,7 @@ client.on('ready', () => {//new ready event
 client.on("message", (message) => {
    if (message.content.startsWith("._.new")) {     
         const reason = message.content.split(" ").slice(1).join(" ");     
-        if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
+        if (!message.guild.roles.exists("name", ".")) return message.channel.send(`This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
         if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    
         message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
             let role = message.guild.roles.find("name", "Support Team");
@@ -3313,19 +3309,6 @@ client.on("message", (message) => {
             });
     }
  
-});
-client.on('guildMemberAdd', member => {
-    const botCount = member.guild.members.filter(m=>m.user.bot).size
-    const memberCount = [member.guild.memberCount] - [botCount]
-    client.channels.get('551381085234266122').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
-    client.channels.get('562926887194591232').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
-});
-
-client.on('guildMemberRemove', member => {
-    const botCount = member.guild.members.filter(m=>m.user.bot).size
-    const memberCount = [member.guild.memberCount] - [botCount]
-    client.channels.get('551381085234266122').setName(`⟫『 ${memberCount} عدد الاعضاء 』⟪`);
-    client.channels.get('562926887194591232').setName(`⟫『 ${botCount} عدد البوتات 』⟪`);
 });
 client.on('message', async message => {//alpha codes & Mrx -Dev
                     if (message.content.startsWith(prefix + 'rc')) {//alpha codes & Mrx -Dev
@@ -4157,20 +4140,6 @@ client.on('message',message =>{
     }
   });
 client.on('message', message => {
-   let emoji = client.guilds.get("551159757814235140").emojis.find(r => r.name === "fire_server"); //كود تعريف المتغير emoji
- 
-    if(message.content === '._.firemoji'){ //تحقق اذا الرساله هي sebdemji
-   message.channel.send(`${emoji}`)//يرسل المتغير emoji 
-    }  // xomar933 نهاية قوس التحقق
-});
-client.on('message', message => {
-   let emoji = client.guilds.get("551159757814235140").emojis.find(r => r.name === "heartrainbow"); //كود تعريف المتغير emoji
- 
-    if(message.content === '._.heartemoji'){ 
-   message.channel.send(`${emoji}`)//يرسل المتغير emoji 
-    }
-});
-client.on('message', message => {
     if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
 if (message.content.startsWith('?obc')){
@@ -4558,4 +4527,37 @@ if (message.content.startsWith(prefix + 'tpoint')) {
 }
   
 });
+client.on('guildMemberAdd', member => {
+  member.guild.fetchInvites().then(guildInvites => {
+    const gamer = invites[member.guild.id];
+    invites[member.guild.id] = guildInvites;
+    const invite = guildInvites.find(i => gamer.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const welcome = member.guild.channels.find(channel => channel.name === "invites");
+    welcome.send(`|| <@${member.id}> || **أرحب نورت السيرفر .**`)
+    welcome.send(`# **Invited By** : || <@${inviter.id}> ||`)
+    welcome.send(`**عدد دعواتك** : ||${invite.uses}||`)
+  });
+});
+client.on('guildMemberAdd', member => {
+    let channel = member.guild.channels.find('name', 'welcome');
+    let memberavatar = member.user.avatarURL
+      if (!channel) return;
+    let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(memberavatar)
+        .addField('👥 | **name** :  ',`${member}`)
+        .addField('📢 | ``نورت السيرفر يا قلبي``' , `Welcome to the server, ${member}`)
+        .addField('🆔 | **user** :', "**[" + `${member.id}` + "]**" )
+                .addField('➡| ``انت العضو رقم``',`${member.guild.memberCount}`)
+               
+                  .addField("👤 | **Name** :",`<@` + `${member.id}` + `>`, true)
+                     
+                                     .addField('🌐 | **الـسيرفر**', `${member.guild.name}`,true)
+                                       
+     .setFooter(`${member.guild.name}`)
+        .setTimestamp()
+   
+      channel.sendEmbed(embed);
+    });
 client.login(process.env.BOT_TOKEN)
