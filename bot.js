@@ -2647,10 +2647,10 @@ if(!men) return  eyad.channel.send(":black_medium_square:**قم بوضع ايد�
      .setTimestamp() 
      .setFooter(`- By , message.author.name .`)
      eyad.channel.send(eyadandr3d).then(message => {
- message.react('?').then(r=>{
- message.react('?').then(r=>{            
-    var kk = (reaction, user) => reaction.emoji.name === '?' && user.id === eyad.author.id;    
-    var nn = (reaction, user) => reaction.emoji.name === '?' && user.id === eyad.author.id;
+ message.react('✅').then(r=>{
+ message.react('❌').then(r=>{            
+    var kk = (reaction, user) => reaction.emoji.name === '✅' && user.id === eyad.author.id;    
+    var nn = (reaction, user) => reaction.emoji.name === '❌' && user.id === eyad.author.id;
     var kkk = message.createReactionCollector(kk, { time: 60000 });
     var nnn = message.createReactionCollector(nn, { time: 60000 });
 kkk.on("collect", r => {
@@ -2748,6 +2748,12 @@ if(!message.channel.guild) return message.reply(' Error : \` Guild Command \`');
 console.log('`Error`: ' + RebeL);
 });
 }
+if (i.uses === 5) {
+message.member.addRole(message.member.guild.roles.find("name","🔰 credits ✨"))
+.catch(RebeL =>{
+console.log('`Error`: ' + RebeL);
+});
+}
 if (i.uses === 10) {
 message.member.addRole(message.member.guild.roles.find("name","🔰 Netflix ✨"))
 .catch(RebeL =>{
@@ -2756,6 +2762,12 @@ console.log('`Error`: ' + RebeL);
 }
 if (i.uses === 20) {
 message.member.addRole(message.member.guild.roles.find("name","🔰 Special ✨"))
+.catch(RebeL =>{
+console.log('`Error`: ' + RebeL);
+});
+}
+if (i.uses === 2) {
+message.member.addRole(message.member.guild.roles.find("name","🔰 Minecraft ✨"))
 .catch(RebeL =>{
 console.log('`Error`: ' + RebeL);
 });
@@ -3262,7 +3274,7 @@ client.on("message", (message) => {
         if (!message.guild.roles.exists("name", ".")) return message.channel.send(`This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`);
         if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    
         message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
-            let role = message.guild.roles.find("name", "Support Team");
+            let role = message.guild.roles.find("name", ".");
             let role2 = message.guild.roles.find("name", "@everyone");
             c.overwritePermissions(role, {
                 SEND_MESSAGES: true,
@@ -3291,9 +3303,9 @@ client.on("message", (message) => {
   if (message.content.startsWith("._.close")) {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
  
-        message.channel.send(`هل أنت متأكد؟ بعد التأكيد ، لا يمكنك عكس هذا الإجراء!\n للتأكيد ، اكتب\`*confirm\`. سيؤدي ذلك إلى مهلة زمنية في غضون 10 ثوانٍ وإلغائها`)
+        message.channel.send(`هل أنت متأكد؟ بعد التأكيد ، لا يمكنك عكس هذا الإجراء!\n للتأكيد ، اكتب\`._.confirm\`. سيؤدي ذلك إلى مهلة زمنية في غضون 10 ثوانٍ وإلغائها`)
             .then((m) => {
-                message.channel.awaitMessages(response => response.content === '*confirm', {
+                message.channel.awaitMessages(response => response.content === '._.confirm', {
                         max: 1,
                         time: 10000,
                         errors: ['time'],
@@ -4545,14 +4557,14 @@ client.on('guildMemberAdd', member => {
     invites[member.guild.id] = guildInvites;
     const invite = guildInvites.find(i => gamer.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-    const welcome = member.guild.channels.find(channel => channel.name === "invites");
+    const welcome = member.guild.channels.find(channel => channel.name === "❍❰welcome❱");
     welcome.send(`|| <@${member.id}> || **أرحب نورت السيرفر .**`)
     welcome.send(`# **Invited By** : || <@${inviter.id}> ||`)
     welcome.send(`**عدد دعواتك** : ||${invite.uses}||`)
   });
 });
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'welcome');
+    let channel = member.guild.channels.find('name', '❍❰welcome❱');
     let memberavatar = member.user.avatarURL
       if (!channel) return;
     let embed = new Discord.RichEmbed()
