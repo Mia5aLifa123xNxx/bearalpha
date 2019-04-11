@@ -4611,11 +4611,12 @@ client.on('message' , message => {
             message.channel.send(`لقد تم ارسال هذه الرسالة الى ${message.guild.members.filter(m => m.roles.get(role.id)).size} عضو`)
         }
     });
+
 const ms = require("ms");
 
-       bot.on('message', message => {
+client.on('message', message => {
         
-    if(message.content.startsWith('#time')) {
+    if(message.content.startsWith('._.time')) {
           let args = message.content.split(' ').slice(1);
    let Timer = args[0]; 
  
