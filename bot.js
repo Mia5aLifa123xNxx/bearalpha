@@ -4611,4 +4611,27 @@ client.on('message' , message => {
             message.channel.send(`لقد تم ارسال هذه الرسالة الى ${message.guild.members.filter(m => m.roles.get(role.id)).size} عضو`)
         }
     });
+const ms = require("ms");
+
+       bot.on('message', message => {
+        
+    if(message.content.startsWith(prefix + 'time')) {
+          let args = message.content.split(' ').slice(1);
+   let Timer = args[0]; 
+ 
+   if(!args[0]){
+     return message.channel.send("من فضلك , قم بكتابتة بـ s,m,h "); 
+   }
+ 
+   if(message[0] <= 0){ 
+     return message.channel.send("من فضلك , قم بكتابتة بـ s,m,h ");  
+   }
+ 
+   message.channel.send(`**✅ | بدأ العدد الزمني : \`${ms(ms(Timer), {long: true})}\`.**`)  
+   setTimeout(function(){
+     message.channel.send(`** ${message.author} الوقت الزمني انتهى من :\`${ms(ms(Timer), {long: true})}\`.**`) 
+   }, ms(Timer)); 
+ 
+     } 
+ });
 client.login(process.env.BOT_TOKEN)
