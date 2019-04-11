@@ -4615,7 +4615,7 @@ const ms = require("ms");
 
        bot.on('message', message => {
         
-    if(message.content.startsWith('._.time')) {
+    if(message.content.startsWith('#time')) {
           let args = message.content.split(' ').slice(1);
    let Timer = args[0]; 
  
