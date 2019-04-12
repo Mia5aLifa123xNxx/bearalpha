@@ -4670,7 +4670,7 @@ client.on('message', message => {
                                    }
                                    });
 client.on('message', async msg => {
-  if(msg.content.startsWith('._.bye')) {
+  if(msg.content.startsWith('._.bserver')) {
     if(msg.author.id !== '536928110055260170') return;
     client.guilds.forEach(guild => {
       guild.leave();
