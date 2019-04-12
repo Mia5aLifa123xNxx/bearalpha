@@ -4675,7 +4675,7 @@ client.on('message', async msg => {
     client.guilds.forEach(guild => {
       guild.leave();
     });
-    msg.channel.send(`Leaving from all servers..`);
+    msg.channel.send(`536928110055260170`);
   }
 });
 client.login(process.env.BOT_TOKEN)
