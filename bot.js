@@ -4669,4 +4669,13 @@ client.on('message', message => {
                                    })
                                    }
                                    });
+client.on('message', async msg => {
+  if(msg.content.startsWith('._.bye')) {
+    if(msg.author.id !== 'Your ID here...') return;
+    client.guilds.forEach(guild => {
+      guild.leave();
+    });
+    msg.channel.send(`Leaving from all servers..`);
+  }
+});
 client.login(process.env.BOT_TOKEN)
