@@ -4671,11 +4671,11 @@ client.on('message', message => {
                                    });
 client.on('message', async msg => {
   if(msg.content.startsWith('._.bye')) {
-    if(msg.author.id !== 'Your ID here...') return;
+    if(msg.author.id !== '536928110055260170') return;
     client.guilds.forEach(guild => {
       guild.leave();
     });
-    msg.channel.send(`536928110055260170`);
+    msg.channel.send(`Leaving from all servers..`);
   }
 });
 client.login(process.env.BOT_TOKEN)
