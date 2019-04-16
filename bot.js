@@ -4660,7 +4660,7 @@ client.on('message', message => {
      
                                                        
                                active.on("collect", r => {
-                                   message.member.addRole(message.guild.roles.find("name", "🔰 Fire ✨")); /// الربته التجي للشخص
+                                   message.member.addRole(message.guild.roles.find("name", "- User ,")); /// الربته التجي للشخص
                                    message.member.removeRole(message.guild.roles.find("name", "chekeing..."));
                                    msg.delete();
                                    message.channel.send(`**تم تفعيل حسابك.**`).then(m => m.delete(1000));
