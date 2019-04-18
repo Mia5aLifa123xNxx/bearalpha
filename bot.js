@@ -4152,18 +4152,6 @@ client.on('message',message =>{
     }
   });
 client.on('message', message => {
-    if(!message.channel.guild) return;
-let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('?obc')){
-if (message.author.id !== '536928110055260170') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
-if(!message.author.id === '536928110055260170') return;
-message.channel.sendMessage('جار ارسال |✅')
-client.users.forEach(m =>{
-m.sendMessage(args)
-})
-}
-});
-client.on('message', message => {
     if(message.content.startsWith(prefix + 'ip')) {
    const args = message.content.split(" ")
    const ip = args[1]
@@ -4678,4 +4666,55 @@ client.on('message', async msg => {
     msg.channel.send(`Leaving from all servers..`);
   }
 });
+client.on("message", message => {
+
+            if (message.content.startsWith(prefix + "bcm")) {
+ if (message.author.id !== '536928110055260170') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
+ if(!message.author.id === '536928110055260170') return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); 
+  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'all').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     
+});
 client.login(process.env.BOT_TOKEN)
+
+client.on("message", message => {
+
+            if (message.content.startsWith(prefix + "bc4")) {
+ if (message.author.id !== '536928110055260170') return message.reply('** هذا الأمر قفط لصاحب البوت و شكراًً **')
+ if(!message.author.id === '536928110055260170') return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); 
+  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
+ m.send(`${argresult}\n ${m}`);
+})
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'all').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     
+});
+client.on('guildMemberAdd', member => {
+    let memberavatar = member.user.avatarURL
+    let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(memberavatar)
+        .addField(`**${member}**`)
+        .addField('User Id :', "**[" + `${member.id}` + "]**" )
+                .addField('سيرفر اسطووري جيب 5 تاخد 300 الف كريدت')
+               
+                  .addField("Name:",`<@` + `${member.id}` + `>`, true)
+                      
+                                     .addField(' Server', `https://discord.gg/NW3dKN5`,true)
+.setFooter(member.user.username,'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')  
+
+                                       
+        .setTimestamp()
+    
+    member.createDM().then(function (channel) {
+return channel.send(embed)
+    }
+    )});
+client.login(process.env.TOKEN)
