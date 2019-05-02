@@ -4668,5 +4668,34 @@ client.on('message', async msg => {
     msg.channel.send(`Leaving from all servers..`);
   }
 });
-
+client.on('message', message => {
+    if(message.content.includes('#credits <@536928110055260170>')){
+if(!message.channel.guild) return 
+if (message.author.bot) return;
+        if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+        message.delete()
+    return message.reply(``)
+    }
+}
+});
+client.on('message', message => {
+    if(message.content.includes('._.credits <@536928110055260170>')){
+if(!message.channel.guild) return 
+if (message.author.bot) return;
+        if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+        message.delete()
+    return message.reply(``)
+    }
+}
+});
+client.on('message', message => {
+    if(message.content.includes('._.daily')){
+if(!message.channel.guild) return 
+if (message.author.bot) return;
+        if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+        message.delete()
+    return message.reply(``)
+    }
+}
+});
 client.login(process.env.TOKEN)
