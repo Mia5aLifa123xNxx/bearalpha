@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
 const premium = ['470896018603376640']
-const client = new Discord.Client();   
+const client = new Discord.Client();
+const client1 = new Discord.Client();   
 const bot = new Discord.Client();   
 const giphy = require('giphy-api')();    
 const googl = require('goo.gl');  
@@ -4699,3 +4700,17 @@ if (message.author.bot) return;
 }
 });
 client.login(process.env.TOKEN)
+
+client1.on('ready', () => {
+   console.log(`----------------`);
+      console.log(`Welcome bearperson`);
+        console.log(`----------------`);
+      console.log(`ON ${client.guilds.size} Servers @bearserver@ `);
+    console.log(`----------------`);
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`Type ._.help`,"https://www.twitch.tv/Mdax77xR1")
+client.user.setStatus("dnd")
+ 
+});
+
+client1.login(process.env.TOKEN1)
