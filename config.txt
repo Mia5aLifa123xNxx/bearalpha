@@ -3,4 +3,4 @@ prefix=._.
 game=
 stayinchannel=false
 songinstatus=false
-token=process.env.token
+token=process.env.TOKEN
