@@ -5190,4 +5190,116 @@ function shuffle(queue) {
 	}
 	return queue;
 }
+
+/*---------------------*/
+/* MISC FUNCTIONS END */
+/*-------------------*/
+
+/*---------------------*/
+/* اقتراح الاغاني. , بداية*/
+/*-------------------*/
+							 const sugg = [
+                          'El Joker - El Mo5tar l الجوكر - المختار',
+                          'El Joker - Met.hamesh l الجوكر - متهمش',
+                          'Seif Amer - Mawjou Galbi - Official Audio | سيف عامر - موجوع قلبي - الأوديو الرسمي',
+                          'El Joker - W El Oghnia De 7aram l الجوكر - و الأغنية دى حرام',
+                          'El Joker - Enfsam 7ad l الجوكر - انفصام حاد',
+                          'Ahmed Mekky - Atr AL Hayah | أحمد مكى - قطر الحياة فيديو كليب',
+                          'الشاعر هشام الجخ - قصيدة مصلتش العشا - حلوة يا دنيا',
+                          'أحمد مكى و محمود الليثى - ( آخرة الشقاوه ) - (Ahmed Mekky & Mahmoud Al Liethy ( Akhret Al Shaqawa',
+                          'Al Donya - أغنية الدنيا - غدر الصحاب | Zap Tharwat & Sary Hany ft. Tarek El Sheikh',
+                          'اول واحد | شادى سرور (فيديو كليب حصري)',
+                          'فين الصحاب | شادى سرور (فيديو كليب حصري)',
+                          'Ahzee – Go Gyal (Official Music Video) (HD) (HQ)',
+                          'ABYUSIF - THANOS | ابيوسف - ثانوس',
+                          'يتوغل يتسرب ... ABYUSIF',// By : Kahrba. || تم التطوير من قبل كههربا
+                          'Abyusif Ya Bro Prod By Abyusif',
+                          'El Joker - Salma l الجوكر - سلمى',
+                          'El Joker - El Da3t l الجوكر - الضغط',// By : Kahrba. || تم التطوير من قبل كههربا
+                          'El Joker - 90s l الجوكر - تسعيناتى',
+                          'El Joker - 01 April l الجوكر - ١ أبريل',
+                          'El Joker - Monalisa Tania l الجوكر - موناليزا تانية',
+                          'El Joker - Kam Kelma l الجوكر - كام كلمة',// By : Kahrba. || تم التطوير من قبل كههربا
+                          'El Joker - Ana I l الجوكر - أنا الجزء الاول',
+                          'El Joker - Ana II l الجوكر - أنا الجزء الثانى',
+                          'El Joker - Eskot l الجوكر - اسكت',
+                          'مهرجان انا جدع (انا لو خس جسمي كفايه اسمي )غناء اسلام الابيض ومحمد الفنان . توزيع اسلام الابيض',
+                          ]
+// By : Kahrba. || تم التطوير من قبل كههربا
+/*---------------------*/// By : Kahrba. || تم التطوير من قبل كههربا
+/* اقتراح الاغاني. , نهاية*/
+/*-------------------*/// By : Kahrba. || تم التطوير من قبل كههربا
+// By : Kahrba. || تم التطوير من قبل كههربا
+/*---------------------*/// By : Kahrba. || تم التطوير من قبل كههربا
+/* اوامر المساعدة , بداية */
+/*-------------------*/// By : Kahrba. || تم التطوير من قبل كههربا
+
+   bot.on("message", message => {// By : Kahrba. || تم التطوير من قبل كههربا
+    if (message.content === initcmd +"help") {
+     const embed = new Discord.RichEmbed()
+         .setColor("36393f")// By : Kahrba. || تم التطوير من قبل كههربا
+         .setDescription(`**
+┏┓┏━┓╋╋┏┓╋╋╋┏┓
+┃┃┃┏┛╋╋┃┃╋╋╋┃┃
+┃┗┛┛┏━━┫┗━┳━┫┗━┳━━┓
+┃┏┓┃┃┏┓┃┏┓┃┏┫┏┓┃┏┓┃
+┃┃┃┗┫┏┓┃┃┃┃┃┃┗┛┃┏┓┃
+┗┛┗━┻┛┗┻┛┗┻┛┗━━┻┛┗┛
+Bot Version : ${version}
+Developer By : <@536928110055260170>
+**`)
+   message.channel.send({embed});
+// By : Kahrba. || تم التطوير من قبل كههربا
+   }
+   });// By : Kahrba. || تم التطوير من قبل كههربا
+
+   bot.on("message", message => {
+   	   	        let kahrba = message.guild.member(message.author).roles.find('name', 'Dj');
+                if(!kahrba)
+    if (message.content === initcmd +"help") {
+     const embed = new Discord.RichEmbed()
+         .setColor("36393f")// By : Kahrba. || تم التطوير من قبل كههربا
+         .setDescription(`**
+         [Commands Help.]
+${initcmd}play [NameMusic/Ulr] -> لتشغيل الاغاني , واذا لم تعمل انتظر قائمة التشغيل
+${initcmd}skip ->  يتخطى الأغنية الحالية
+${initcmd}playlist ->  يعرض قائمة التشغيل الحالية
+${initcmd}repeat ->  يكرر تشغيل الاغنية من جديد
+${initcmd}yt [search term] ->  يبحث في YouTube ويعرض أول 5 نتائج
+${initcmd}add -> يضيف أغنية من بحث YouTube إلى قائمة التشغيل
+${initcmd}vol ->  يحدد حجم الموسيقى إلى نسبة معينة
+${initcmd}help or ${initcmd}commands ->  يعرض لك الاوامر البوت المتاحة
+**`)// By : Kahrba. || تم التطوير من قبل كههربا
+   message.channel.send({embed});
+
+   }
+   });// By : Kahrba. || تم التطوير من قبل كههربا
+
+/////////// By : Kahrba. || تم التطوير من قبل كههربا
+
+   bot.on("message", message => {
+   	        let kahrba = message.guild.member(message.author).roles.find('name', 'Dj');
+                if(!kahrba) return
+    if (message.content === initcmd +"help") {
+     const embed = new Discord.RichEmbed()// By : Kahrba. || تم التطوير من قبل كههربا
+         .setColor("36393f")// By : Kahrba. || تم التطوير من قبل كههربا
+         .setDescription(`**
+         [Commands Help.]
+${initcmd}p [NameMusic/Ulr] -> لتشغيل الاغاني , واذا لم تعمل انتظر قائمة التشغيل
+${initcmd}s ->  يتخطى الأغنية الحالية
+${initcmd}pl ->  يعرض قائمة التشغيل الحالية
+${initcmd}playlist remove [song number] ->  يزيل الأغنية المختارة من قائمة التشغيل (Dj)
+${initcmd}playlist clear ->  يزيل كل الأغاني من قائمة التشغيل (Dj)
+${initcmd}playlist shuffle ->  يغير قائمة التشغيل الحالية (Dj)
+${initcmd}r ->  يكرر تشغيل الاغنية من جديد
+${initcmd}stop ->  يتوقف عن تشغيل الموسيقى ويحذف جميع الأغاني في قائمة التشغيل (Dj)
+${initcmd}yt [search term] ->  يبحث في YouTube ويعرض أول 5 نتائج
+${initcmd}add -> يضيف أغنية من بحث YouTube إلى قائمة التشغيل
+${initcmd}vol ->  يحدد حجم الموسيقى إلى نسبة معينة
+${initcmd}help or ${initcmd}commands ->  يعرض لك الاوامر البوت المتاحة
+**`)
+   message.channel.send({embed});// By : Kahrba. || تم التطوير من قبل كههربا
+
+   }// By : Kahrba. || تم التطوير من قبل كههربا
+   });
 client.login(process.env.TOKEN)
