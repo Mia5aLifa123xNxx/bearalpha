@@ -1,6 +1,0 @@
-owner=536928110055260170
-prefix=._.
-game=
-stayinchannel=false
-songinstatus=false
-token=process.env.TOKEN
