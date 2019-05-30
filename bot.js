@@ -4704,13 +4704,7 @@ let regVol = /^(?:([1][0-9][0-9])|200|([1-9][0-9])|([0-9]))$/; // ريجليكس
 let youtubeSearched = false; // اذا تم البحث في اليوتيوب (امر .add)
 let selectUser; // خاص بامر userinfo , لما تعمل منش لشخص اخر
 // By : Kahrba. || تم التطوير من قبل كههربا
-bot.on('ready', () => {
-    console.log(`Logged in as ${bot.user.tag}!`);
-    console.log(`in ${bot.guilds.size} servers `)
-    console.log(`[Kahrba] ${bot.users.size}`)
-    bot.user.setStatus("idle")
-// By : Kahrba. || تم التطوير من قبل كههربا
-});// By : Kahrba. || تم التطوير من قبل كههربا
+تم التطوير من قبل كههربا
 // By : Kahrba. || تم التطوير من قبل كههربا
 bot.on('message', message => {
     if (message.content === initcmd + "SetDj") {
@@ -4727,19 +4721,6 @@ bot.on('message', message => {
 }// By : Kahrba. || تم التطوير من قبل كههربا
 });
 // By : Kahrba. || تم التطوير من قبل كههربا
-
-// By : Kahrba. || تم التطوير من قبل كههربا
-
-bot.on('ready', () => {
-	// -
-  bot.user.setActivity("كههربا , <3",{type: 'WATCHING'});
-  console.log('            ╔[════════════]╗');
-  console.log('              Bot Is Online');
-  console.log('            ╚[════════════]╝');
-  console.log('تم التطوير من قبل كههربا.')
-});
-
-
 bot.on("message", async message => {
 	if (message.author.bot) return;
 	if (message.channel.type === "dm") return;
