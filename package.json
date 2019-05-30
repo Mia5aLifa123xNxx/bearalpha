@@ -41,5 +41,28 @@
     "youtube-info": "^1.2.0",
     "ytdl-core": "^0.21.1",
     "zalgolize": "^1.2.4"
+      "name": "bot",
+  "version": "0.0.1",
+  "description": "Test bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Predrag Stošić",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "discord.js": "^11.3.2",
+    "get-youtube-id": "^1.0.0",
+    "nodemon": "^1.18.3",
+    "opusscript": "0.0.6",
+    "patch": "0.0.1",
+    "pm2": "^3.0.3",
+    "request": "^2.85.0",
+    "simple-youtube-api": "^5.0.2",
+    "youtube-info": "^1.2.0",
+    "ytdl-core": "^0.20.2",
+    "fs": "^0.0.1"
+  }
   }
 }
