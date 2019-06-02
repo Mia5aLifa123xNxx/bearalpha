@@ -33,42 +33,29 @@ var ti={}
 ,spee={}
 ,attentions={};
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
- client.user.setActivity("",{type: 'watching'})
-  console.log('')
-  console.log('')
-  console.log('╔[═════════════════════════════════════════════════════════════════]╗')
-  console.log(`[Start] ${new Date()}`);
-  console.log('╚[═════════════════════════════════════════════════════════════════]╝')
-  console.log('')
-  console.log('╔[════════════════════════════════════]╗');
-  console.log(`Logged in as * [ " ${client.user.username} " ]`);
-  console.log('')
-  console.log('Informations :')
-  console.log('')
-  console.log(`servers! [ " ${client.guilds.size} " ]`);
-  console.log(`Users! [ " ${client.users.size} " ]`);
-  console.log(`channels! [ " ${client.channels.size} " ]`);
-  console.log('╚[════════════════════════════════════]╝')
-  console.log('')
-  console.log('╔[════════════]╗')
-  console.log(' Bot Is Online')
-  console.log('╚[════════════]╝')
-  console.log('')
-  console.log('')
-});
-
-client.on('ready', () => {
-   console.log(`----------------`);
-      console.log(`Welcome bearperson`);
-        console.log(`----------------`);
-      console.log(`ON ${client.guilds.size} Servers @bearserver@ `);
-    console.log(`----------------`);
-  console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Type ._.help`,"https://www.twitch.tv/Mdax77xR1")
-client.user.setStatus("dnd")
- 
+client.on('ready', function(){
+    var ms = 60000 ;
+    var setGame = ['3 invite=1 SFA','6 invite=1 nitro','2 invite=5 NFA'];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/barontube`);
+    }, ms);
+    console.log(` ????????? |> Name: ${client.user.username}`);
+ console.log(` ????????? |> Servers: ${client.guilds.size}`);
+ console.log(` ???????????????????? |> Members: ${client.users.size}`);
+ console.log(` ????????????????????? |> Channels: ${client.channels.size}`);
+ console.log(` ???????????????????? |> Channels: ${client.channels.size}`);
+ console.log(` ???????????????????? |> Id: ${client.user.id}`);
+ console.log(` ???????????????????`);
+ console.log(` ???????????????????`);
 });
 
 client.on('message', message => {
@@ -153,7 +140,6 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
 🎮 ._.لو خيروك بطريقة حلوة / لو خيروك
 🎮 ._.لعبة مريم / مريم
 🎮 ._.فوائد ونصائح  / هل تعلم
-🎮 ._.xo / xo with your friend
 🎮 ._.يعطيك عقابات قاسية/عقاب
 **
 `]
@@ -4453,68 +4439,6 @@ client.on('message', async message => {//alpha codes & Mrx -Dev
             )}
             
     });
-client.on('message' , message => {
-  if(message.author.bot) return;
-  if(message.content.startsWith(prefix + "xo")) {
- let array_of_mentions = message.mentions.users.array();
-  let symbols = [':o:', ':heavy_multiplication_x:']
-  var grid_message;
- 
-  if (array_of_mentions.length == 1 || array_of_mentions.length == 2) {
-    let random1 = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
-    let random2 = Math.abs(random1 - 1);
-    if (array_of_mentions.length == 1) {
-      random1 = 0;
-      random2 = 0;
-    }
-    var player1_id = message.author.id
-    let player2_id = array_of_mentions[random2].id;
-    var turn_id = player1_id;
-    var symbol = symbols[0];
-    let initial_message = `اللعبة بين اللاعبين التاليين <@${player1_id}> and <@${player2_id}>!`;
-    if (player1_id == player2_id) {
-      initial_message += '\n_(لقد خسرت, العب مع نفسك :joy:)_'
-    }
-    message.channel.send(`Xo ${initial_message}`)
-    .then(console.log("Successful tictactoe introduction"))
-    .catch(console.error);
-    message.channel.send(':one::two::three:' + '\n' +
-                         ':four::five::six:' + '\n' +
-                         ':seven::eight::nine:')
-    .then((new_message) => {
-      grid_message = new_message;
-    })
-    .then(console.log("Successful tictactoe game initialization"))
-    .catch(console.error);
-    message.channel.send('Loading... Please wait for the :ok: reaction.')
-    .then(async (new_message) => {
-      await new_message.react('1⃣');
-      await new_message.react('2⃣');
-      await new_message.react('3⃣');
-      await new_message.react('4⃣');
-      await new_message.react('5⃣');
-      await new_message.react('6⃣');
-      await new_message.react('7⃣');
-      await new_message.react('8⃣');
-      await new_message.react('9⃣');
-      await new_message.react('🆗');
-      await new_message.edit(`It\'s <@${turn_id}>\'s اشتغل! الرمز هو ${symbol}`)
-      .then((new_new_message) => {
-        require('./xo.js')(client, message, new_new_message, player1_id, player2_id, turn_id, symbol, symbols, grid_message);
-      })
-      .then(console.log("Successful tictactoe listeprefix initialization"))
-      .catch(console.error);
-    })
-    .then(console.log("Successful tictactoe react initialization"))
-    .catch(console.error);
-  }
-  else {
-    message.channel.send(`جرب ._.xo @uesr`)
-    .then(console.log("Successful error reply"))
-    .catch(console.error);
-  }
-}
- });  
 client.on('message', message => {
       if(message.author.bot) return;
 if (message.content.startsWith(prefix + 'tpoint')) {
@@ -5281,4 +5205,4 @@ ${initcmd}help or ${initcmd}commands ->  يعرض لك الاوامر البوت
 
    }// By : Kahrba. || تم التطوير من قبل كههربا
    });
-client.login(process.env.TOKEN)
+client.login(process.env.BOT_TOKEN)
