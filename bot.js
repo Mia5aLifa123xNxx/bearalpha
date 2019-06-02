@@ -4439,22 +4439,6 @@ client.on('message', async message => {//alpha codes & Mrx -Dev
             )}
             
     });
-client.on('message', message => {
-      if(message.author.bot) return;
-if (message.content.startsWith(prefix + 'tpoint')) {
-    let _top = 1;
-     let topp = Object.values(points);
- let top = topp.slice(0, 10).map(users => `**\`.${_top++}\` | <@${users.id}> \`XP: ${users.points}\`**`).sort((a, b) => a > b).join('\n');
-    const prefixlor = new Discord.RichEmbed()
-      .setTitle("Leaderboard")
-      .setAuthor(client.user.username, client.user.avatarURL)
-      .setDescription(top,true)
-   
-  	message.channel.sendEmbed(prefixlor)
-}
-  
-});		
-
 const invites = {};
 const wait = require('util').promisify(setTimeout);
 client.on('ready', () => {
@@ -4584,32 +4568,5 @@ client.on('message', message => {
                                    })
                                    }
                                    });
-client.on('message', message => {//new msg event
-if(!message.channel.guild) return;
-  if(message.content.startsWith(prefix + 'sr')) {//to create the rainbow role
-	  let role = message.guild.roles.find('name', '- fast rewards , donator')
-    if(role) return message.channel.send(`This Step Already Completed !`)//if the role already created return with this msg
-  //start of create role 
-  if(!role){
-    rainbow =  message.guild.createRole({
-   name: "þř - Rainbow",//the role will create name
-   color: "#000000",//the default color
-   permissions:[]//the permissions
- //end of create role
-})
 
-}
-message.channel.send('Done The Rainbow Role Setup Has Been Completed')//if the step completed
-}})
-
-client.on('ready', () => {//new ready event
-  setInterval(function(){
-      client.guilds.forEach(g => {
-                  var role = g.roles.find('name', '- fast rewards , donator');//rainbow role name
-                  if (role) {
-                      role.edit({color : "RANDOM"});
-                  };
-      });
-  }, 1000);//the rainbow time
-})
 client.login(process.env.BOT_TOKEN)
